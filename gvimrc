@@ -4,6 +4,9 @@ colorscheme solarized
 
 set gfn=Consolas\ 13
 
+" Highlight the current line.
+set cursorline
+
 " Remove the menubar.
 set guioptions-=m
 

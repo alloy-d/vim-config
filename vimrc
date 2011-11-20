@@ -36,9 +36,6 @@ set wildmenu
 " then complete each option in full.
 set wildmode=longest,full
 
-" Highlight the current line.
-set cursorline
-
 " Send more data when redrawing the window.
 set ttyfast
 
