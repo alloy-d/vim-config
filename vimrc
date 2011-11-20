@@ -19,13 +19,13 @@ set autoindent
 " Also do smart indenting.
 set smartindent
 " ...but not in plaintext or Markdown files.
-autocmd BufEnter *.{txt,md,markdown} set nosmartindent
+autocmd BufEnter *.{txt,md,markdown} setlocal nosmartindent
 
 " For C files, use cindent.
-autocmd BufEnter *.{c,h} set cindent
+autocmd BufEnter *.{c,h} setlocal cindent
 
 "For lispy languages, use lisp indenting.
-autocmd BufEnter *.{lisp,scheme,ss,scm,el,clj} set lisp
+autocmd BufEnter *.{lisp,scheme,ss,scm,el,clj} setlocal lisp
 
 " Use two-space-wide tabs, and indent with spaces.
 set tabstop=2
@@ -114,7 +114,7 @@ set formatoptions+=1
 set formatoptions-=t
 
 " *Do* automatically format text for plaintext and Markdown files.
-autocmd BufEnter *.{txt,md,markdown} set formatoptions+=ta
+autocmd BufEnter *.{txt,md,markdown} setlocal formatoptions+=ta
 
 " The only time you hit F1 is when you miss ESC.
 inoremap <F1> <ESC>
@@ -127,8 +127,12 @@ autocmd FocusLost * :wa
 " Save everything when a buffer is hidden.
 autocmd BufHidden * :wa
 
-" LaTeX document class files:
-autocmd BufEnter *.cls set ft=tex
+" Miscellaneous filetype detection.
+augroup filetypedetect
 
+" LaTeX document class files:
+autocmd BufEnter *.cls setfiletype tex
 " Y86 assembly files:
-autocmd BufEnter *.ys set ft=nasm
+autocmd BufEnter *.ys setfiletype nasm
+
+augroup end
