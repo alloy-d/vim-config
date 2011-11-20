@@ -22,3 +22,6 @@
 [submodule "bundle/mustache.vim"]
 	path = bundle/mustache.vim
 	url = https://github.com/juvenn/mustache.vim.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
