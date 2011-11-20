@@ -116,11 +116,6 @@ set formatoptions-=t
 " *Do* automatically format text for plaintext and Markdown files.
 autocmd BufEnter *.{txt,md,markdown} set formatoptions+=ta
 
-" Display things for invisible characters.
-" The jury's still out on whether this is actually cool.
-set list
-set listchars=tab:▸\ ,eol:¬
-
 " The only time you hit F1 is when you miss ESC.
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
