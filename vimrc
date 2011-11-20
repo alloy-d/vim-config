@@ -25,6 +25,9 @@ set expandtab
 " Use utf-8 by default.
 set encoding=utf-8
 
+" Don't unload buffers when they're abandoned.
+set hidden
+
 " Show commands in progress.
 set showcmd
 
