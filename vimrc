@@ -121,6 +121,11 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" Add some mappings for fugitive's git commands.
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+
 " Save everything when Vim loses focus.
 autocmd FocusLost * :wa
 
