@@ -2,6 +2,7 @@
 set bg=light
 colorscheme solarized
 
+" Use Consolas.
 set gfn=Consolas\ 13
 
 " Highlight the current line.
