@@ -87,9 +87,6 @@ set wrap
 " Use 79-character lines as our ideal.
 set textwidth=79
 
-" Add a colored column at the 85th character.
-set colorcolumn=85
-
 " Do not automatically reformat lines that were too long before
 " insert mode was started.
 set formatoptions+=l
