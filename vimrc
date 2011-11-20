@@ -16,6 +16,17 @@ filetype indent plugin on
 " Do automatic indenting.
 set autoindent
 
+" Also do smart indenting.
+set smartindent
+" ...but not in plaintext or Markdown files.
+autocmd BufEnter *.{txt,md,markdown} set nosmartindent
+
+" For C files, use cindent.
+autocmd BufEnter *.{c,h} set cindent
+
+"For lispy languages, use lisp indenting.
+autocmd BufEnter *.{lisp,scheme,ss,scm,el,clj} set lisp
+
 " Use two-space-wide tabs, and indent with spaces.
 set tabstop=2
 set shiftwidth=2
@@ -102,6 +113,9 @@ set formatoptions+=1
 " to tune this for text files instead.)
 set formatoptions-=t
 
+" *Do* automatically format text for plaintext and Markdown files.
+autocmd BufEnter *.{txt,md,markdown} set formatoptions+=ta
+
 " Display things for invisible characters.
 " The jury's still out on whether this is actually cool.
 set list
@@ -114,3 +128,12 @@ vnoremap <F1> <ESC>
 
 " Save everything when Vim loses focus.
 autocmd FocusLost * :wa
+
+" Save everything when a buffer is hidden.
+autocmd BufHidden * :wa
+
+" LaTeX document class files:
+autocmd BufEnter *.cls set ft=tex
+
+" Y86 assembly files:
+autocmd BufEnter *.ys set ft=nasm
