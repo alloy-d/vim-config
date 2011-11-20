@@ -126,6 +126,9 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
+" Add a mapping for ack.
+nnoremap <leader>a :Ack 
+
 " Save everything when Vim loses focus.
 autocmd FocusLost * :wa
 
