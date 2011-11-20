@@ -95,8 +95,8 @@ set showmatch
 " Wrap long lines to display them, if needed.
 set wrap
 
-" Use 79-character lines as our ideal.
-set textwidth=79
+" Use 72-character lines as our ideal.
+set textwidth=72
 
 " Do not automatically reformat lines that were too long before
 " insert mode was started.
