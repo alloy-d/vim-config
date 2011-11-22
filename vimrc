@@ -132,8 +132,8 @@ nnoremap <leader>a :Ack
 " Save everything when Vim loses focus.
 autocmd FocusLost * :wa
 
-" Save everything when a buffer is hidden.
-autocmd BufHidden * :wa
+" Save buffers when hidden.
+set autowrite
 
 " Miscellaneous filetype detection.
 augroup filetypedetect
