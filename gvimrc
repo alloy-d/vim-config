@@ -23,3 +23,6 @@ set guioptions+=c
 " Draw tabs as the console version does.
 set guioptions-=e
 
+" Give the window 40 lines and 120 columns initially.
+set lines=40 columns=120
+
