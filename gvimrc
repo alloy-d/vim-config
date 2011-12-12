@@ -26,3 +26,6 @@ set guioptions-=e
 " Give the window 40 lines and 120 columns initially.
 set lines=40 columns=120
 
+" Instead of showing a line's absolute location in the file,
+" show its distance relative to the current line.
+set relativenumber

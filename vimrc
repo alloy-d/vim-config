@@ -63,10 +63,6 @@ set lazyredraw
 " and the start of insertion.
 set backspace=indent,eol,start
 
-" Instead of showing a line's absolute location in the file,
-" show its distance relative to the current line.
-set relativenumber
-
 " Automatically insert a \v when a search is started.
 " This makes regex escaping work the way it does elsewhere.
 nnoremap / /\v
@@ -144,3 +140,7 @@ autocmd BufEnter *.cls setfiletype tex
 autocmd BufEnter *.ys setfiletype nasm
 
 augroup end
+
+"Abolish com{apn,pna}{y,ies} com{pan}{}
+
+let g:vimclojure#FuzzyIndent=1
