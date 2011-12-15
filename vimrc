@@ -144,3 +144,6 @@ augroup end
 "Abolish com{apn,pna}{y,ies} com{pan}{}
 
 let g:vimclojure#FuzzyIndent=1
+
+" Use tmux instead of screen with slime.
+let g:slime_target = "tmux"
