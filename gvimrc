@@ -2,8 +2,8 @@
 set bg=light
 colorscheme solarized
 
-" Use Consolas.
-set gfn=Consolas\ 13
+" Use Monaco.
+set gfn=Monaco:h12
 
 " Highlight the current line.
 set cursorline
@@ -19,9 +19,6 @@ set guioptions-=r
 
 " Use console dialogs instead of popups.
 set guioptions+=c
-
-" Draw tabs as the console version does.
-set guioptions-=e
 
 " Give the window 40 lines and 120 columns initially.
 set lines=40 columns=120
