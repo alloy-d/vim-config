@@ -153,3 +153,5 @@ let g:ctrlp_working_path_mode = 2
 
 " Ignore some common files when globbing.
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
+
+let g:Powerline_symbols='fancy'
