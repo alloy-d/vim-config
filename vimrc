@@ -147,3 +147,9 @@ let g:vimclojure#FuzzyIndent=1
 
 " Use tmux instead of screen with slime.
 let g:slime_target = "tmux"
+
+" Make CtrlP set its root directory to the Git or Hg root.
+let g:ctrlp_working_path_mode = 2
+
+" Ignore some common files when globbing.
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
