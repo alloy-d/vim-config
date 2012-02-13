@@ -27,6 +27,9 @@ set guioptions-=T
 " Remove the right scrollbar.
 set guioptions-=r
 
+" Remove the left scrollbar in split windows.
+set guioptions-=L
+
 " Use console dialogs instead of popups.
 set guioptions+=c
 
