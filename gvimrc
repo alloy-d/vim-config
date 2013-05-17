@@ -7,13 +7,26 @@
 "colorscheme molokai
 
 " Use Bad Wolf.
+let g:badwolf_darkgutter=1
 colorscheme badwolf
 
 " Use Monaco.
 "set gfn=Monaco:h12
 
 " Use Menlo, for Powerline
-set gfn=Menlo\ Regular\ for\ Powerline:h12
+set gfn=Menlo\ Regular\ for\ Powerline:h14
+
+" Use PT Mono
+"set gfn=PT\ Mono:h18
+
+" Use... Courier? O_o
+"set gfn=Courier:h14
+
+" Use Inconsolata
+"set gfn=Inconsolata:h16
+
+" Use Source Code Pro
+"set gfn=Source\ Code\ Pro\ Light:h14
 
 " Highlight the current line.
 set cursorline
@@ -44,4 +57,7 @@ set visualbell
 set relativenumber
 
 " Show the status bar all the time, for Powerline
-set laststatus=2
+"set laststatus=2
+
+" Use a transparent background
+"set transparency=2

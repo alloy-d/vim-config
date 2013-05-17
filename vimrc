@@ -63,11 +63,6 @@ set lazyredraw
 " and the start of insertion.
 set backspace=indent,eol,start
 
-" Automatically insert a \v when a search is started.
-" This makes regex escaping work the way it does elsewhere.
-nnoremap / /\v
-vnoremap / /\v
-
 " Make search case-insensitive if the search term is lower-case.
 " Otherwise, make the search case-sensitive.
 set ignorecase
@@ -109,8 +104,8 @@ set formatoptions+=1
 " to tune this for text files instead.)
 set formatoptions-=t
 
-" *Do* automatically format text for plaintext and Markdown files.
-autocmd BufEnter *.{txt,md,markdown} setlocal formatoptions+=ta
+" *Do* automatically format text for plaintext files.
+autocmd BufEnter *.{txt} setlocal formatoptions+=ta
 
 " The only time you hit F1 is when you miss ESC.
 inoremap <F1> <ESC>
