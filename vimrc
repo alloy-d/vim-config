@@ -140,6 +140,11 @@ augroup end
 
 let g:vimclojure#FuzzyIndent=1
 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 " Use tmux instead of screen with slime.
 let g:slime_target = "tmux"
 
