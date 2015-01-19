@@ -135,6 +135,8 @@ augroup filetypedetect
 autocmd BufEnter *.cls setfiletype tex
 " Y86 assembly files:
 autocmd BufEnter *.ys setfiletype nasm
+" Markdown files:
+autocmd BufEnter *.md setfiletype markdown
 
 augroup end
 
