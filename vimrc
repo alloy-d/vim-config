@@ -1,3 +1,5 @@
+set shell=/bin/sh
+
 " Don't try to be compatible with vi.
 set nocompatible
 
