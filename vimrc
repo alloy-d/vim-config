@@ -29,6 +29,12 @@ autocmd BufEnter *.{c,h} setlocal cindent
 " For lispy languages, use lisp indenting.
 autocmd BufEnter *.{lisp,scheme,ss,scm,el,clj} setlocal lisp
 
+" Salt configuration files are YAML.
+autocmd BufEnter *.{sls} setlocal filetype=yaml
+
+" Aurora files are Python.
+autocmd BufEnter *.{aurora} setlocal filetype=python
+
 " Use two-space-wide tabs, and indent with spaces.
 set tabstop=2
 set shiftwidth=2
