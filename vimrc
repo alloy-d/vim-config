@@ -113,7 +113,7 @@ set formatoptions+=1
 set formatoptions-=t
 
 " *Do* automatically format text for plaintext files.
-autocmd BufEnter *.{txt} setlocal formatoptions+=ta
+"autocmd BufEnter *.{txt} setlocal formatoptions+=ta
 
 " The only time you hit F1 is when you miss ESC.
 inoremap <F1> <ESC>
