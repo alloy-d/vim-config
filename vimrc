@@ -26,7 +26,7 @@ autocmd BufEnter *.{txt,md,markdown} setlocal nosmartindent
 " For C files, use cindent.
 autocmd BufEnter *.{c,h} setlocal cindent
 
-"For lispy languages, use lisp indenting.
+" For lispy languages, use lisp indenting.
 autocmd BufEnter *.{lisp,scheme,ss,scm,el,clj} setlocal lisp
 
 " Use two-space-wide tabs, and indent with spaces.
