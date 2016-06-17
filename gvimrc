@@ -14,7 +14,7 @@ colorscheme badwolf
 "set gfn=Monaco:h12
 
 " Use Menlo, for Powerline
-set gfn=Menlo\ Regular\ for\ Powerline:h14
+"set gfn=Menlo\ Regular\ for\ Powerline:h14
 
 " Use PT Mono
 "set gfn=PT\ Mono:h18
@@ -27,6 +27,10 @@ set gfn=Menlo\ Regular\ for\ Powerline:h14
 
 " Use Source Code Pro
 "set gfn=Source\ Code\ Pro\ Light:h14
+set gfn=Sauce\ Code\ Powerline\ Light:h14
+
+" Use Fira Code
+"set gfn=Fira\ Code\ Retina:h14
 
 " Highlight the current line.
 set cursorline
@@ -57,7 +61,15 @@ set visualbell
 set relativenumber
 
 " Show the status bar all the time, for Powerline
-"set laststatus=2
+set laststatus=2
 
 " Use a transparent background
 "set transparency=2
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
