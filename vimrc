@@ -94,6 +94,9 @@ set showmatch
 " Wrap long lines to display them, if needed.
 set wrap
 
+" ...at sensible, not-in-the-middle-of-a-word points.
+set linebreak
+
 " Use 72-character lines as our ideal.
 set textwidth=72
 
