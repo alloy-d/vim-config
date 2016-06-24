@@ -115,6 +115,9 @@ set formatoptions+=1
 " to tune this for text files instead.)
 set formatoptions-=t
 
+" Remove comment leaders when joining comment lines.
+set formatoptions+=j
+
 " *Do* automatically format text for plaintext files.
 "autocmd BufEnter *.{txt} setlocal formatoptions+=ta
 
