@@ -170,5 +170,8 @@ let g:slime_target = "tmux"
 " Make CtrlP set its root directory to the Git or Hg root.
 let g:ctrlp_working_path_mode = 2
 
+" Use JSX in all the JavaScript files!
+let g:jsx_ext_required = 0
+
 " Ignore some common files when globbing.
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
