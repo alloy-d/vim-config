@@ -59,6 +59,8 @@ set visualbell
 " Instead of showing a line's absolute location in the file,
 " show its distance relative to the current line.
 set relativenumber
+" ...but also show the number of the current line.
+set number
 
 " Show the status bar all the time, for Powerline
 set laststatus=2
