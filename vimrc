@@ -137,6 +137,9 @@ nnoremap <leader>a :Ack
 " Save everything when Vim loses focus.
 autocmd FocusLost * :wa
 
+" Strip trailing whitespace before writing a buffer.
+autocmd BufWritePre * DeleteTrailingWhitespace
+
 " Save buffers when hidden.
 set autowrite
 
