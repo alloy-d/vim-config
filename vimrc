@@ -132,13 +132,10 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
 " Add a mapping for ack.
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
 
 " Save everything when Vim loses focus.
 autocmd FocusLost * :wa
-
-" Strip trailing whitespace before writing a buffer.
-autocmd BufWritePre * DeleteTrailingWhitespace
 
 " Save buffers when hidden.
 set autowrite
