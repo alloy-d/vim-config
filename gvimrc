@@ -1,20 +1,21 @@
 " Use Solarized colors.
-"set bg=light
-"colorscheme solarized
+set bg=light
+colorscheme solarized
 
 " Use Molokai.
 "let g:molokai_original=1
 "colorscheme molokai
 
 " Use Bad Wolf.
-let g:badwolf_darkgutter=1
-colorscheme badwolf
+"let g:badwolf_darkgutter=1
+"colorscheme badwolf
 
 " Use Monaco.
 "set gfn=Monaco:h12
 
 " Use Menlo, for Powerline
 "set gfn=Menlo\ Regular\ for\ Powerline:h14
+set gfn=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
 
 " Use PT Mono
 "set gfn=PT\ Mono:h18
@@ -27,7 +28,7 @@ colorscheme badwolf
 
 " Use Source Code Pro
 "set gfn=Source\ Code\ Pro\ Light:h14
-set gfn=Sauce\ Code\ Powerline\ Light:h14
+"set gfn=Sauce\ Code\ Powerline\ Light:h14
 
 " Use Fira Code
 "set gfn=Fira\ Code\ Retina:h14
