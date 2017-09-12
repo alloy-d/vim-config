@@ -88,3 +88,9 @@
 [submodule "bundle/purescript-vim"]
 	path = bundle/purescript-vim
 	url = https://github.com/raichoo/purescript-vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
