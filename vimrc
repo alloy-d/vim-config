@@ -179,5 +179,11 @@ let g:syntastic_check_on_wq = 0
 " Use psc-ide's fast-rebuild feature to quickly check the current file.
 let g:psc_ide_syntastic_mode = 1
 
+" Use `prettier` to automatically format TypeScript files.
+let g:ale_fixers = {
+\   'typescript': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
+
 " Ignore some common files when globbing.
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
