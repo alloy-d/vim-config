@@ -27,7 +27,7 @@ autocmd BufEnter *.{txt,md,markdown} setlocal nosmartindent
 autocmd BufEnter *.{c,h} setlocal cindent
 
 " For lispy languages, use lisp indenting.
-autocmd BufEnter *.{lisp,scheme,ss,scm,el,clj} setlocal lisp
+autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
 
 " Salt configuration files are YAML.
 autocmd BufEnter *.{sls} setlocal filetype=yaml
@@ -100,6 +100,12 @@ set linebreak
 " Use 72-character lines as our ideal.
 set textwidth=72
 
+" Put backups and swap files somewhere else.
+set backup
+set swapfile
+set backupdir=~/.vim-tmp
+set directory=~/.vim-tmp
+
 " Do not automatically reformat lines that were too long before
 " insert mode was started.
 set formatoptions+=l
@@ -127,6 +133,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Add some mappings for fugitive's git commands.
+nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
