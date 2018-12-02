@@ -177,15 +177,16 @@ let g:ctrlp_working_path_mode = 2
 " Use JSX in all the JavaScript files!
 let g:jsx_ext_required = 0
 
-" Enable Merlin.
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
 " Use syntastic's recommended defaults.
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Enable integration with Merlin.
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:syntastic_ocaml_checkers = ['merlin']
 
 " Use psc-ide's fast-rebuild feature to quickly check the current file.
 let g:psc_ide_syntastic_mode = 1
