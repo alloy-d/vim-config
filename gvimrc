@@ -1,6 +1,6 @@
 " Use Solarized colors.
-set bg=light
-colorscheme solarized
+"set bg=dark
+"colorscheme solarized
 
 " Use Molokai.
 "let g:molokai_original=1
@@ -9,6 +9,10 @@ colorscheme solarized
 " Use Bad Wolf.
 "let g:badwolf_darkgutter=1
 "colorscheme badwolf
+
+" Use a base16 scheme.
+"colorscheme base16-flat
+colorscheme base16-grayscale-light
 
 " Use Monaco.
 "set gfn=Monaco:h12

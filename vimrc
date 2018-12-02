@@ -181,5 +181,20 @@ let g:jsx_ext_required = 0
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
+" Use syntastic's recommended defaults.
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Use psc-ide's fast-rebuild feature to quickly check the current file.
+let g:psc_ide_syntastic_mode = 1
+
+" Use `prettier` to automatically format TypeScript files.
+let g:ale_fixers = {
+\   'typescript': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
+
 " Ignore some common files when globbing.
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
