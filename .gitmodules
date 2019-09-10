@@ -97,3 +97,6 @@
 [submodule "bundle/vim-sleuth"]
 	path = bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
+[submodule "bundle/vim-terraform"]
+	path = bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform
