@@ -12,7 +12,8 @@
 
 " Use a base16 scheme.
 "colorscheme base16-flat
-colorscheme base16-grayscale-light
+"colorscheme base16-grayscale-light
+colorscheme base16-classic-dark
 
 " Use Monaco.
 "set gfn=Monaco:h12
