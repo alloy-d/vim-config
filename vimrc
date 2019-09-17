@@ -191,8 +191,13 @@ let g:syntastic_ocaml_checkers = ['merlin']
 " Use psc-ide's fast-rebuild feature to quickly check the current file.
 let g:psc_ide_syntastic_mode = 1
 
-" Use `prettier` to automatically format TypeScript files.
+" Only use fmt for terraform, not tflint.
+let g:ale_linters = {
+\   'terraform': ['fmt'],
+\}
+
 let g:ale_fixers = {
+\   'terraform': ['terraform'],
 \   'typescript': ['prettier'],
 \}
 let g:ale_fix_on_save = 1
