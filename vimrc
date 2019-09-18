@@ -194,9 +194,6 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
-" Save everything when Vim loses focus.
-autocmd FocusLost * :wa
-
 "Abolish com{apn,pna}{y,ies} com{pan}{}
 
 let g:vimclojure#FuzzyIndent=1
