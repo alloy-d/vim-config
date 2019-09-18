@@ -6,12 +6,6 @@ set nocompatible
 " Load my key mappings for Colemak.
 runtime colemak.vim
 
-filetype off
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-syntax on
-filetype indent plugin on
-
 " Do automatic indenting.
 set autoindent
 
