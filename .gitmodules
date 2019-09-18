@@ -35,7 +35,7 @@
 	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
 [submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
+	path = pack/all/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
 [submodule "bundle/DeleteTrailingWhitespace"]
 	path = bundle/DeleteTrailingWhitespace
