@@ -37,9 +37,6 @@
 [submodule "bundle/vim-airline"]
 	path = pack/all/opt/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
-[submodule "bundle/DeleteTrailingWhitespace"]
-	path = bundle/DeleteTrailingWhitespace
-	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
 [submodule "bundle/vim-better-whitespace"]
 	path = pack/all/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
