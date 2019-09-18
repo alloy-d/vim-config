@@ -181,6 +181,59 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 " 2}}}
 
+" Airline {{{2
+if has('gui_running')
+	let g:airline_theme = 'base16'
+	let g:airline_powerline_fonts = 1
+
+	packadd vim-airline
+	packadd vim-airline-themes
+
+	" Show the status bar all the time, for Powerline
+	set laststatus=2
+endif
+" 2}}}
+
+" }}}
+
+" GUI {{{
+
+if has('gui_running')
+
+	set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
+	colorscheme base16-classic-dark
+
+	" Remove the menubar.
+	set guioptions-=m
+
+	" Remove the toolbar.
+	set guioptions-=T
+
+	" Remove the right scrollbar.
+	set guioptions-=r
+
+	" Remove the left scrollbar in split windows.
+	set guioptions-=L
+
+	" Use console dialogs instead of popups.
+	set guioptions+=c
+
+	" Highlight the current line.
+	set cursorline
+
+	" Give the window 40 lines and 120 columns initially.
+	set lines=40 columns=120
+
+	" Use a visual bell instead of beeping.
+	set visualbell
+
+	" Instead of showing a line's absolute location in the file,
+	" show its distance relative to the current line.
+	set relativenumber
+	" ...but also show the number of the current line.
+	set number
+endif
+
 " }}}
 
 " Probationary area {{{
