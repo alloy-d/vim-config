@@ -97,6 +97,10 @@ set autowrite
 
 " Ignore some common files when globbing.
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
+
+" Open splits to the right and below, like tmux does.
+set splitright
+set splitbelow
 " }}}
 
 " Indentation {{{
@@ -152,6 +156,12 @@ nnoremap <leader><space> :nohlsearch<cr>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" Mirror tmux's split management bindings: {{{2
+nnoremap <C-w>% :vsplit<cr>
+nnoremap <C-w>" :split<cr>
+" 2}}}
+
 " }}}
 
 " Plugin configuration {{{
