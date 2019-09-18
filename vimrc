@@ -188,12 +188,6 @@ let g:ale_fix_on_save = 1
 " This is where I've quarantined all the cruft I suspect I don't want or
 " need anymore.
 
-" Add some mappings for fugitive's git commands.
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-
 let g:vimclojure#FuzzyIndent=1
 
 
