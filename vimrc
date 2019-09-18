@@ -3,9 +3,6 @@ set shell=/bin/sh
 " Don't try to be compatible with vi.
 set nocompatible
 
-" Customize the runtime path a bit.
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-
 " Load my key mappings for Colemak.
 runtime colemak.vim
 
