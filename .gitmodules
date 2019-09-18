@@ -26,7 +26,7 @@
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
 [submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
+	path = pack/all/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
@@ -47,7 +47,7 @@
 	path = bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/rainbow_parentheses"]
-	path = bundle/rainbow_parentheses
+	path = pack/all/start/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "bundle/vim-jsx"]
 	path = bundle/vim-jsx
@@ -83,7 +83,7 @@
 	path = bundle/vim-sexp-mappings-for-regular-people
 	url = git@github.com:tpope/vim-sexp-mappings-for-regular-people.git
 [submodule "bundle/base16-vim"]
-	path = bundle/base16-vim
+	path = pack/all/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "bundle/purescript-vim"]
 	path = bundle/purescript-vim
@@ -92,10 +92,10 @@
 	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/ale"]
-	path = bundle/ale
+	path = pack/all/start/ale
 	url = https://github.com/w0rp/ale
 [submodule "bundle/vim-sleuth"]
-	path = bundle/vim-sleuth
+	path = pack/all/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
 [submodule "bundle/vim-terraform"]
 	path = bundle/vim-terraform
