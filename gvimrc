@@ -42,6 +42,7 @@ set laststatus=2
 " Use a transparent background
 "set transparency=2
 
+let g:airline_theme = 'base16'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
