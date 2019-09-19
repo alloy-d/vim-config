@@ -246,6 +246,12 @@ endif
 
 " }}}
 
+" Terminal {{{
+if !has('gui_running')
+	set bg=light
+endif
+" }}}
+
 " Probationary area {{{
 "
 " This is where I've quarantined all the cruft I suspect I don't want or
