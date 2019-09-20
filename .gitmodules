@@ -50,7 +50,7 @@
 	path = pack/all/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "bundle/typescript-vim"]
-	path = bundle/typescript-vim
+	path = pack/all/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/ale"]
 	path = pack/all/start/ale
