@@ -1,5 +1,5 @@
 [submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+	path = pack/all/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/html5.vim"]
 	path = bundle/html5.vim
