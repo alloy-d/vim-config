@@ -101,6 +101,9 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
 " Open splits to the right and below, like tmux does.
 set splitright
 set splitbelow
+
+" Enable filetype plugins.
+filetype plugin on
 " }}}
 
 " Indentation {{{
