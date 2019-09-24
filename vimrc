@@ -192,8 +192,13 @@ let g:ale_fix_on_save = 1
 " 2}}}
 
 " Airline {{{2
-if has('gui_running')
+if has('nvim')
+	let g:airline_theme = 'minimalist'
+elseif has('gui_running')
 	let g:airline_theme = 'base16'
+endif
+
+if has('gui_running') || has('nvim')
 	let g:airline_powerline_fonts = 1
 
 	packadd vim-airline
