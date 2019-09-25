@@ -7,9 +7,6 @@
 [submodule "bundle/vim-repeat"]
 	path = pack/all/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "bundle/vim-slime"]
-	path = bundle/vim-slime
-	url = https://github.com/jpalardy/vim-slime.git
 [submodule "bundle/badwolf"]
 	path = pack/all/opt/badwolf
 	url = https://github.com/sjl/badwolf.git
@@ -19,12 +16,6 @@
 [submodule "bundle/rainbow_parentheses"]
 	path = pack/all/start/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "bundle/vim-jsx"]
-	path = bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
-[submodule "bundle/vim-go"]
-	path = bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
 [submodule "bundle/vim-airline"]
 	path = pack/all/opt/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
@@ -37,9 +28,6 @@
 [submodule "bundle/vim-airline-themes"]
 	path = pack/all/opt/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "bundle/vim-fireplace"]
-	path = bundle/vim-fireplace
-	url = git@github.com:tpope/vim-fireplace.git
 [submodule "bundle/vim-sexp"]
 	path = pack/all/start/vim-sexp
 	url = git@github.com:guns/vim-sexp.git
