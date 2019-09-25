@@ -61,3 +61,6 @@
 [submodule "bundle/vim-terraform"]
 	path = pack/all/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
+[submodule "pack/all/start/editorconfig-vim"]
+	path = pack/all/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
