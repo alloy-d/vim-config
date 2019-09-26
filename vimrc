@@ -1,45 +1,13 @@
+" vim: set foldmethod=marker:
+
+" Basics {{{
 set shell=/bin/sh
 
 " Don't try to be compatible with vi.
 set nocompatible
 
-" Customize the runtime path a bit.
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-
 " Load my key mappings for Colemak.
 runtime colemak.vim
-
-filetype off
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-syntax on
-filetype indent plugin on
-
-" Do automatic indenting.
-set autoindent
-
-" Also do smart indenting.
-set smartindent
-" ...but not in plaintext or Markdown files.
-autocmd BufEnter *.{txt,md,markdown} setlocal nosmartindent
-
-" For C files, use cindent.
-autocmd BufEnter *.{c,h} setlocal cindent
-
-" For lispy languages, use lisp indenting.
-autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
-
-" Salt configuration files are YAML.
-autocmd BufEnter *.{sls} setlocal filetype=yaml
-
-" Aurora files are Python.
-autocmd BufEnter *.{aurora} setlocal filetype=python
-
-" Use two-space-wide tabs, and indent with spaces.
-set tabstop=2
-"set shiftwidth=2
-"set softtabstop=2
-"set expandtab
 
 " Use utf-8 by default.
 set encoding=utf-8
@@ -85,9 +53,6 @@ set incsearch
 " Highlight search matches.
 set hlsearch
 
-" Make <leader><space> hide highlighting for search results.
-nnoremap <leader><space> :nohlsearch<cr>
-
 " Jump to matching bracket when inserting its pair.
 set showmatch
 
@@ -126,26 +91,52 @@ set formatoptions+=j
 
 " *Do* automatically format text for plaintext files.
 "autocmd BufEnter *.{txt} setlocal formatoptions+=ta
-
-" The only time you hit F1 is when you miss ESC.
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-" Add some mappings for fugitive's git commands.
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-
-" Add a mapping for ack.
-nnoremap <leader>a :Ack
-
-" Save everything when Vim loses focus.
-autocmd FocusLost * :wa
-
+"
 " Save buffers when hidden.
 set autowrite
+
+" Ignore some common files when globbing.
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
+
+" Open splits to the right and below, like tmux does.
+set splitright
+set splitbelow
+
+" Enable filetype plugins.
+filetype plugin on
+" }}}
+
+" Indentation {{{
+"
+" Use two-space-wide tabs by default, and indent with spaces.
+set tabstop=2
+" These commented-out settings are managed by vim-sleuth:
+"set shiftwidth=2
+"set softtabstop=2
+"set expandtab
+
+" Do automatic indenting.
+set autoindent
+" Also do smart indenting.
+set smartindent
+
+" ...but not in plaintext or Markdown files.
+autocmd BufEnter *.{txt,md,markdown} setlocal nosmartindent
+
+" For C files, use cindent.
+autocmd BufEnter *.{c,h} setlocal cindent
+
+" For lispy languages, use lisp indenting.
+autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
+" }}}
+
+" File type overrides {{{
+" Salt configuration files are YAML.
+autocmd BufEnter *.{sls} setlocal filetype=yaml
+
+" Aurora files are Python.
+autocmd BufEnter *.{aurora} setlocal filetype=python
+
 
 " Miscellaneous filetype detection.
 augroup filetypedetect
@@ -158,39 +149,39 @@ autocmd BufEnter *.ys setfiletype nasm
 autocmd BufEnter *.md setfiletype markdown
 
 augroup end
+" }}}
 
-"Abolish com{apn,pna}{y,ies} com{pan}{}
+" Custom bindings {{{
+" Make <leader><space> hide highlighting for search results.
+nnoremap <leader><space> :nohlsearch<cr>
 
-let g:vimclojure#FuzzyIndent=1
+" The only time you hit F1 is when you miss ESC.
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
 
+" Mirror tmux's split management bindings: {{{2
+nnoremap <C-w>% :vsplit<cr>
+nnoremap <C-w>" :split<cr>
+" 2}}}
+
+" }}}
+
+" Plugin configuration {{{
+
+" Rainbow parens {{{2
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+" 2}}}
 
-" Use tmux instead of screen with slime.
-let g:slime_target = "tmux"
-
+" CtrlP {{{2
 " Make CtrlP set its root directory to the Git or Hg root.
 let g:ctrlp_working_path_mode = 2
+" 2}}}
 
-" Use JSX in all the JavaScript files!
-let g:jsx_ext_required = 0
-
-" Use syntastic's recommended defaults.
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Enable integration with Merlin.
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-let g:syntastic_ocaml_checkers = ['merlin']
-
-" Use psc-ide's fast-rebuild feature to quickly check the current file.
-let g:psc_ide_syntastic_mode = 1
-
+" ALE {{{2
 " Only use fmt for terraform, not tflint.
 let g:ale_linters = {
 \   'terraform': ['fmt'],
@@ -201,6 +192,94 @@ let g:ale_fixers = {
 \   'typescript': ['prettier'],
 \}
 let g:ale_fix_on_save = 1
+" 2}}}
 
-" Ignore some common files when globbing.
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
+" Airline {{{2
+if has('nvim')
+	let g:airline_theme = 'minimalist'
+elseif has('gui_running')
+	let g:airline_theme = 'base16'
+endif
+
+if has('gui_running') || has('nvim')
+	let g:airline_powerline_fonts = 1
+
+	packadd vim-airline
+	packadd vim-airline-themes
+
+	" Show the status bar all the time, for Powerline
+	set laststatus=2
+endif
+" 2}}}
+
+" }}}
+
+" GUI {{{
+
+if has('gui_running')
+
+	set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
+	colorscheme base16-classic-dark
+
+	" Remove the menubar.
+	set guioptions-=m
+
+	" Remove the toolbar.
+	set guioptions-=T
+
+	" Remove the right scrollbar.
+	set guioptions-=r
+
+	" Remove the left scrollbar in split windows.
+	set guioptions-=L
+
+	" Use console dialogs instead of popups.
+	set guioptions+=c
+
+	" Highlight the current line.
+	set cursorline
+
+	" Give the window 40 lines and 120 columns initially.
+	set lines=40 columns=120
+
+	" Use a visual bell instead of beeping.
+	set visualbell
+
+	" Instead of showing a line's absolute location in the file,
+	" show its distance relative to the current line.
+	set relativenumber
+	" ...but also show the number of the current line.
+	set number
+endif
+
+" }}}
+
+" Terminal {{{
+if !has('gui_running')
+	set bg=light
+endif
+" }}}
+
+" Probationary area {{{
+"
+" This is where I've quarantined all the cruft I suspect I don't want or
+" need anymore.
+
+let g:vimclojure#FuzzyIndent=1
+
+" Use tmux instead of screen with slime.
+let g:slime_target = "tmux"
+
+" Use JSX in all the JavaScript files!
+let g:jsx_ext_required = 0
+
+" Use syntastic's recommended defaults.
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Use psc-ide's fast-rebuild feature to quickly check the current file.
+let g:psc_ide_syntastic_mode = 1
+
+" }}}

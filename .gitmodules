@@ -1,102 +1,54 @@
-[submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+	path = pack/all/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/ack.vim"]
-	path = bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/vim-coffee-script"]
-	path = bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/html5.vim"]
-	path = bundle/html5.vim
-	url = https://github.com/othree/html5.vim.git
-[submodule "bundle/mustache.vim"]
-	path = bundle/mustache.vim
-	url = https://github.com/juvenn/mustache.vim.git
-[submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript
 [submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
+	path = pack/all/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-repeat"]
-	path = bundle/vim-repeat
+	path = pack/all/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "bundle/vim-abolish"]
-	path = bundle/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
-[submodule "bundle/vim-slime"]
-	path = bundle/vim-slime
-	url = https://github.com/jpalardy/vim-slime.git
 [submodule "bundle/badwolf"]
-	path = bundle/badwolf
+	path = pack/all/opt/badwolf
 	url = https://github.com/sjl/badwolf.git
 [submodule "bundle/ctrlp"]
-	path = bundle/ctrlp
+	path = pack/all/start/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/powerline"]
-	path = bundle/powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/rainbow_parentheses"]
-	path = bundle/rainbow_parentheses
+	path = pack/all/start/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "bundle/vim-jsx"]
-	path = bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
-[submodule "bundle/vim-go"]
-	path = bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule "bundle/vim-less"]
-	path = bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
 [submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
+	path = pack/all/opt/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
-[submodule "bundle/DeleteTrailingWhitespace"]
-	path = bundle/DeleteTrailingWhitespace
-	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
 [submodule "bundle/vim-better-whitespace"]
-	path = bundle/vim-better-whitespace
+	path = pack/all/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
 [submodule "bundle/vim-gitgutter"]
-	path = bundle/vim-gitgutter
+	path = pack/all/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-airline-themes"]
-	path = bundle/vim-airline-themes
+	path = pack/all/opt/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "bundle/vim-fireplace"]
-	path = bundle/vim-fireplace
-	url = git@github.com:tpope/vim-fireplace.git
 [submodule "bundle/vim-sexp"]
-	path = bundle/vim-sexp
+	path = pack/all/start/vim-sexp
 	url = git@github.com:guns/vim-sexp.git
 [submodule "bundle/vim-sexp-mappings-for-regular-people"]
-	path = bundle/vim-sexp-mappings-for-regular-people
+	path = pack/all/start/vim-sexp-mappings-for-regular-people
 	url = git@github.com:tpope/vim-sexp-mappings-for-regular-people.git
 [submodule "bundle/base16-vim"]
-	path = bundle/base16-vim
+	path = pack/all/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
-[submodule "bundle/purescript-vim"]
-	path = bundle/purescript-vim
-	url = https://github.com/raichoo/purescript-vim.git
 [submodule "bundle/typescript-vim"]
-	path = bundle/typescript-vim
+	path = pack/all/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/ale"]
-	path = bundle/ale
+	path = pack/all/start/ale
 	url = https://github.com/w0rp/ale
 [submodule "bundle/vim-sleuth"]
-	path = bundle/vim-sleuth
+	path = pack/all/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
 [submodule "bundle/vim-terraform"]
-	path = bundle/vim-terraform
+	path = pack/all/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
+[submodule "pack/all/start/editorconfig-vim"]
+	path = pack/all/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
