@@ -104,6 +104,12 @@ set splitbelow
 
 " Enable filetype plugins.
 filetype plugin on
+
+" Instead of showing a line's absolute location in the file,
+" show its distance relative to the current line.
+set relativenumber
+" ...but also show the number of the current line.
+set number
 " }}}
 
 " Indentation {{{
@@ -245,12 +251,6 @@ if has('gui_running')
 
 	" Use a visual bell instead of beeping.
 	set visualbell
-
-	" Instead of showing a line's absolute location in the file,
-	" show its distance relative to the current line.
-	set relativenumber
-	" ...but also show the number of the current line.
-	set number
 endif
 
 " }}}
