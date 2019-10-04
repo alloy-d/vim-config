@@ -191,7 +191,7 @@ let g:ctrlp_working_path_mode = 2
 " Only use fmt for terraform, not tflint.
 let g:ale_linters = {
 \   'terraform': ['fmt'],
-\   'typescript': ['tslint'],
+\   'typescript': ['typecheck', 'tslint'],
 \}
 
 let g:ale_fixers = {
