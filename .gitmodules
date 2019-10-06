@@ -52,3 +52,6 @@
 [submodule "pack/all/start/editorconfig-vim"]
 	path = pack/all/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "pack/all/start/swift.vim"]
+	path = pack/all/start/swift.vim
+	url = https://github.com/keith/swift.vim
