@@ -185,6 +185,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " CtrlP {{{2
 " Make CtrlP set its root directory to the Git or Hg root.
 let g:ctrlp_working_path_mode = 2
+
+" Ignore files in .gitignore.
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " 2}}}
 
 " ALE {{{2
