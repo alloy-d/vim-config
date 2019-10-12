@@ -193,11 +193,13 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " ALE {{{2
 " Only use fmt for terraform, not tflint.
 let g:ale_linters = {
+\   'python': ['flake8'],
 \   'terraform': ['fmt'],
 \   'typescript': ['typecheck', 'tslint'],
 \}
 
 let g:ale_fixers = {
+\   'python': ['autopep8'],
 \   'terraform': ['terraform'],
 \   'typescript': ['tslint'],
 \}
