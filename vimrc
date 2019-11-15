@@ -143,6 +143,9 @@ autocmd BufEnter *.{sls} setlocal filetype=yaml
 " Aurora files are Python.
 autocmd BufEnter *.{aurora} setlocal filetype=python
 
+" Jenkinsfiles are Groovy [sic].
+autocmd BufEnter Jenkinsfile setlocal filetype=groovy
+
 
 " Miscellaneous filetype detection.
 augroup filetypedetect

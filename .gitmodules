@@ -55,3 +55,6 @@
 [submodule "pack/all/start/swift.vim"]
 	path = pack/all/start/swift.vim
 	url = https://github.com/keith/swift.vim
+[submodule "pack/all/start/vim-tmux-navigator"]
+	path = pack/all/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
