@@ -193,6 +193,12 @@ let g:ctrlp_working_path_mode = 2
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " 2}}}
 
+" tslime {{{2
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+" 2}}}
+
 " ALE {{{2
 " Only use fmt for terraform, not tflint.
 let g:ale_linters = {

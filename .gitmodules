@@ -61,3 +61,6 @@
 [submodule "pack/all/start/vim-easy-align"]
 	path = pack/all/opt/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "pack/all/start/tslime.vim"]
+	path = pack/all/start/tslime.vim
+	url = https://github.com/jgdavey/tslime.vim
