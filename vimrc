@@ -217,7 +217,7 @@ let g:ale_fix_on_save = 1
 
 " Airline {{{2
 if has('nvim')
-	let g:airline_theme = 'minimalist'
+	let g:airline_theme = 'base16_harmonic16'
 elseif has('gui_running')
 	let g:airline_theme = 'base16'
 endif
@@ -240,7 +240,7 @@ endif
 if has('gui_running')
 
 	set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
-	colorscheme base16-classic-dark
+	colorscheme base16-harmonic-light
 
 	" Remove the menubar.
 	set guioptions-=m
@@ -271,7 +271,7 @@ endif
 
 " Terminal {{{
 if !has('gui_running')
-	set bg=light
+	set bg=dark
 endif
 " }}}
 
