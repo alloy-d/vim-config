@@ -150,12 +150,12 @@ autocmd BufEnter Jenkinsfile setlocal filetype=groovy
 " Miscellaneous filetype detection.
 augroup filetypedetect
 
-" LaTeX document class files:
-autocmd BufEnter *.cls setfiletype tex
-" Y86 assembly files:
-autocmd BufEnter *.ys setfiletype nasm
-" Markdown files:
-autocmd BufEnter *.md setfiletype markdown
+  " LaTeX document class files:
+  autocmd BufEnter *.cls setfiletype tex
+  " Y86 assembly files:
+  autocmd BufEnter *.ys setfiletype nasm
+  " Markdown files:
+  autocmd BufEnter *.md setfiletype markdown
 
 augroup end
 " }}}
@@ -217,19 +217,19 @@ let g:ale_fix_on_save = 1
 
 " Airline {{{2
 if has('nvim')
-	let g:airline_theme = 'base16_harmonic16'
+  let g:airline_theme = 'minimalist'
 elseif has('gui_running')
-	let g:airline_theme = 'base16'
+  let g:airline_theme = 'base16'
 endif
 
 if has('gui_running') || has('nvim')
-	let g:airline_powerline_fonts = 1
+  let g:airline_powerline_fonts = 1
 
-	packadd vim-airline
-	packadd vim-airline-themes
+  packadd vim-airline
+  packadd vim-airline-themes
 
-	" Show the status bar all the time, for Powerline
-	set laststatus=2
+  " Show the status bar all the time, for Powerline
+  set laststatus=2
 endif
 " 2}}}
 
@@ -239,39 +239,42 @@ endif
 
 if has('gui_running')
 
-	set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
-	colorscheme base16-harmonic-light
+  set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
+  "colorscheme base16-harmonic-light
+  "colorscheme base16-cupertino
+  colorscheme base16-horizon-dark
 
-	" Remove the menubar.
-	set guioptions-=m
 
-	" Remove the toolbar.
-	set guioptions-=T
+  " Remove the menubar.
+  set guioptions-=m
 
-	" Remove the right scrollbar.
-	set guioptions-=r
+  " Remove the toolbar.
+  set guioptions-=T
 
-	" Remove the left scrollbar in split windows.
-	set guioptions-=L
+  " Remove the right scrollbar.
+  set guioptions-=r
 
-	" Use console dialogs instead of popups.
-	set guioptions+=c
+  " Remove the left scrollbar in split windows.
+  set guioptions-=L
 
-	" Highlight the current line.
-	set cursorline
+  " Use console dialogs instead of popups.
+  set guioptions+=c
 
-	" Give the window 40 lines and 120 columns initially.
-	set lines=40 columns=120
+  " Highlight the current line.
+  set cursorline
 
-	" Use a visual bell instead of beeping.
-	set visualbell
+  " Give the window 40 lines and 120 columns initially.
+  set lines=40 columns=120
+
+  " Use a visual bell instead of beeping.
+  set visualbell
 endif
 
 " }}}
 
 " Terminal {{{
 if !has('gui_running')
-	set bg=dark
+  set bg=light
 endif
 " }}}
 
