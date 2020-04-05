@@ -18,7 +18,7 @@
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "bundle/vim-airline"]
 	path = pack/all/opt/vim-airline
-	url = git@github.com:vim-airline/vim-airline.git
+	url = https://github.com/vim-airline/vim-airline.git
 [submodule "bundle/vim-better-whitespace"]
 	path = pack/all/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
@@ -30,10 +30,10 @@
 	url = https://github.com/vim-airline/vim-airline-themes
 [submodule "bundle/vim-sexp"]
 	path = pack/all/start/vim-sexp
-	url = git@github.com:guns/vim-sexp.git
+	url = https://github.com/guns/vim-sexp.git
 [submodule "bundle/vim-sexp-mappings-for-regular-people"]
 	path = pack/all/start/vim-sexp-mappings-for-regular-people
-	url = git@github.com:tpope/vim-sexp-mappings-for-regular-people.git
+	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
 [submodule "bundle/base16-vim"]
 	path = pack/all/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
