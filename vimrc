@@ -274,7 +274,18 @@ endif
 
 " Terminal {{{
 if !has('gui_running')
-  set bg=light
+  if filereadable(expand("~/.vimrc_background"))
+    " If using base16-shell, this is set up for us.
+    let base16colorspace=256
+    source ~/.vimrc_background
+
+    " Not pretty, but I only set up Airline in terminal in nvim.
+    if has('nvim')
+      AirlineTheme base16
+    endif
+  else
+    set bg=dark
+  endif
 endif
 " }}}
 
