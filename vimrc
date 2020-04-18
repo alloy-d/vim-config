@@ -110,6 +110,10 @@ filetype plugin on
 set relativenumber
 " ...but also show the number of the current line.
 set number
+
+" Only show the status line when split.
+" This might be overridden by Airline configuration later on.
+set laststatus=1
 " }}}
 
 " Indentation {{{
@@ -237,20 +241,22 @@ let g:ale_fix_on_save = 1
 " 2}}}
 
 " Airline {{{2
+let s:enabling_airline = has('gui_running') || has('nvim')
+
 if has('nvim')
   let g:airline_theme = 'minimalist'
 elseif has('gui_running')
   let g:airline_theme = 'base16'
 endif
 
-if has('gui_running') || has('nvim')
+if s:enabling_airline
   let g:airline_powerline_fonts = 1
 
   packadd vim-airline
   packadd vim-airline-themes
 
-  " Show the status bar all the time, for Powerline
-  set laststatus=2
+  " Only show the status bar when split.
+  set laststatus=1
 endif
 " 2}}}
 
@@ -300,8 +306,7 @@ if !has('gui_running')
     let base16colorspace=256
     source ~/.vimrc_background
 
-    " Not pretty, but I only set up Airline in terminal in nvim.
-    if has('nvim')
+    if s:enabling_airline
       AirlineTheme base16
     endif
   else
