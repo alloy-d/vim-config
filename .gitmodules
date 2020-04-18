@@ -64,3 +64,6 @@
 [submodule "pack/all/start/tslime.vim"]
 	path = pack/all/start/tslime.vim
 	url = https://github.com/jgdavey/tslime.vim
+[submodule "pack/all/start/seiya.vim"]
+	path = pack/all/start/seiya.vim
+	url = https://github.com/alloy-d/seiya.vim.git

@@ -185,6 +185,27 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " 2}}}
 
+" Seiya {{{2
+" Automatically unset the BG for some highlights.
+let g:seiya_auto_enable = 1
+
+" Specifically, these highlights:
+let g:seiya_target_highlights = [
+      \ 'Normal',
+      \ 'LineNr',
+      \ 'CursorLineNr',
+      \ 'SignColumn',
+      \ 'VertSplit',
+      \ 'NonText',
+      \
+      \ 'ALEWarningSign',
+      \ 'GitGutterAdd',
+      \ 'GitGutterChange',
+      \ 'GitGutterChangeDelete',
+      \ 'GitGutterDelete'
+      \]
+" 2}}}
+
 " CtrlP {{{2
 " Make CtrlP set its root directory to the Git or Hg root.
 let g:ctrlp_working_path_mode = 2
