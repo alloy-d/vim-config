@@ -70,3 +70,9 @@
 [submodule "pack/all/start/vlime"]
 	path = pack/all/start/vlime
 	url = https://github.com/vlime/vlime
+[submodule "pack/all/start/taskpaper.vim"]
+	path = pack/all/start/taskpaper.vim
+	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule "pack/all/start/vim-ripgrep"]
+	path = pack/all/start/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep.git
