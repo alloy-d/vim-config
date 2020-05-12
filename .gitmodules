@@ -67,6 +67,9 @@
 [submodule "pack/all/start/seiya.vim"]
 	path = pack/all/start/seiya.vim
 	url = https://github.com/alloy-d/seiya.vim.git
+[submodule "pack/all/start/vlime"]
+	path = pack/all/start/vlime
+	url = https://github.com/vlime/vlime
 [submodule "pack/all/start/taskpaper.vim"]
 	path = pack/all/start/taskpaper.vim
 	url = https://github.com/davidoc/taskpaper.vim.git
