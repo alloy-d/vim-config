@@ -9,6 +9,9 @@ set nocompatible
 " Load my key mappings for Colemak.
 runtime colemak.vim
 
+" Use , for local leader.
+let maplocalleader = ","
+
 " Use utf-8 by default.
 set encoding=utf-8
 
