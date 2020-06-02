@@ -13,9 +13,6 @@
 [submodule "bundle/ctrlp"]
 	path = pack/all/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "bundle/rainbow_parentheses"]
-	path = pack/all/start/rainbow_parentheses
-	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "bundle/vim-airline"]
 	path = pack/all/opt/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
@@ -76,3 +73,6 @@
 [submodule "pack/all/start/vim-fish"]
 	path = pack/all/start/vim-fish
 	url = https://github.com/blankname/vim-fish.git
+[submodule "pack/all/start/rainbow"]
+	path = pack/all/start/rainbow
+	url = https://github.com/luochen1990/rainbow
