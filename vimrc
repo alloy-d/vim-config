@@ -189,7 +189,10 @@ nnoremap <C-w>" :split<cr>
 " Plugin configuration {{{
 
 " Rainbow parens {{{2
-let g:rainbow_active = 1
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 " 2}}}
 
 " Seiya {{{2
