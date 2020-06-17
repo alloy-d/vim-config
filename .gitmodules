@@ -76,3 +76,9 @@
 [submodule "pack/all/start/vim-fish"]
 	path = pack/all/start/vim-fish
 	url = https://github.com/blankname/vim-fish.git
+[submodule "pack/all/opt/coc"]
+	path = pack/all/opt/coc
+	url = https://github.com/neoclide/coc.nvim
+[submodule "pack/all/start/vim-jsonc"]
+	path = pack/all/start/vim-jsonc
+	url = https://github.com/kevinoid/vim-jsonc.git

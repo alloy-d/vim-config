@@ -166,6 +166,11 @@ augroup filetypedetect
   autocmd BufEnter *.ys setfiletype nasm
   " Markdown files:
   autocmd BufEnter *.md setfiletype markdown
+  autocmd BufEnter PULLREQ_EDITMSG setfiletype markdown
+
+  " JSON with comments:
+  autocmd BufEnter package.json setfiletype jsonc
+  autocmd BufEnter tsconfig.json setfiletype jsonc
 
 augroup end
 " }}}
@@ -254,13 +259,13 @@ nmap <C-c>r <Plug>SetTmuxVars
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'terraform': ['fmt'],
-\   'typescript': ['typecheck', 'tslint'],
+\   'typescript': ['typecheck', 'eslint'],
 \}
 
 let g:ale_fixers = {
 \   'python': ['autopep8'],
 \   'terraform': ['terraform'],
-\   'typescript': ['tslint'],
+\   'typescript': ['eslint'],
 \}
 let g:ale_fix_on_save = 1
 " 2}}}
