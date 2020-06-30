@@ -117,6 +117,9 @@ set relativenumber
 " ...but also show the number of the current line.
 set number
 
+" Highlight the current line.
+set cursorline
+
 " Only show the status line when split.
 " This might be overridden by Airline configuration later on.
 set laststatus=1
