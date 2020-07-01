@@ -162,7 +162,8 @@ autocmd BufEnter Jenkinsfile setlocal filetype=groovy
 
 " Miscellaneous filetype detection.
 augroup filetypedetect
-
+  " ASDF system definitions:
+  autocmd BufEnter *.asd setfiletype lisp
   " LaTeX document class files:
   autocmd BufEnter *.cls setfiletype tex
   " Y86 assembly files:
