@@ -82,3 +82,12 @@
 [submodule "pack/all/start/vim-jsonc"]
 	path = pack/all/start/vim-jsonc
 	url = https://github.com/kevinoid/vim-jsonc.git
+[submodule "pack/all/opt/Colorizer"]
+	path = pack/all/opt/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git
+[submodule "pack/all/start/vim-startify"]
+	path = pack/all/start/vim-startify
+	url = https://github.com/mhinz/vim-startify.git
+[submodule "pack/all/start/fennel.vim"]
+	path = pack/all/start/fennel.vim
+	url = https://github.com/bakpakin/fennel.vim
