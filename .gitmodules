@@ -91,3 +91,6 @@
 [submodule "pack/all/start/fennel.vim"]
 	path = pack/all/start/fennel.vim
 	url = https://github.com/bakpakin/fennel.vim
+[submodule "pack/all/start/aniseed"]
+	path = pack/all/start/aniseed
+	url = https://github.com/Olical/aniseed
