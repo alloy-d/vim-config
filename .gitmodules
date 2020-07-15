@@ -94,3 +94,6 @@
 [submodule "pack/all/start/aniseed"]
 	path = pack/all/start/aniseed
 	url = https://github.com/Olical/aniseed
+[submodule "pack/all/start/conjure"]
+	path = pack/all/start/conjure
+	url = https://github.com/Olical/conjure
