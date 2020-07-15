@@ -82,3 +82,6 @@
 [submodule "pack/all/start/vim-jsonc"]
 	path = pack/all/start/vim-jsonc
 	url = https://github.com/kevinoid/vim-jsonc.git
+[submodule "pack/all/start/fennel.vim"]
+	path = pack/all/start/fennel.vim
+	url = https://github.com/bakpakin/fennel.vim
