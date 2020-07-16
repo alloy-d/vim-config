@@ -294,6 +294,10 @@ if s:enabling_airline
 endif
 " 2}}}
 
+" Vim-sexp {{{2
+let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
+" 2}}}
+
 " }}}
 
 " GUI {{{
