@@ -118,11 +118,13 @@ set relativenumber
 set number
 
 " Highlight the current line.
-set cursorline
+"set cursorline
 
-" Only show the status line when split.
-" This might be overridden by Airline configuration later on.
-set laststatus=1
+" Statusline
+let s:enabling_airline = 0 "has('gui_running') || has('nvim')
+if s:enabling_airline == 0
+  runtime statusline.vim
+end
 " }}}
 
 " Indentation {{{
@@ -150,18 +152,11 @@ autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
 " }}}
 
 " File type overrides {{{
-" Salt configuration files are YAML.
-autocmd BufEnter *.{sls} setlocal filetype=yaml
-
-" Aurora files are Python.
-autocmd BufEnter *.{aurora} setlocal filetype=python
-
-" Jenkinsfiles are Groovy [sic].
-autocmd BufEnter Jenkinsfile setlocal filetype=groovy
-
 
 " Miscellaneous filetype detection.
-augroup filetypedetect
+augroup extrafiletypedetect
+  autocmd!
+
   " ASDF system definitions:
   autocmd BufEnter *.asd setfiletype lisp
   " LaTeX document class files:
@@ -172,16 +167,51 @@ augroup filetypedetect
   autocmd BufEnter *.md setfiletype markdown
   autocmd BufEnter PULLREQ_EDITMSG setfiletype markdown
 
+  " Salt configuration files are YAML.
+  autocmd BufEnter *.{sls} setfiletype yaml
+  " Aurora files are Python.
+  autocmd BufEnter *.{aurora} setfiletype python
+
+  " Jenkinsfiles are Groovy [sic].
+  autocmd BufEnter Jenkinsfile setfiletype groovy
+
   " JSON with comments:
   autocmd BufEnter package.json setfiletype jsonc
   autocmd BufEnter tsconfig.json setfiletype jsonc
-
 augroup end
+
+" These are the defaults, plus the new with-open and some extra testing macros I use.
+let g:fennel_fuzzy_indent_patterns = [
+      \ '^def',
+      \ '^let',
+      \ '^while',
+      \ '^if',
+      \ '^fn$',
+      \ '^var$',
+      \ '^case$',
+      \ '^for$',
+      \ '^each$',
+      \ '^local$',
+      \ '^global$',
+      \ '^match$',
+      \ '^macro',
+      \ '^lambda$',
+      \ '^with-open$',
+      \ '^describe$',
+      \ '^it$',
+      \ '^context$',
+      \ '^test$',
+      \ '^each-root$'
+      \ ]
+
 " }}}
 
 " Custom bindings {{{
 " Make <leader><space> hide highlighting for search results.
 nnoremap <leader><space> :nohlsearch<cr>
+
+" Make Esc exit terminal mode.
+tnoremap <Esc> <C-\><C-n>
 
 " The only time you hit F1 is when you miss ESC.
 inoremap <F1> <ESC>
@@ -224,15 +254,15 @@ au Syntax * RainbowParenthesesLoadBraces
 " 2}}}
 
 " Seiya {{{2
-" Automatically unset the BG for some highlights.
+" 1 => Automatically unset the BG for some highlights.
 let g:seiya_auto_enable = 1
 
 " Specifically, these highlights:
 let g:seiya_target_highlights = [
       \ 'Normal',
       \ 'LineNr',
-      \ 'CursorLineNr',
       \ 'SignColumn',
+      \ 'CursorLineNr',
       \ 'VertSplit',
       \ 'NonText',
       \
@@ -240,8 +270,9 @@ let g:seiya_target_highlights = [
       \ 'GitGutterAdd',
       \ 'GitGutterChange',
       \ 'GitGutterChangeDelete',
-      \ 'GitGutterDelete'
+      \ 'GitGutterDelete',
       \]
+
 " 2}}}
 
 " CtrlP {{{2
@@ -275,8 +306,6 @@ let g:ale_fix_on_save = 1
 " 2}}}
 
 " Airline {{{2
-let s:enabling_airline = has('gui_running') || has('nvim')
-
 if has('nvim')
   let g:airline_theme = 'minimalist'
 elseif has('gui_running')
@@ -285,6 +314,8 @@ endif
 
 if s:enabling_airline
   let g:airline_powerline_fonts = 1
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
 
   packadd vim-airline
   packadd vim-airline-themes
@@ -339,6 +370,8 @@ endif
 
 " Terminal {{{
 if !has('gui_running')
+  set bg=dark
+
   if filereadable(expand("~/.vimrc_background"))
     " If using base16-shell, this is set up for us.
     let base16colorspace=256
@@ -347,8 +380,6 @@ if !has('gui_running')
     if s:enabling_airline
       AirlineTheme base16
     endif
-  else
-    set bg=dark
   endif
 endif
 " }}}
