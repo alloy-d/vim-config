@@ -37,7 +37,7 @@ set statusline+=%#MyStatuslinePlain#‹
 set statusline+=%#MyStatuslineModified#%{SetModifiedSymbol(&modified,&modifiable)}
 set statusline+=%#MyStatuslinePlain#›\ 
 " Filename
-set statusline+=%#MyStatuslineFilename#%.20f
+set statusline+=%#MyStatuslineFilename#%.50f
 " Buffer/window type
 set statusline+=\ %#MyStatuslineBufferType#%h%w
 
@@ -64,7 +64,7 @@ augroup statuslinecolors
   autocmd!
 
   autocmd ColorScheme * hi StatusLine          ctermfg=5     ctermbg=NONE     cterm=NONE
-  autocmd ColorScheme * hi StatusLineNC        ctermfg=8     ctermbg=1     cterm=bold
+  autocmd ColorScheme * hi StatusLineNC        ctermfg=8     ctermbg=NONE     cterm=bold
 
   autocmd ColorScheme * hi MyStatuslinePlain ctermfg=8 cterm=NONE ctermbg=NONE
 
@@ -72,7 +72,7 @@ augroup statuslinecolors
 
   autocmd ColorScheme * hi MyStatuslineBufferType ctermfg=3 cterm=NONE ctermbg=NONE
 
-  autocmd ColorScheme * hi MyStatuslineFiletype ctermfg=5 cterm=italic ctermbg=0
+  autocmd ColorScheme * hi MyStatuslineFiletype ctermfg=5 cterm=italic ctermbg=NONE
 
   autocmd ColorScheme * hi MyStatuslinePercentage ctermbg=NONE cterm=NONE ctermfg=6
 
