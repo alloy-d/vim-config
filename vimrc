@@ -157,6 +157,9 @@ autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
 augroup extrafiletypedetect
   autocmd!
 
+  " TypeScript + JSX
+  autocmd BufEnter *.tsx,*.jsx setfiletype typescript.tsx
+
   " ASDF system definitions:
   autocmd BufEnter *.asd setfiletype lisp
   " LaTeX document class files:
