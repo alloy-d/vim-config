@@ -100,3 +100,9 @@
 [submodule "pack/all/start/janet.vim"]
 	path = pack/all/start/janet.vim
 	url = https://github.com/janet-lang/janet.vim
+[submodule "pack/all/start/goyo.vim"]
+	path = pack/all/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "pack/all/start/vim-jsx-pretty"]
+	path = pack/all/start/vim-jsx-pretty
+	url = https://github.com/maxmellon/vim-jsx-pretty
