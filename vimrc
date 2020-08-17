@@ -226,6 +226,11 @@ nnoremap <C-w>% :vsplit<cr>
 nnoremap <C-w>" :split<cr>
 " 2}}}
 
+" Show highlight under cursor.
+map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " }}}
 
 " Plugin configuration {{{
