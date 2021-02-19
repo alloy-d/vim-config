@@ -160,6 +160,9 @@ augroup extrafiletypedetect
   " TypeScript + JSX
   autocmd BufEnter *.tsx,*.jsx setfiletype typescript.tsx
 
+  " direnv configuration:
+  autocmd BufEnter .envrc setfiletype sh
+
   " ASDF system definitions:
   autocmd BufEnter *.asd setfiletype lisp
   " LaTeX document class files:
@@ -298,19 +301,21 @@ nmap <C-c>r <Plug>SetTmuxVars
 " 2}}}
 
 " ALE {{{2
-" Only use fmt for terraform, not tflint.
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'terraform': ['fmt'],
-\   'typescript': ['typecheck', 'eslint'],
+\   'typescript': ['tsserver', 'typecheck', 'xo'],
 \}
 
 let g:ale_fixers = {
 \   'python': ['autopep8'],
 \   'terraform': ['terraform'],
-\   'typescript': ['eslint'],
+\   'typescript': ['xo'],
 \}
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+
+nmap <leader>ad <Plug>(ale_detail)
+nmap <leader>af <Plug>(ale_fix)
 " 2}}}
 
 " Airline {{{2
@@ -335,6 +340,11 @@ endif
 
 " Vim-sexp {{{2
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
+" 2}}}
+
+" NERDCommenter {{{2
+" Add spaces after comment delimiters.
+let g:NERDSpaceDelims = 1
 " 2}}}
 
 " }}}
