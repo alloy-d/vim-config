@@ -6,6 +6,9 @@ set shell=/bin/sh
 " Don't try to be compatible with vi.
 set nocompatible
 
+" Enable syntax highlighting.
+syntax enable
+
 " Add locally built base16 colors to the runtimepath.
 set runtimepath+=~/.local/share/base16/vim,~/.local/share/base16/vim-airline-themes
 
