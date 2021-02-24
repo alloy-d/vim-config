@@ -176,6 +176,9 @@ augroup extrafiletypedetect
   autocmd BufEnter *.md setfiletype markdown
   autocmd BufEnter PULLREQ_EDITMSG setfiletype markdown
 
+  " Lua ecosystem things that are Lua:
+  autocmd BufEnter *.{rockspec,luacheckrc} setfiletype lua
+
   " Salt configuration files are YAML.
   autocmd BufEnter *.{sls} setfiletype yaml
   " Aurora files are Python.
@@ -348,6 +351,14 @@ let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
 " NERDCommenter {{{2
 " Add spaces after comment delimiters.
 let g:NERDSpaceDelims = 1
+" 2}}}
+
+" Conjure {{{2
+" Only load in neovim.
+if has('nvim')
+  packadd! conjure
+  let g:conjure#log#wrap = 1
+endif
 " 2}}}
 
 " }}}
