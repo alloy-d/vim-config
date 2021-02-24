@@ -332,6 +332,14 @@ endif
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
 " 2}}}
 
+" Conjure {{{2
+" Only load in neovim.
+if has('nvim')
+  packadd! conjure
+  let g:conjure#log#wrap = 1
+endif
+" 2}}}
+
 " }}}
 
 " GUI {{{

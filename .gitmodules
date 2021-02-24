@@ -95,7 +95,7 @@
 	path = pack/all/start/aniseed
 	url = https://github.com/Olical/aniseed
 [submodule "pack/all/start/conjure"]
-	path = pack/all/start/conjure
+	path = pack/all/opt/conjure
 	url = https://github.com/Olical/conjure
 [submodule "pack/all/start/janet.vim"]
 	path = pack/all/start/janet.vim
