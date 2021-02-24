@@ -170,6 +170,9 @@ augroup extrafiletypedetect
   autocmd BufEnter *.md setfiletype markdown
   autocmd BufEnter PULLREQ_EDITMSG setfiletype markdown
 
+  " Lua ecosystem things that are Lua:
+  autocmd BufEnter *.{rockspec,luacheckrc} setfiletype lua
+
   " Salt configuration files are YAML.
   autocmd BufEnter *.{sls} setfiletype yaml
   " Aurora files are Python.
