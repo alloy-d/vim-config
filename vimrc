@@ -320,6 +320,12 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 0
 
+" By default this draws a BG that sometimes obscures punctuation.
+"
+" If cterm=undercurl doesn't turn out to be enough, there's also
+" cterm=standout.
+highlight ALEError cterm=undercurl ctermbg=NONE
+
 nmap <leader>ad <Plug>(ale_detail)
 nmap <leader>af <Plug>(ale_fix)
 " 2}}}
@@ -353,12 +359,22 @@ let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
 let g:NERDSpaceDelims = 1
 " 2}}}
 
+" NERDTree {{{2
+nnoremap <leader>t :NERDTreeToggle<CR>
+" 2}}}
+
 " Conjure {{{2
 " Only load in neovim.
 if has('nvim')
   packadd! conjure
   let g:conjure#log#wrap = 1
 endif
+" 2}}}
+
+" Ripgrep {{{2
+" Quick shortcut for rg:
+nnoremap <leader>r :Rg<space>
+
 " 2}}}
 
 " }}}

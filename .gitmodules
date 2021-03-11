@@ -109,3 +109,6 @@
 [submodule "pack/all/start/vim-styled-jsx"]
 	path = pack/all/start/vim-styled-jsx
 	url = https://github.com/alampros/vim-styled-jsx.git
+[submodule "pack/all/start/nerdtree"]
+	path = pack/all/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
