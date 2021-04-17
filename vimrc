@@ -201,6 +201,8 @@ let g:fennel_fuzzy_indent_patterns = [
       \ '^fn$',
       \ '^var$',
       \ '^case$',
+      \ '^collect$',
+      \ '^icollect$',
       \ '^for$',
       \ '^each$',
       \ '^local$',
@@ -368,6 +370,10 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 if has('nvim')
   packadd! conjure
   let g:conjure#log#wrap = 1
+
+  " Use a vanilla lua process by default, instead of in-Vim Lua with
+  " Aniseed.
+  let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 endif
 " 2}}}
 
