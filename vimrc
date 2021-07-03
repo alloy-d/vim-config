@@ -383,6 +383,24 @@ nnoremap <leader>r :Rg<space>
 
 " 2}}}
 
+" tree-sitter {{{2
+if has('nvim-0.5')
+  packadd! nvim-treesitter
+
+  lua <<EOF
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = "maintained",
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
+  })
+EOF
+endif
+" 2}}}
+
 " }}}
 
 " GUI {{{

@@ -112,3 +112,6 @@
 [submodule "pack/all/start/nerdtree"]
 	path = pack/all/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/all/start/nvim-treesitter"]
+	path = pack/all/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
