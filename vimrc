@@ -95,6 +95,9 @@ set formatoptions+=1
 " to tune this for text files instead.)
 set formatoptions-=t
 
+" ...but *do* automatically format comments:
+set formatoptions+=c
+
 " Remove comment leaders when joining comment lines.
 set formatoptions+=j
 
@@ -128,6 +131,10 @@ let s:enabling_airline = 0 "has('gui_running') || has('nvim')
 if s:enabling_airline == 0
   runtime statusline.vim
 end
+
+" Highlight embedded Lua in Vim files.
+let g:vimsyn_embed = 'l'
+
 " }}}
 
 " Indentation {{{
@@ -354,15 +361,6 @@ endif
 
 " Vim-sexp {{{2
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
-" 2}}}
-
-" NERDCommenter {{{2
-" Add spaces after comment delimiters.
-let g:NERDSpaceDelims = 1
-" 2}}}
-
-" NERDTree {{{2
-nnoremap <leader>t :NERDTreeToggle<CR>
 " 2}}}
 
 " Conjure {{{2
