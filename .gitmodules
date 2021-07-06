@@ -112,3 +112,6 @@
 [submodule "pack/all/start/nerdtree"]
 	path = pack/all/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/all/start/vim-python-pep8-indent"]
+	path = pack/all/start/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
