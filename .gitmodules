@@ -1,6 +1,3 @@
-[submodule "bundle/nerdcommenter"]
-	path = pack/all/start/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-surround"]
 	path = pack/all/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -109,9 +106,15 @@
 [submodule "pack/all/start/vim-styled-jsx"]
 	path = pack/all/start/vim-styled-jsx
 	url = https://github.com/alampros/vim-styled-jsx.git
-[submodule "pack/all/start/nerdtree"]
-	path = pack/all/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
 [submodule "pack/all/start/vim-python-pep8-indent"]
 	path = pack/all/start/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule "pack/all/start/nvim-treesitter"]
+	path = pack/all/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/all/start/vim-vinegar"]
+	path = pack/all/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "pack/all/start/vim-commentary"]
+	path = pack/all/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary

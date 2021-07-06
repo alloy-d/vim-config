@@ -95,6 +95,9 @@ set formatoptions+=1
 " to tune this for text files instead.)
 set formatoptions-=t
 
+" ...but *do* automatically format comments:
+set formatoptions+=c
+
 " Remove comment leaders when joining comment lines.
 set formatoptions+=j
 
@@ -131,6 +134,10 @@ let s:enabling_airline = 0 "has('gui_running') || has('nvim')
 if s:enabling_airline == 0
   runtime statusline.vim
 end
+
+" Highlight embedded Lua in Vim files.
+let g:vimsyn_embed = 'l'
+
 " }}}
 
 " Indentation {{{
@@ -363,15 +370,6 @@ endif
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
 " 2}}}
 
-" NERDCommenter {{{2
-" Add spaces after comment delimiters.
-let g:NERDSpaceDelims = 1
-" 2}}}
-
-" NERDTree {{{2
-nnoremap <leader>t :NERDTreeToggle<CR>
-" 2}}}
-
 " Conjure {{{2
 " Only load in neovim.
 if has('nvim')
@@ -388,6 +386,24 @@ endif
 " Quick shortcut for rg:
 nnoremap <leader>r :Rg<space>
 
+" 2}}}
+
+" tree-sitter {{{2
+if has('nvim-0.5')
+  packadd! nvim-treesitter
+
+  lua <<EOF
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = "maintained",
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
+  })
+EOF
+endif
 " 2}}}
 
 " }}}
