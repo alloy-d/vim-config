@@ -100,7 +100,10 @@ set formatoptions+=j
 
 " *Do* automatically format text for plaintext files.
 "autocmd BufEnter *.{txt} setlocal formatoptions+=ta
-"
+
+" Reread buffers when they change.
+set autoread
+
 " Save buffers when hidden.
 set autowrite
 
@@ -232,6 +235,9 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" Add a binding to quit all (helpful for git difftool).
+nnoremap <F4> :qa<cr>
+
 " Mirror tmux's split management bindings: {{{2
 nnoremap <C-w>% :vsplit<cr>
 nnoremap <C-w>" :split<cr>
@@ -312,13 +318,13 @@ nmap <C-c>r <Plug>SetTmuxVars
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'terraform': ['fmt'],
-\   'typescript': ['tsserver', 'typecheck', 'xo'],
+\   'typescript': ['tsserver', 'typecheck', 'eslint'],
 \}
 
 let g:ale_fixers = {
 \   'python': ['autopep8'],
 \   'terraform': ['terraform'],
-\   'typescript': ['xo'],
+\   'typescript': ['eslint'],
 \}
 let g:ale_fix_on_save = 0
 
@@ -330,6 +336,7 @@ highlight ALEError cterm=undercurl ctermbg=NONE
 
 nmap <leader>ad <Plug>(ale_detail)
 nmap <leader>af <Plug>(ale_fix)
+nmap <leader>ah <Plug>(ale_hover)
 " 2}}}
 
 " Airline {{{2
