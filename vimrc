@@ -225,7 +225,8 @@ let g:fennel_fuzzy_indent_patterns = [
       \ '^it$',
       \ '^context$',
       \ '^test$',
-      \ '^each-root$'
+      \ '^each-root$',
+      \ '^module$'
       \ ]
 
 " }}}
@@ -370,7 +371,22 @@ endif
 let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
 " 2}}}
 
-" Conjure {{{2
+" Ripgrep {{{2
+" Quick shortcut for rg:
+nnoremap <leader>r :Rg<space>
+
+" 2}}}
+
+" Neovim only {{{2
+
+" Aniseed (& Neovim config) {{{3
+if has('nvim-0.5')
+  packadd! aniseed
+  lua require('aniseed.env').init({input = "~/.vim/fnl"})
+endif
+" 3}}}
+
+" Conjure {{{3
 " Only load in neovim.
 if has('nvim')
   packadd! conjure
@@ -378,32 +394,10 @@ if has('nvim')
 
   " Use a vanilla lua process by default, instead of in-Vim Lua with
   " Aniseed.
-  let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
+  " let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 endif
-" 2}}}
+" 3}}}
 
-" Ripgrep {{{2
-" Quick shortcut for rg:
-nnoremap <leader>r :Rg<space>
-
-" 2}}}
-
-" tree-sitter {{{2
-if has('nvim-0.5')
-  packadd! nvim-treesitter
-
-  lua <<EOF
-  require('nvim-treesitter.configs').setup({
-    ensure_installed = "maintained",
-    highlight = {
-      enable = true,
-    },
-    indent = {
-      enable = true,
-    },
-  })
-EOF
-endif
 " 2}}}
 
 " }}}

@@ -1,0 +1,45 @@
+diff --git a/fnl/aniseed/env.fnl b/fnl/aniseed/env.fnl
+index 0386cc0..d9b7037 100644
+--- a/fnl/aniseed/env.fnl
++++ b/fnl/aniseed/env.fnl
+@@ -22,9 +22,9 @@
+   (let [opts (if (= :table (type opts))
+                opts
+                {})
+-        glob-expr "**/*.fnl" 
+-        fnl-dir (or opts.input (.. config-dir "/fnl"))
+-        lua-dir (or opts.output (.. config-dir "/lua"))]
++        glob-expr "**/*.fnl"
++        fnl-dir (nvim.fn.expand (or opts.input (.. config-dir "/fnl")))
++        lua-dir (nvim.fn.expand (or opts.output (.. config-dir "/lua")))]
+ 
+     ;; Support requiring Lua modules from non-standard output directories.
+     (set package.path (.. package.path ";" lua-dir "/?.lua"))
+diff --git a/lua/aniseed/deps/fennel.lua b/lua/aniseed/deps/fennel.lua
+index 520dc01..abb056d 100644
+--- a/lua/aniseed/deps/fennel.lua
++++ b/lua/aniseed/deps/fennel.lua
+@@ -3279,7 +3279,7 @@ package.preload["aniseed.fennel.parser"] = package.preload["aniseed.fennel.parse
+         end
+       end
+       local function escape_char(c)
+-        return ({nil, nil, nil, nil, nil, nil, "\\a", "\\b", "\\t", "\\n", "\\v", "\\f", "\\r"})[c:byte()]
++        return ({[10] = "\\n", [11] = "\\v", [12] = "\\f", [13] = "\\r", [7] = "\\a", [8] = "\\b", [9] = "\\t"})[c:byte()]
+       end
+       local function parse_string()
+         table.insert(stack, {closer = 34})
+diff --git a/lua/aniseed/env.lua b/lua/aniseed/env.lua
+index 2c6f355..29f74d9 100644
+--- a/lua/aniseed/env.lua
++++ b/lua/aniseed/env.lua
+@@ -81,8 +81,8 @@ do
+         opts0 = {}
+       end
+       local glob_expr = "**/*.fnl"
+-      local fnl_dir = (opts0.input or (config_dir .. "/fnl"))
+-      local lua_dir = (opts0.output or (config_dir .. "/lua"))
++      local fnl_dir = nvim.fn.expand((opts0.input or (config_dir .. "/fnl")))
++      local lua_dir = nvim.fn.expand((opts0.output or (config_dir .. "/lua")))
+       package.path = (package.path .. ";" .. lua_dir .. "/?.lua")
+       local function _4_(path)
+         if fs["macro-file-path?"](path) then
