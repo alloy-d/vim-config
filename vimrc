@@ -377,16 +377,14 @@ nnoremap <leader>r :Rg<space>
 
 " 2}}}
 
-" Neovim only {{{2
-
-" Aniseed (& Neovim config) {{{3
+" Aniseed (& Neovim config) {{{2
 if has('nvim-0.5')
   packadd! aniseed
   lua require('aniseed.env').init({input = "~/.vim/fnl"})
 endif
-" 3}}}
+" 2}}}
 
-" Conjure {{{3
+" Conjure {{{2
 " Only load in neovim.
 if has('nvim')
   packadd! conjure
@@ -396,8 +394,6 @@ if has('nvim')
   " Aniseed.
   " let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 endif
-" 3}}}
-
 " 2}}}
 
 " }}}
