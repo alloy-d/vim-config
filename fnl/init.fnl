@@ -12,13 +12,34 @@
       (configs.setup {:ensure_installed :maintained
                       :highlight {:enable true}
                       :indent {:enable true
-                               :disable [:fennel]}})))
+                               :disable [:fennel :typescript]}}))
+
+    (nvim.set_keymap
+      :n "<F2>"
+      (.. ":setlocal foldexpr=nvim_treesitter#foldexpr()<CR>"
+          ":setlocal foldmethod=expr<CR>")
+      {:noremap true :silent true}))
 
 (do ;; LSP setup
     (packadd! :nvim-lspconfig)
     (local lspconfig (require :lspconfig))
 
     (local servers [:pyls :tsserver])
+
+    (local border
+      [["🭽" :FloatBorder]
+       ["▔" :FloatBorder]
+       ["🭾" :FloatBorder]
+       ["▕" :FloatBorder]
+       ["🭿" :FloatBorder]
+       ["▁" :FloatBorder]
+       ["🭼" :FloatBorder]
+       ["▏" :FloatBorder]])
+
+    (vim.cmd
+      "autocmd ColorScheme * highlight NormalFloat guibg=DarkGrey")
+    (vim.cmd
+      "autocmd ColorScheme * highlight FloatBorder guibg=DarkGrey guifg=white")
 
     (fn on-attach [client bufnr]
       (fn buf-set-keymap [...]
@@ -29,25 +50,30 @@
       (buf-set-option :omnifunc "v:lua.vim.lsp.omnifunc")
 
       (let [opts {:noremap true :silent true}
-            mappings {"gD" "<Cmd>lua vim.lsp.buf.declaration()<CR>"
-                      "gd" "<Cmd>lua vim.lsp.buf.definition()<CR>"
-                      "K" "<Cmd>lua vim.lsp.buf.hover()<CR>"
-                      "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>"
-                      "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>"
-                      "<localleader>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>"
-                      "<localleader>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>"
-                      "<localleader>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>"
-                      "<localleader>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>"
-                      "<localleader>rn" "<cmd>lua vim.lsp.buf.rename()<CR>"
-                      "<localleader>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>"
-                      "gr" "<cmd>lua vim.lsp.buf.references()<CR>"
-                      "<localleader>e" "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>"
-                      "[d" "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>"
-                      "]d" "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>"
-                      "<localleader>q" "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>"
-                      "<localleader>f" "<cmd>lua vim.lsp.buf.formatting()<CR>"}]
-        (each [key command (pairs mappings)]
-          (buf-set-keymap :n key command opts))))
+            mappings {"gD" :vim.lsp.buf.declaration
+                      "gd" :vim.lsp.buf.definition
+                      "K" :vim.lsp.buf.hover
+                      "gi" :vim.lsp.buf.implementation
+                      "<C-k>" :vim.lsp.buf.signature_help
+                      "<localleader>wa" :vim.lsp.buf.add_workspace_folder
+                      "<localleader>wr" :vim.lsp.buf.remove_workspace_folder
+                      "<localleader>D" :vim.lsp.buf.type_definition
+                      "<localleader>rn" :vim.lsp.buf.rename
+                      "<localleader>ca" :vim.lsp.buf.code_action
+                      "gr" :vim.lsp.buf.references
+                      "<localleader>e" :vim.lsp.diagnostic.show_line_diagnostics
+                      "[d" :vim.lsp.diagnostic.goto_prev
+                      "]d" :vim.lsp.diagnostic.goto_next
+                      "<localleader>q" :vim.lsp.diagnostic.set_loclist
+                      "<localleader>f" :vim.lsp.buf.formatting}]
+        (each [key function-name (pairs mappings)]
+          (let [command (.. "<cmd>lua " function-name "()<CR>")]
+            (buf-set-keymap :n key command opts))))
+
+      (tset vim.lsp.handlers :textDocument/hover
+            (vim.lsp.with vim.lsp.handlers.hover {: border}))
+      (tset vim.lsp.handlers :textDocument/signatureHelp
+            (vim.lsp.with vim.lsp.handlers.hover {: border})))
 
     (each [_ server (ipairs servers)]
       (let [server-setup (. (. lspconfig server) :setup)]

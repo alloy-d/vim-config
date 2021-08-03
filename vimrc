@@ -326,7 +326,7 @@ nmap <C-c>r <Plug>SetTmuxVars
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'terraform': ['fmt'],
-\   'typescript': ['tsserver', 'typecheck', 'eslint'],
+\   'typescript': [],
 \}
 
 let g:ale_fixers = {
