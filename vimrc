@@ -330,6 +330,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
+\   'javascript': ['eslint'],
 \   'python': ['autopep8'],
 \   'terraform': ['terraform'],
 \   'typescript': ['eslint'],
