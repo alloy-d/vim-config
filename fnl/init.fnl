@@ -24,7 +24,7 @@
     (packadd! :nvim-lspconfig)
     (local lspconfig (require :lspconfig))
 
-    (local servers [:pyls :tsserver])
+    (local servers [:tsserver])
 
     (local border
       [["🭽" :FloatBorder]
