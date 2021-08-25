@@ -200,6 +200,9 @@ augroup extrafiletypedetect
   " JSON with comments:
   autocmd BufEnter package.json setfiletype jsonc
   autocmd BufEnter tsconfig.json setfiletype jsonc
+
+  " Gauge specs are markdown:
+  autocmd BufEnter *.spec setfiletype markdown
 augroup end
 
 " These are the defaults, plus the new with-open and some extra testing macros I use.
