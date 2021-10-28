@@ -124,3 +124,6 @@
 [submodule "pack/all/start/vim-jq"]
 	path = pack/all/start/vim-jq
 	url = https://github.com/bfrg/vim-jq.git
+[submodule "pack/all/start/vim-graphql"]
+	path = pack/all/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql
