@@ -127,3 +127,6 @@
 [submodule "pack/all/start/vim-elixir"]
 	path = pack/all/start/vim-elixir
 	url = https://github.com/elixir-editors/vim-elixir.git
+[submodule "pack/all/start/vim-graphql"]
+	path = pack/all/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql
