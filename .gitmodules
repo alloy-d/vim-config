@@ -130,3 +130,6 @@
 [submodule "pack/all/start/vim-graphql"]
 	path = pack/all/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
+[submodule "pack/all/start/elvish.vim"]
+	path = pack/all/start/elvish.vim
+	url = https://github.com/dmix/elvish.vim
