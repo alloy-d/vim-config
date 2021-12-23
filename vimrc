@@ -162,6 +162,9 @@ autocmd BufEnter *.{c,h} setlocal cindent
 
 " For lispy languages, use lisp indenting.
 autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
+
+" For Rust, use 4 spaces.
+autocmd BufEnter *.rs setlocal tabstop=4 shiftwidth=4 softtabstop=4
 " }}}
 
 " File type overrides {{{

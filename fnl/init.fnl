@@ -22,19 +22,13 @@
 
 (do ;; LSP setup
   (packadd! :nvim-lspconfig)
+  (packadd! :cmp-nvim-lsp)
+
   (local lspconfig (require :lspconfig))
+  (local cmp-nvim-lsp (require :cmp_nvim_lsp))
 
-  (local servers [:tsserver])
-
-  (local border
-    [["🭽" :FloatBorder]
-     ["▔" :FloatBorder]
-     ["🭾" :FloatBorder]
-     ["▕" :FloatBorder]
-     ["🭿" :FloatBorder]
-     ["▁" :FloatBorder]
-     ["🭼" :FloatBorder]
-     ["▏" :FloatBorder]])
+  (local servers [:rust_analyzer
+                  :tsserver])
 
   (vim.cmd
     "autocmd ColorScheme * highlight NormalFloat guibg=DarkGrey")
@@ -63,7 +57,7 @@
                     "gr" :vim.lsp.buf.references
                     "<localleader>e" :vim.lsp.diagnostic.show_line_diagnostics
                     "[d" :vim.lsp.diagnostic.goto_prev
-                      "]d" :vim.lsp.diagnostic.goto_next
+                    "]d" :vim.lsp.diagnostic.goto_next
                     "<localleader>q" :vim.lsp.diagnostic.set_loclist
                     "<localleader>f" :vim.lsp.buf.formatting}]
       (each [key function-name (pairs mappings)]
@@ -71,10 +65,40 @@
           (buf-set-keymap :n key command opts))))
 
     (tset vim.lsp.handlers :textDocument/hover
-          (vim.lsp.with vim.lsp.handlers.hover {: border}))
+          (vim.lsp.with vim.lsp.handlers.hover {:border :rounded}))
     (tset vim.lsp.handlers :textDocument/signatureHelp
-          (vim.lsp.with vim.lsp.handlers.hover {: border})))
+          (vim.lsp.with vim.lsp.handlers.hover {:border :rounded})))
 
-  (each [_ server (ipairs servers)]
-    (let [server-setup (. (. lspconfig server) :setup)]
-      (server-setup {:on_attach on-attach}))))
+  (let [capabilities (cmp-nvim-lsp.update_capabilities
+                       (vim.lsp.protocol.make_client_capabilities))]
+
+    (each [_ server (ipairs servers)]
+      (let [server-setup (. (. lspconfig server) :setup)]
+        (server-setup {:on_attach on-attach
+                       :capabilities capabilities})))))
+
+(do ;; cmp setup
+  (packadd! :nvim-cmp)
+  (packadd! :nvim-snippy)
+  (packadd! :cmp-snippy)
+  (local cmp (require :cmp))
+  (local snippy (require :snippy))
+
+  (cmp.setup
+    {:completion {:autocomplete false}
+     :snippet {:expand (fn [args]
+                         (snippy.expand_snippet args.body))}
+     :mapping {"<C-p>" (cmp.mapping.select_prev_item)
+               "<C-n>" (cmp.mapping.select_next_item)
+               "<CR>" (cmp.mapping.confirm
+                        {:behavior cmp.ConfirmBehavior.Replace
+                         :select true})
+               "<Tab>" (fn [fallback]
+                         (if (cmp.visible)
+                           (cmp.confirm)
+                           (fallback)))
+               "<localleader><Tab>" (cmp.mapping.complete)
+               }
+     :sources (cmp.config.sources [{:name :nvim_lsp}]
+                                  [{:name :buffer}])
+     :experimental {:ghost_text true}}))

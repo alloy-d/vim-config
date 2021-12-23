@@ -73,9 +73,6 @@
 [submodule "pack/all/start/vim-fish"]
 	path = pack/all/start/vim-fish
 	url = https://github.com/blankname/vim-fish.git
-[submodule "pack/all/opt/coc"]
-	path = pack/all/opt/coc
-	url = https://github.com/neoclide/coc.nvim
 [submodule "pack/all/start/vim-jsonc"]
 	path = pack/all/start/vim-jsonc
 	url = https://github.com/kevinoid/vim-jsonc.git
@@ -133,3 +130,15 @@
 [submodule "pack/all/start/elvish.vim"]
 	path = pack/all/start/elvish.vim
 	url = https://github.com/dmix/elvish.vim
+[submodule "pack/all/start/nvim-cmp"]
+	path = pack/all/opt/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "pack/all/start/cmp-nvim-lsp"]
+	path = pack/all/opt/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "pack/all/opt/nvim-snippy"]
+	path = pack/all/opt/nvim-snippy
+	url = https://github.com/dcampos/nvim-snippy
+[submodule "pack/all/opt/cmp-snippy"]
+	path = pack/all/opt/cmp-snippy
+	url = https://github.com/dcampos/cmp-snippy
