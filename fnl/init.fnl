@@ -27,8 +27,10 @@
   (local lspconfig (require :lspconfig))
   (local cmp-nvim-lsp (require :cmp_nvim_lsp))
 
-  (local servers [:rust_analyzer
-                  :tsserver])
+  (local servers {:denols {:init_options {:enable true :lint true}
+                           :root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc")}
+                  :rust_analyzer {}
+                  :tsserver {:root_dir (lspconfig.util.root_pattern "tsconfig.json" "package.json")}})
 
   (vim.cmd
     "autocmd ColorScheme * highlight NormalFloat guibg=DarkGrey")
@@ -72,10 +74,13 @@
   (let [capabilities (cmp-nvim-lsp.update_capabilities
                        (vim.lsp.protocol.make_client_capabilities))]
 
-    (each [_ server (ipairs servers)]
-      (let [server-setup (. (. lspconfig server) :setup)]
-        (server-setup {:on_attach on-attach
-                       :capabilities capabilities})))))
+    (each [server extra-config (pairs servers)]
+      (let [server-setup (. (. lspconfig server) :setup)
+            config {:on_attach on-attach
+                    :capabilities capabilities}]
+        (each [key value (pairs extra-config)]
+          (tset config key value))
+        (server-setup config)))))
 
 (do ;; cmp setup
   (packadd! :nvim-cmp)
