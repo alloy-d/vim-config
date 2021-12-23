@@ -142,3 +142,6 @@
 [submodule "pack/all/opt/cmp-snippy"]
 	path = pack/all/opt/cmp-snippy
 	url = https://github.com/dcampos/cmp-snippy
+[submodule "pack/all/opt/rust-tools.nvim"]
+	path = pack/all/opt/rust-tools.nvim
+	url = https://github.com/simrat39/rust-tools.nvim/

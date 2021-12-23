@@ -23,13 +23,14 @@
 (do ;; LSP setup
   (packadd! :nvim-lspconfig)
   (packadd! :cmp-nvim-lsp)
+  (packadd! :rust-tools.nvim)
 
   (local lspconfig (require :lspconfig))
   (local cmp-nvim-lsp (require :cmp_nvim_lsp))
 
   (local servers {:denols {:init_options {:enable true :lint true}
                            :root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc")}
-                  :rust_analyzer {}
+                  ;:rust_analyzer => set up separately below because rust-tools is "helpful"
                   :tsserver {:root_dir (lspconfig.util.root_pattern "tsconfig.json" "package.json")}})
 
   (vim.cmd
@@ -72,15 +73,24 @@
           (vim.lsp.with vim.lsp.handlers.hover {:border :rounded})))
 
   (let [capabilities (cmp-nvim-lsp.update_capabilities
-                       (vim.lsp.protocol.make_client_capabilities))]
+                       (vim.lsp.protocol.make_client_capabilities))
+        make-config (fn [?extra-config]
+                      (let [config {:on_attach on-attach
+                                  :capabilities capabilities}]
+                        (when ?extra-config
+                          (each [key value (pairs ?extra-config)]
+                            (tset config key value)))
+
+                        config))]
 
     (each [server extra-config (pairs servers)]
-      (let [server-setup (. (. lspconfig server) :setup)
-            config {:on_attach on-attach
-                    :capabilities capabilities}]
-        (each [key value (pairs extra-config)]
-          (tset config key value))
-        (server-setup config)))))
+      (let [server-setup (. (. lspconfig server) :setup)]
+        (server-setup (make-config extra-config))))
+
+    ;; rust-tools configures rust-analyzer, so we have to set it up here.
+    (let [rust-tools (require :rust-tools)]
+      (rust-tools.setup
+        {:server (make-config)}))))
 
 (do ;; cmp setup
   (packadd! :nvim-cmp)
