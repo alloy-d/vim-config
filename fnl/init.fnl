@@ -5,6 +5,13 @@
 (macro packadd! [...]
   `(nvim.ex.packadd_ ,...))
 
+;; Point neovim to a special python virtualenv just for it.
+;; This allows working within python codebases' virtualenvs without
+;; having to mangle them with neovim-specific stuff.
+(let [nvim-venv-bin (nvim.fn.expand "~/.config/nvim/neovim-venv/bin/")]
+  (tset nvim.g :python3_host_prog (.. nvim-venv-bin "python"))
+  (tset nvim.env :PATH (.. nvim-venv-bin ":" nvim.env.PATH)))
+
 (do ;; tree-sitter setup
   (packadd! :nvim-treesitter)
 
@@ -30,6 +37,8 @@
 
   (local servers {:denols {:init_options {:enable true :lint true}
                            :root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc")}
+                  :pylsp {:settings {:configurationSources [:flake8 :mypy]
+                                     :formatCommand [:black]}}
                   ;:rust_analyzer => set up separately below because rust-tools is "helpful"
                   :tsserver {:root_dir (lspconfig.util.root_pattern "tsconfig.json" "package.json")}})
 
