@@ -35,7 +35,8 @@
   (local lspconfig (require :lspconfig))
   (local cmp-nvim-lsp (require :cmp_nvim_lsp))
 
-  (local servers {:denols {:init_options {:enable true :lint true}
+  (local servers {:denols {:autostart false
+                           :init_options {:enable true :lint true}
                            :root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc")}
                   :pylsp {:settings {:configurationSources [:flake8 :mypy]
                                      :formatCommand [:black]}}
@@ -93,13 +94,32 @@
                         config))]
 
     (each [server extra-config (pairs servers)]
-      (let [server-setup (. (. lspconfig server) :setup)]
-        (server-setup (make-config extra-config))))
+      (let [server-setup (. (. lspconfig server) :setup)
+            server-config (make-config extra-config)]
+        ; This lovely hack removes the ambiguity of whether I want to
+        ; format with tsserver or null-ls.  I never want tsserver.
+        (when (= server :tsserver)
+          (let [default-on-attach server-config.on_attach
+                hacked-on-attach (fn [client bufnr]
+                                   (tset client.resolved_capabilities :document_formatting false)
+                                   (tset client.resolved_capabilities :document_range_formatting false)
+                                   (default-on-attach client bufnr))]
+            (tset server-config :on_attach hacked-on-attach)))
+        (server-setup server-config)))
 
     ;; rust-tools configures rust-analyzer, so we have to set it up here.
     (let [rust-tools (require :rust-tools)]
       (rust-tools.setup
         {:server (make-config)}))))
+
+(do ;; null-ls setup
+  (packadd! :plenary.nvim)
+  (packadd! :null-ls.nvim)
+  (local null-ls (require :null-ls))
+  (local sources
+    [null-ls.builtins.formatting.prettier])
+
+  (null-ls.setup { : sources }))
 
 (do ;; cmp setup
   (packadd! :nvim-cmp)

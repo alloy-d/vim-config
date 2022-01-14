@@ -145,3 +145,9 @@
 [submodule "pack/all/opt/rust-tools.nvim"]
 	path = pack/all/opt/rust-tools.nvim
 	url = https://github.com/simrat39/rust-tools.nvim/
+[submodule "pack/all/opt/null-ls.nvim"]
+	path = pack/all/opt/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim
+[submodule "pack/all/opt/plenary.nvim"]
+	path = pack/all/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
