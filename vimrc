@@ -252,6 +252,9 @@ vnoremap <F1> <ESC>
 " Add a binding to quit all (helpful for git difftool).
 nnoremap <F4> :qa<cr>
 
+" Make yanking to clipboard easier.
+vnoremap <leader>y "+y
+
 " Mirror tmux's split management bindings: {{{2
 nnoremap <C-w>% :vsplit<cr>
 nnoremap <C-w>" :split<cr>
