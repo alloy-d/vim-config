@@ -179,6 +179,9 @@ augroup extrafiletypedetect
   " direnv configuration:
   autocmd BufEnter .envrc setfiletype sh
 
+  " redo files are bash by default:
+  autocmd BufEnter *.do setfiletype bash
+
   " ASDF system definitions:
   autocmd BufEnter *.asd setfiletype lisp
   " LaTeX document class files:
@@ -206,6 +209,9 @@ augroup extrafiletypedetect
 
   " Gauge specs are markdown:
   autocmd BufEnter *.spec setfiletype markdown
+
+  " SQL uses SQL comments:
+  autocmd BufEnter *.sql setlocal commentstring=--\ %s
 augroup end
 
 " These are the defaults, plus the new with-open and some extra testing macros I use.
