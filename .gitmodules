@@ -35,7 +35,7 @@
 	path = pack/all/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/ale"]
-	path = pack/all/start/ale
+	path = pack/all/opt/ale
 	url = https://github.com/dense-analysis/ale
 [submodule "bundle/vim-sleuth"]
 	path = pack/all/opt/vim-sleuth
