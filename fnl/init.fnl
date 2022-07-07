@@ -38,8 +38,13 @@
   (local servers {:denols {:autostart false
                            :init_options {:enable true :lint true}
                            :root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc")}
-                  :pylsp {:settings {:configurationSources [:flake8 :mypy]
-                                     :formatCommand [:black]}}
+                  ; :pylsp {:settings {:pylsp {:configurationSources [:flake8 :mypy]
+                  ;                            :plugins {:flake8 {:config ".flake8" :enabled true}
+                  ;                                      :black {:enabled true}
+                  ;                                      :pycodestyle {:enabled false}
+                  ;                                      :pylint {:enabled false}}
+                  ;                            :formatCommand [:black]}}}
+                  :pyright {}
                   ;:rust_analyzer => set up separately below because rust-tools is "helpful"
                   :tsserver {:root_dir (lspconfig.util.root_pattern "tsconfig.json" "package.json")}})
 
