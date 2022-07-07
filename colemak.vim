@@ -15,13 +15,13 @@ vnoremap k n
 " Movement {{{1
 
 " Normal mode:
-nnoremap n gj
-nnoremap e gk
+nnoremap n j
+nnoremap e k
 nnoremap i l
 
 " Visual mode:
-vnoremap n gj
-vnoremap e gk
+vnoremap n j
+vnoremap e k
 vnoremap i l
 
 " Moving among splits:
