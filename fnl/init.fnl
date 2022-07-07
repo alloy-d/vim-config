@@ -16,7 +16,7 @@
   (packadd! :nvim-treesitter)
 
   (let [configs (require :nvim-treesitter.configs)]
-    (configs.setup {:ensure_installed :maintained
+    (configs.setup {:ensure_installed :all
                     :highlight {:enable true}
                     :indent {:enable true
                              :disable []}}))
