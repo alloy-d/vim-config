@@ -73,10 +73,10 @@
                     "<localleader>rn" :vim.lsp.buf.rename
                     "<localleader>ca" :vim.lsp.buf.code_action
                     "gr" :vim.lsp.buf.references
-                    "<localleader>e" :vim.lsp.diagnostic.show_line_diagnostics
-                    "[d" :vim.lsp.diagnostic.goto_prev
-                    "]d" :vim.lsp.diagnostic.goto_next
-                    "<localleader>q" :vim.lsp.diagnostic.set_loclist
+                    "<localleader>e" :vim.diagnostic.open_float
+                    "[d" :vim.diagnostic.goto_prev
+                    "]d" :vim.diagnostic.goto_next
+                    "<localleader>q" :vim.diagnostic.setloclist
                     "<localleader>f" :vim.lsp.buf.formatting}]
       (each [key function-name (pairs mappings)]
         (let [command (.. "<cmd>lua " function-name "()<CR>")]
@@ -87,8 +87,7 @@
     (tset vim.lsp.handlers :textDocument/signatureHelp
           (vim.lsp.with vim.lsp.handlers.hover {:border :rounded})))
 
-  (let [capabilities (cmp-nvim-lsp.update_capabilities
-                       (vim.lsp.protocol.make_client_capabilities))
+  (let [capabilities (cmp-nvim-lsp.default_capabilities)
         make-config (fn [?extra-config]
                       (let [config {:on_attach on-attach
                                   :capabilities capabilities}]
