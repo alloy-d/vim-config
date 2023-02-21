@@ -455,6 +455,12 @@ endif
 if !has('gui_running')
   set bg=dark
 
+  " No mouse support in terminal, please!
+  "
+  " It makes kitty prevent me from selecting and copying stuff anywhere
+  " in the window.
+  set mouse=
+
   if filereadable(expand("~/.vimrc_background"))
     " If using base16-shell, this is set up for us.
     let base16colorspace=256
