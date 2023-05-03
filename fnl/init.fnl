@@ -105,8 +105,8 @@
         (when (= server :tsserver)
           (let [default-on-attach server-config.on_attach
                 hacked-on-attach (fn [client bufnr]
-                                   (tset client.resolved_capabilities :document_formatting false)
-                                   (tset client.resolved_capabilities :document_range_formatting false)
+                                   (tset client.server_capabilities :document_formatting false)
+                                   (tset client.server_capabilities :document_range_formatting false)
                                    (default-on-attach client bufnr))]
             (tset server-config :on_attach hacked-on-attach)))
         (server-setup server-config)))
