@@ -409,6 +409,8 @@ if has('nvim')
   " Use a vanilla lua process by default, instead of in-Vim Lua with
   " Aniseed.
   " let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
+  let g:conjure#filetype#sql = v:false
+  let g:conjure#filetype#python = v:false
 endif
 " 2}}}
 
