@@ -1,153 +1,153 @@
 [submodule "bundle/vim-surround"]
-	path = pack/all/start/vim-surround
+	path = probation-zone/all/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-repeat"]
-	path = pack/all/start/vim-repeat
+	path = probation-zone/all/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/badwolf"]
-	path = pack/all/opt/badwolf
+	path = probation-zone/all/opt/badwolf
 	url = https://github.com/sjl/badwolf.git
 [submodule "bundle/ctrlp"]
-	path = pack/all/start/ctrlp
+	path = probation-zone/all/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "bundle/rainbow_parentheses"]
-	path = pack/all/start/rainbow_parentheses
+	path = probation-zone/all/start/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "bundle/vim-airline"]
-	path = pack/all/opt/vim-airline
+	path = probation-zone/all/opt/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 [submodule "bundle/vim-better-whitespace"]
-	path = pack/all/start/vim-better-whitespace
+	path = probation-zone/all/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
 [submodule "bundle/vim-gitgutter"]
-	path = pack/all/start/vim-gitgutter
+	path = probation-zone/all/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-airline-themes"]
-	path = pack/all/opt/vim-airline-themes
+	path = probation-zone/all/opt/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
 [submodule "bundle/vim-sexp"]
-	path = pack/all/start/vim-sexp
+	path = probation-zone/all/start/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
 [submodule "bundle/vim-sexp-mappings-for-regular-people"]
-	path = pack/all/start/vim-sexp-mappings-for-regular-people
+	path = probation-zone/all/start/vim-sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
 [submodule "bundle/typescript-vim"]
-	path = pack/all/start/typescript-vim
+	path = probation-zone/all/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/ale"]
-	path = pack/all/opt/ale
+	path = probation-zone/all/opt/ale
 	url = https://github.com/dense-analysis/ale
 [submodule "bundle/vim-sleuth"]
-	path = pack/all/opt/vim-sleuth
+	path = probation-zone/all/opt/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
 [submodule "bundle/vim-terraform"]
-	path = pack/all/start/vim-terraform
+	path = probation-zone/all/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
 [submodule "pack/all/start/editorconfig-vim"]
-	path = pack/all/start/editorconfig-vim
+	path = probation-zone/all/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
 [submodule "pack/all/start/swift.vim"]
-	path = pack/all/start/swift.vim
+	path = probation-zone/all/start/swift.vim
 	url = https://github.com/keith/swift.vim
 [submodule "pack/all/start/vim-tmux-navigator"]
-	path = pack/all/start/vim-tmux-navigator
+	path = probation-zone/all/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
 [submodule "pack/all/start/vim-easy-align"]
-	path = pack/all/opt/vim-easy-align
+	path = probation-zone/all/opt/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "pack/all/start/tslime.vim"]
-	path = pack/all/start/tslime.vim
+	path = probation-zone/all/start/tslime.vim
 	url = https://github.com/jgdavey/tslime.vim
 [submodule "pack/all/start/seiya.vim"]
-	path = pack/all/start/seiya.vim
+	path = probation-zone/all/start/seiya.vim
 	url = https://github.com/alloy-d/seiya.vim.git
 [submodule "pack/all/start/vlime"]
-	path = pack/all/start/vlime
+	path = probation-zone/all/start/vlime
 	url = https://github.com/vlime/vlime
 [submodule "pack/all/start/taskpaper.vim"]
-	path = pack/all/start/taskpaper.vim
+	path = probation-zone/all/start/taskpaper.vim
 	url = https://github.com/davidoc/taskpaper.vim.git
 [submodule "pack/all/start/vim-ripgrep"]
-	path = pack/all/start/vim-ripgrep
+	path = probation-zone/all/start/vim-ripgrep
 	url = https://github.com/jremmen/vim-ripgrep.git
 [submodule "pack/all/start/vim-fish"]
-	path = pack/all/start/vim-fish
+	path = probation-zone/all/start/vim-fish
 	url = https://github.com/blankname/vim-fish.git
 [submodule "pack/all/start/vim-jsonc"]
-	path = pack/all/start/vim-jsonc
+	path = probation-zone/all/start/vim-jsonc
 	url = https://github.com/kevinoid/vim-jsonc.git
 [submodule "pack/all/opt/Colorizer"]
-	path = pack/all/opt/Colorizer
+	path = probation-zone/all/opt/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
 [submodule "pack/all/start/vim-startify"]
-	path = pack/all/start/vim-startify
+	path = probation-zone/all/start/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
 [submodule "pack/all/start/fennel.vim"]
-	path = pack/all/start/fennel.vim
+	path = probation-zone/all/start/fennel.vim
 	url = https://github.com/bakpakin/fennel.vim
 [submodule "pack/all/start/aniseed"]
-	path = pack/all/start/aniseed
+	path = probation-zone/all/start/aniseed
 	url = https://github.com/Olical/aniseed
 [submodule "pack/all/start/conjure"]
-	path = pack/all/opt/conjure
+	path = probation-zone/all/opt/conjure
 	url = https://github.com/Olical/conjure
 [submodule "pack/all/start/janet.vim"]
-	path = pack/all/start/janet.vim
+	path = probation-zone/all/start/janet.vim
 	url = https://github.com/janet-lang/janet.vim
 [submodule "pack/all/start/goyo.vim"]
-	path = pack/all/start/goyo.vim
+	path = probation-zone/all/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "pack/all/start/vim-jsx-pretty"]
-	path = pack/all/start/vim-jsx-pretty
+	path = probation-zone/all/start/vim-jsx-pretty
 	url = https://github.com/maxmellon/vim-jsx-pretty
 [submodule "pack/all/start/vim-styled-jsx"]
-	path = pack/all/start/vim-styled-jsx
+	path = probation-zone/all/start/vim-styled-jsx
 	url = https://github.com/alampros/vim-styled-jsx.git
 [submodule "pack/all/start/vim-python-pep8-indent"]
-	path = pack/all/start/vim-python-pep8-indent
+	path = probation-zone/all/start/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
 [submodule "pack/all/start/nvim-treesitter"]
-	path = pack/all/opt/nvim-treesitter
+	path = probation-zone/all/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule "pack/all/start/vim-vinegar"]
-	path = pack/all/start/vim-vinegar
+	path = probation-zone/all/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
 [submodule "pack/all/start/vim-commentary"]
-	path = pack/all/start/vim-commentary
+	path = probation-zone/all/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule "pack/all/opt/nvim-lspconfig"]
-	path = pack/all/opt/nvim-lspconfig
+	path = probation-zone/all/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
 [submodule "pack/all/start/vim-jq"]
-	path = pack/all/start/vim-jq
+	path = probation-zone/all/start/vim-jq
 	url = https://github.com/bfrg/vim-jq.git
 [submodule "pack/all/start/vim-elixir"]
-	path = pack/all/start/vim-elixir
+	path = probation-zone/all/start/vim-elixir
 	url = https://github.com/elixir-editors/vim-elixir.git
 [submodule "pack/all/start/vim-graphql"]
-	path = pack/all/start/vim-graphql
+	path = probation-zone/all/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
 [submodule "pack/all/start/elvish.vim"]
-	path = pack/all/start/elvish.vim
+	path = probation-zone/all/start/elvish.vim
 	url = https://github.com/dmix/elvish.vim
 [submodule "pack/all/start/nvim-cmp"]
-	path = pack/all/opt/nvim-cmp
+	path = probation-zone/all/opt/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp
 [submodule "pack/all/start/cmp-nvim-lsp"]
-	path = pack/all/opt/cmp-nvim-lsp
+	path = probation-zone/all/opt/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
 [submodule "pack/all/opt/nvim-snippy"]
-	path = pack/all/opt/nvim-snippy
+	path = probation-zone/all/opt/nvim-snippy
 	url = https://github.com/dcampos/nvim-snippy
 [submodule "pack/all/opt/cmp-snippy"]
-	path = pack/all/opt/cmp-snippy
+	path = probation-zone/all/opt/cmp-snippy
 	url = https://github.com/dcampos/cmp-snippy
 [submodule "pack/all/opt/rust-tools.nvim"]
-	path = pack/all/opt/rust-tools.nvim
+	path = probation-zone/all/opt/rust-tools.nvim
 	url = https://github.com/simrat39/rust-tools.nvim/
 [submodule "pack/all/opt/null-ls.nvim"]
-	path = pack/all/opt/null-ls.nvim
+	path = probation-zone/all/opt/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim
 [submodule "pack/all/opt/plenary.nvim"]
-	path = pack/all/opt/plenary.nvim
+	path = probation-zone/all/opt/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
