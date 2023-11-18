@@ -83,7 +83,7 @@
 	path = probation-zone/all/start/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
 [submodule "pack/all/start/fennel.vim"]
-	path = probation-zone/all/start/fennel.vim
+	path = pack/all/start/fennel.vim
 	url = https://github.com/bakpakin/fennel.vim
 [submodule "pack/all/start/aniseed"]
 	path = probation-zone/all/start/aniseed
@@ -107,7 +107,7 @@
 	path = probation-zone/all/start/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
 [submodule "pack/all/start/nvim-treesitter"]
-	path = probation-zone/all/opt/nvim-treesitter
+	path = pack/all/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule "pack/all/start/vim-vinegar"]
 	path = probation-zone/all/start/vim-vinegar
@@ -151,3 +151,6 @@
 [submodule "pack/all/opt/plenary.nvim"]
 	path = probation-zone/all/opt/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "pack/all/start/nfnl"]
+	path = pack/all/start/nfnl
+	url = https://github.com/Olical/nfnl
