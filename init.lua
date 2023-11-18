@@ -7,6 +7,15 @@ do end (vim.o)["relativenumber"] = true
 vim.o["number"] = true
 vim.o["mouse"] = nil
 do
+  local base16_setter = vim.fs.normalize("~/.vimrc_background")
+  if vim.fn.filereadable(base16_setter) then
+    do end (vim.opt.runtimepath):append("~/.local/share/base16/vim")
+    do end (vim.g)["base16colorspace"] = 256
+    vim.cmd.source(base16_setter)
+  else
+  end
+end
+do
   local treesitter = require("nvim-treesitter.configs")
   treesitter.setup({ensure_installed = {"fennel", "lua"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}})
 end

@@ -20,6 +20,12 @@
 ; even in a different tmux pane.
 (tset vim.o :mouse nil)
 
+(let [base16-setter (vim.fs.normalize "~/.vimrc_background")]
+  (when (vim.fn.filereadable base16-setter)
+    (vim.opt.runtimepath:append "~/.local/share/base16/vim")
+    (tset vim.g :base16colorspace 256)
+    (vim.cmd.source base16-setter)))
+
 ;; }}}
 
 ;; tree-sitter {{{
