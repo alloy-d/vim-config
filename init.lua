@@ -2,5 +2,21 @@
 vim.cmd.runtime("colemak.vim")
 vim.keymap.set("n", "<C-w>%", "<cmd>vsplit<cr>")
 vim.keymap.set("n", "<C-w>\"", "<cmd>split<cr>")
-local treesitter = require("nvim-treesitter.configs")
-return treesitter.setup({ensure_installed = {"fennel", "lua"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}})
+do end (vim.o)["relativenumber"] = true
+vim.o["number"] = true
+do
+  local treesitter = require("nvim-treesitter.configs")
+  treesitter.setup({ensure_installed = {"fennel", "lua"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}})
+end
+local function on_lsp_attach(ev)
+  vim["bo"][ev.buf]["omnifunc"] = "v:lua.vim.lsp.omnifunc"
+  local opts = {buffer = ev.buf}
+  local mappings = {gD = vim.lsp.buf.declaration, gd = vim.lsp.buf.definition, K = vim.lsp.buf.hover, gi = vim.lsp.buf.implementation, ["<C-k>"] = vim.lsp.buf.signature_help, ["<localleader>D"] = vim.lsp.buf.type_definition, ["<localleader>rn"] = vim.lsp.buf.rename, ["<localleader>ca"] = vim.lsp.buf.code_action, gr = vim.lsp.buf.references, ["<localleader>e"] = vim.diagnostic.open_float, ["<localleader>q"] = vim.diagnostic.setloclist, ["<localleader>f"] = vim.lsp.buf.formatting}
+  for key, _function in pairs(mappings) do
+    vim.keymap.set("n", key, _function, opts)
+  end
+  return nil
+end
+vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("UserLspConfig", {}), callback = on_lsp_attach})
+local lspconfig = require("lspconfig")
+return lspconfig.fennel_ls.setup({})
