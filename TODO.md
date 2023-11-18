@@ -3,6 +3,7 @@
 - [x] commenting
 - [x] localleader
 - [x] colors
+- [ ] wrapping
 - [ ] surround
 - [ ] sexp
 - [ ] rainbow parens

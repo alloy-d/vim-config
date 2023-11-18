@@ -1,6 +1,6 @@
 ;; vim: set foldmethod=marker:
 
-;; Basics {{{
+;;; Basics {{{
 
 (vim.cmd.runtime :colemak.vim)
 
@@ -12,14 +12,23 @@
 (tset vim.o :relativenumber true)
 (tset vim.o :number true)
 
+;; Open splits to the right and below, like tmux does.
+(tset vim.o :splitright true)
+(tset vim.o :splitbelow true)
+
 ;; }}}
 
-;; UI stuff {{{
+;;; UI stuff {{{
 
-; Mouse support prevents me from copying stuff anywhere in the window,
-; even in a different tmux pane.
+;; Mouse support prevents me from copying stuff anywhere in the window,
+;; even in a different tmux pane.
 (tset vim.o :mouse nil)
 
+;; base16-shell manages ~/.vimrc_background, which tells vim to use
+;; the same base16 colorscheme as everything else.
+;;
+;; I keep a bunch of base16 themes in ~/.local/share/base16,
+;; so I just point the vim there to find the colorschemes.
 (let [base16-setter (vim.fs.normalize "~/.vimrc_background")]
   (when (vim.fn.filereadable base16-setter)
     (vim.opt.runtimepath:append "~/.local/share/base16/vim")
@@ -28,24 +37,24 @@
 
 ;; }}}
 
-;; tree-sitter {{{
+;;; tree-sitter {{{
 
 (let [treesitter (require :nvim-treesitter.configs)]
   (treesitter.setup
     {:ensure_installed [:fennel :lua]
      :auto_install true
      :highlight {:enable true
-                 ; Enable traditional syntax here when languages
-                 ; need a little help with indenting:
+                 ;; Enable traditional syntax here when languages
+                 ;; need a little help with indenting:
                  :additional_vim_regex_highlighting [:fennel]}
      }))
 
 ;; }}}
 
-;; LSP {{{
+;;; LSP {{{
 
-; TODO: set up global bindings for diagnostics?
-; (including moving the ones below?)
+;; TODO: set up global bindings for diagnostics?
+;; (including moving the ones below?)
 
 (fn on-lsp-attach [ev]
   (tset vim :bo ev.buf :omnifunc "v:lua.vim.lsp.omnifunc")

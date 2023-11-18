@@ -5,6 +5,8 @@ vim.keymap.set("n", "<C-w>%", "<cmd>vsplit<cr>")
 vim.keymap.set("n", "<C-w>\"", "<cmd>split<cr>")
 do end (vim.o)["relativenumber"] = true
 vim.o["number"] = true
+vim.o["splitright"] = true
+vim.o["splitbelow"] = true
 vim.o["mouse"] = nil
 do
   local base16_setter = vim.fs.normalize("~/.vimrc_background")
