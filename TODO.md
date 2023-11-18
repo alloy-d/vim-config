@@ -1,10 +1,11 @@
 ## To enable
 
 - [x] commenting
-- [ ] localleader
-- [ ] colors
+- [x] localleader
+- [x] colors
 - [ ] surround
 - [ ] sexp
+- [ ] rainbow parens
 
 ## To learn/remember and use
 

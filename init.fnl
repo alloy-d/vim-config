@@ -4,11 +4,21 @@
 
 (vim.cmd.runtime :colemak.vim)
 
+(tset vim.g :maplocalleader ",")
+
 (vim.keymap.set :n "<C-w>%" "<cmd>vsplit<cr>")
 (vim.keymap.set :n "<C-w>\"" "<cmd>split<cr>") 
 
 (tset vim.o :relativenumber true)
 (tset vim.o :number true)
+
+;; }}}
+
+;; UI stuff {{{
+
+; Mouse support prevents me from copying stuff anywhere in the window,
+; even in a different tmux pane.
+(tset vim.o :mouse nil)
 
 ;; }}}
 
