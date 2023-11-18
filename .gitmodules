@@ -113,7 +113,7 @@
 	path = probation-zone/all/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
 [submodule "pack/all/start/vim-commentary"]
-	path = probation-zone/all/start/vim-commentary
+	path = pack/all/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule "pack/all/opt/nvim-lspconfig"]
 	path = probation-zone/all/opt/nvim-lspconfig
