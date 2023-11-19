@@ -3,6 +3,7 @@
 ;;; Basics {{{
 
 (vim.cmd.runtime :colemak.vim)
+(vim.cmd.runtime :statusline.lua)
 
 (tset vim.g :maplocalleader ",")
 

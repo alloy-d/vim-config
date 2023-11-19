@@ -7,10 +7,12 @@
 - [x] surround
 - [x] sexp
 - [x] rainbow parens
-- [ ] a nice statusline
+- [x] a nice statusline
 - [x] conjure
+- [ ] git gutter
 - [ ] CtrlP or similar
 - [ ] ripgrep
+- [ ] mason?
 
 ## To learn/remember and use
 

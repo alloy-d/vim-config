@@ -1,5 +1,6 @@
 -- [nfnl] Compiled from init.fnl by https://github.com/Olical/nfnl, do not edit.
 vim.cmd.runtime("colemak.vim")
+vim.cmd.runtime("statusline.lua")
 do end (vim.g)["maplocalleader"] = ","
 vim.keymap.set("n", "<C-w>%", "<cmd>vsplit<cr>")
 vim.keymap.set("n", "<C-w>\"", "<cmd>split<cr>")
