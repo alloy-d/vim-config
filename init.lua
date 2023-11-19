@@ -56,5 +56,17 @@ do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
 end
-vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
+do
+  local builtin = require("telescope.builtin")
+  vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+  vim.keymap.set("n", "<leader>fgf", builtin.git_files, {})
+  vim.keymap.set("n", "<leader>flg", builtin.live_grep, {})
+  vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+  vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+end
+local function _2_()
+  return vim.notify("Hey, you decided to use <leader>ff or <leader>fgf!")
+end
+vim.keymap.set("n", "<C-p>", _2_)
+do end (vim.g)["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 return nil

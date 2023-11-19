@@ -149,7 +149,7 @@
 	path = probation-zone/all/opt/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim
 [submodule "pack/all/opt/plenary.nvim"]
-	path = probation-zone/all/opt/plenary.nvim
+	path = pack/all/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
 [submodule "pack/all/start/nfnl"]
 	path = pack/all/start/nfnl
@@ -157,3 +157,6 @@
 [submodule "pack/all/start/rainbow-delimiters.nvim"]
 	path = pack/all/start/rainbow-delimiters.nvim
 	url = https://github.com/HiPhish/rainbow-delimiters.nvim.git
+[submodule "pack/all/start/telescope.nvim"]
+	path = pack/all/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim

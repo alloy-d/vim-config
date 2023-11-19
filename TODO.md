@@ -1,4 +1,4 @@
-## To enable
+## To enable or do
 
 - [x] commenting
 - [x] localleader
@@ -10,9 +10,12 @@
 - [x] a nice statusline
 - [x] conjure
 - [x] git gutter
-- [ ] CtrlP or similar
-- [ ] ripgrep
+- [x] CtrlP or similar
+- [ ] ripgrep (try using Telescope's live_grep first)
 - [ ] mason?
+- [ ] colemak mappings for Telescope
+- [ ] some kind of common map making macro
+- [ ] don't blindly upgrade Telescope like every other package
 
 ## To learn/remember and use
 
@@ -20,6 +23,7 @@
 - [ ] omnifunc completion <C-x><C-o>
 - [ ] LSP functions (rename, type definition...)
 - [ ] C-u to delete the automatically inserted comment after `o` on a comment line
+- [ ] various telescope features
 
 ### Not vim, but discovered along the way
 
