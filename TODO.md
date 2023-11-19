@@ -12,10 +12,12 @@
 - [x] git gutter
 - [x] CtrlP or similar
 - [ ] ripgrep (try using Telescope's live_grep first)
-- [ ] mason?
+- [x] mason?
+- [ ] mason LSP integration
 - [ ] colemak mappings for Telescope
 - [ ] some kind of common map making macro
 - [ ] don't blindly upgrade Telescope like every other package
+- [ ] run `:helptags ALL` after updating packages
 
 ## To learn/remember and use
 
@@ -25,9 +27,10 @@
 - [ ] C-u to delete the automatically inserted comment after `o` on a comment line
 - [ ] various telescope features
 
-### Not vim, but discovered along the way
+### Not vim, but discovered/remembered along the way
 
 - [ ] asciidoc
+- [ ] ranger
 
 ## To remember if things are weird later
 

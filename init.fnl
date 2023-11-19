@@ -140,6 +140,12 @@
          :query {"" :rainbow-delimiters}}))
 ;; 2}}}
 
+;; mason {{{2
+
+;; Modify PATH to include Mason's installed stuff.
+(. (require :mason) :setup)
+;; 2}}}
+
 ;; telescope {{{2
 (let [builtin (require :telescope.builtin)]
   (vim.keymap.set :n "<leader>ff" builtin.find_files {})
@@ -150,7 +156,6 @@
 
 (vim.keymap.set :n "<C-p>" (fn [] (vim.notify "Hey, you decided to use <leader>ff or <leader>fgf!")))
 ;; 2}}}
-
 
 ;; vim-sexp {{{2
 (tset vim.g :sexp_filetypes "clojure,scheme,lisp,fennel,janet")

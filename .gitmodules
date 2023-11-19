@@ -160,3 +160,6 @@
 [submodule "pack/all/start/telescope.nvim"]
 	path = pack/all/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "pack/all/start/mason"]
+	path = pack/all/start/mason
+	url = https://github.com/williamboman/mason.nvim
