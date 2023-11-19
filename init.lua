@@ -3,11 +3,26 @@ vim.cmd.runtime("colemak.vim")
 do end (vim.g)["maplocalleader"] = ","
 vim.keymap.set("n", "<C-w>%", "<cmd>vsplit<cr>")
 vim.keymap.set("n", "<C-w>\"", "<cmd>split<cr>")
+vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
+vim.keymap.set("n", "<F4>", vim.cmd.qa)
+vim.keymap.set("v", "<leader>y", "\"+y")
 do end (vim.o)["relativenumber"] = true
 vim.o["number"] = true
 vim.o["splitright"] = true
 vim.o["splitbelow"] = true
-vim.o["mouse"] = nil
+vim.o["ignorecase"] = true
+vim.o["smartcase"] = true
+vim.o["showmatch"] = true
+vim.o["linebreak"] = true
+vim.o["textwidth"] = 72
+do end (vim.opt.formatoptions):append("n")
+do end (vim.opt.formatoptions):append("1")
+do end (vim.o)["tabstop"] = 2
+vim.o["shiftwidth"] = 2
+vim.o["softtabstop"] = 2
+vim.o["expandtab"] = true
+do end (vim.opt.wildignore):append({"*/.git/*", "*/.hg/*", "*/.svn/*", "*.so", "*/node_modules/*"})
+do end (vim.o)["mouse"] = nil
 do
   local base16_setter = vim.fs.normalize("~/.vimrc_background")
   if vim.fn.filereadable(base16_setter) then
@@ -31,5 +46,9 @@ local function on_lsp_attach(ev)
   return nil
 end
 vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("UserLspConfig", {}), callback = on_lsp_attach})
-local lspconfig = require("lspconfig")
-return lspconfig.fennel_ls.setup({})
+do
+  local lspconfig = require("lspconfig")
+  lspconfig.fennel_ls.setup({})
+end
+vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
+return nil

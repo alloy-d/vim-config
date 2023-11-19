@@ -1,8 +1,8 @@
 [submodule "bundle/vim-surround"]
-	path = probation-zone/all/start/vim-surround
+	path = pack/all/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-repeat"]
-	path = probation-zone/all/start/vim-repeat
+	path = pack/all/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/badwolf"]
 	path = probation-zone/all/opt/badwolf
@@ -26,10 +26,10 @@
 	path = probation-zone/all/opt/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
 [submodule "bundle/vim-sexp"]
-	path = probation-zone/all/start/vim-sexp
+	path = pack/all/start/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
 [submodule "bundle/vim-sexp-mappings-for-regular-people"]
-	path = probation-zone/all/start/vim-sexp-mappings-for-regular-people
+	path = pack/all/start/vim-sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
 [submodule "bundle/typescript-vim"]
 	path = probation-zone/all/start/typescript-vim

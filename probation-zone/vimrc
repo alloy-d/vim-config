@@ -1,102 +1,14 @@
 " vim: set foldmethod=marker:
 
 " Basics {{{
-set shell=/bin/sh
-
-" Don't try to be compatible with vi.
-set nocompatible
-
-" Enable syntax highlighting.
-syntax enable
-
-" Add locally built base16 colors to the runtimepath.
-set runtimepath+=~/.local/share/base16/vim,~/.local/share/base16/vim-airline-themes
-
-" Load my key mappings for Colemak.
-runtime colemak.vim
-
-" Use , for local leader.
-let maplocalleader = ","
-
-" Use utf-8 by default.
-set encoding=utf-8
-
-" Don't unload buffers when they're abandoned.
-set hidden
-
-" Show commands in progress.
-set showcmd
-
-" Show completion options above the command line.
-set wildmenu
-
 " When using tab completion:
 " first complete to the options' longest common substring,
 " then complete each option in full.
 set wildmode=longest,full
 
-" Send more data when redrawing the window.
-set ttyfast
-
-" Put location information in the status line.
-set ruler
-
-" Don't redraw during macros.
-set lazyredraw
-
-" Allow backspacing over indentations, ends of lines,
-" and the start of insertion.
-set backspace=indent,eol,start
-
-" Make search case-insensitive if the search term is lower-case.
-" Otherwise, make the search case-sensitive.
-set ignorecase
-set smartcase
-
-" Apply substitutions globally.
-set gdefault
-
-" Do incremental searching as you type.
-set incsearch
-
-" Highlight search matches.
-set hlsearch
-
-" Jump to matching bracket when inserting its pair.
-set showmatch
-
-" Wrap long lines to display them, if needed.
-set wrap
-
-" ...at sensible, not-in-the-middle-of-a-word points.
-set linebreak
-
-" Use 72-character lines as our ideal.
-set textwidth=72
-
-" Put backups and swap files somewhere else.
-set backup
-set swapfile
-set backupdir=~/.vim-tmp
-set directory=~/.vim-tmp
-
 " Do not automatically reformat lines that were too long before
 " insert mode was started.
 set formatoptions+=l
-
-" Recognize numbered lists when formatting text.
-set formatoptions+=n
-
-" Don't break lines after a single-letter word if possible.
-set formatoptions+=1
-
-" Don't automatically format text by default.
-" (More often than not, I write code, so it makes sense
-" to tune this for text files instead.)
-set formatoptions-=t
-
-" ...but *do* automatically format comments:
-set formatoptions+=c
 
 " Remove comment leaders when joining comment lines.
 set formatoptions+=j
@@ -104,30 +16,8 @@ set formatoptions+=j
 " *Do* automatically format text for plaintext files.
 "autocmd BufEnter *.{txt} setlocal formatoptions+=ta
 
-" Reread buffers when they change.
-set autoread
-
 " Save buffers when hidden.
 set autowrite
-
-" Ignore some common files when globbing.
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/node_modules/*
-
-" Open splits to the right and below, like tmux does.
-set splitright
-set splitbelow
-
-" Enable filetype plugins.
-filetype plugin on
-
-" Instead of showing a line's absolute location in the file,
-" show its distance relative to the current line.
-set relativenumber
-" ...but also show the number of the current line.
-set number
-
-" Highlight the current line.
-"set cursorline
 
 " Statusline
 let s:enabling_airline = 0 "has('gui_running') || has('nvim')
@@ -135,22 +25,10 @@ if s:enabling_airline == 0
   runtime statusline.vim
 end
 
-" Highlight embedded Lua in Vim files.
-let g:vimsyn_embed = 'l'
-
 " }}}
 
 " Indentation {{{
 "
-" Use two-space-wide tabs by default, and indent with spaces.
-set tabstop=2
-" These commented-out settings are managed by vim-sleuth:
-"set shiftwidth=2
-"set softtabstop=2
-"set expandtab
-
-" Do automatic indenting.
-set autoindent
 " Also do smart indenting.
 set smartindent
 
@@ -244,9 +122,7 @@ let g:fennel_fuzzy_indent_patterns = [
 " }}}
 
 " Custom bindings {{{
-" Make <leader><space> hide highlighting for search results.
-nnoremap <leader><space> :nohlsearch<cr>
-
+"
 " Make Esc exit terminal mode.
 tnoremap <Esc> <C-\><C-n>
 
@@ -254,17 +130,6 @@ tnoremap <Esc> <C-\><C-n>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-
-" Add a binding to quit all (helpful for git difftool).
-nnoremap <F4> :qa<cr>
-
-" Make yanking to clipboard easier.
-vnoremap <leader>y "+y
-
-" Mirror tmux's split management bindings: {{{2
-nnoremap <C-w>% :vsplit<cr>
-nnoremap <C-w>" :split<cr>
-" 2}}}
 
 " Show highlight under cursor.
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -381,10 +246,6 @@ if s:enabling_airline
   " Only show the status bar when split.
   set laststatus=1
 endif
-" 2}}}
-
-" Vim-sexp {{{2
-let g:sexp_filetypes = 'clojure,scheme,lisp,fennel,janet'
 " 2}}}
 
 " Ripgrep {{{2

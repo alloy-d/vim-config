@@ -9,12 +9,50 @@
 (vim.keymap.set :n "<C-w>%" "<cmd>vsplit<cr>")
 (vim.keymap.set :n "<C-w>\"" "<cmd>split<cr>") 
 
+(vim.keymap.set :n "<leader><space>" vim.cmd.nohlsearch)
+(vim.keymap.set :n "<F4>" vim.cmd.qa)
+
+(vim.keymap.set :v "<leader>y" "\"+y")  ; yank to clipboard
+
+;; Show relative numbers, making it easier to jump up and down.
+;; But also show the absolute number of the current line.
 (tset vim.o :relativenumber true)
 (tset vim.o :number true)
 
 ;; Open splits to the right and below, like tmux does.
 (tset vim.o :splitright true)
 (tset vim.o :splitbelow true)
+
+;; Make search case-insensitive by default if the pattern contains
+;; only lower-case characters.
+(tset vim.o :ignorecase true)
+(tset vim.o :smartcase true)
+
+(tset vim.o :showmatch true)
+
+;; Put backups and swap files
+
+;; When wrapping lines for display, don't break them in the middle of a word.
+(tset vim.o :linebreak true)
+
+;;; Formatting options {{{
+(tset vim.o :textwidth 72)
+
+(vim.opt.formatoptions:append :n) ; recognize numbered lists
+(vim.opt.formatoptions:append :1) ; break before single-letter words
+
+(tset vim.o :tabstop 2)
+(tset vim.o :shiftwidth 2)
+(tset vim.o :softtabstop 2)
+(tset vim.o :expandtab true)
+;; }}}
+
+(vim.opt.wildignore:append
+  ["*/.git/*"
+   "*/.hg/*"
+   "*/.svn/*"
+   "*.so"
+   "*/node_modules/*"])
 
 ;; }}}
 
@@ -82,5 +120,13 @@
 
 (let [lspconfig (require :lspconfig)]
   (lspconfig.fennel_ls.setup {}))
+
+;; }}}
+
+;;; Various Plugins {{{
+
+;; vim-sexp {{{2
+(tset vim.g :sexp_filetypes "clojure,scheme,lisp,fennel,janet")
+;; 2}}}
 
 ;; }}}
