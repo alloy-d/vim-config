@@ -140,32 +140,6 @@ map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 
 " Plugin configuration {{{
 
-" Rainbow parens {{{2
-" Custom colors, mainly to get rid of black.
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-" 2}}}
-
 " Seiya {{{2
 " 1 => Automatically unset the BG for some highlights.
 let g:seiya_auto_enable = 1
@@ -202,138 +176,12 @@ nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
 " 2}}}
 
-" ALE {{{2
-let g:ale_linters = {
-\   'python': ['flake8'],
-\   'terraform': ['fmt'],
-\   'typescript': [],
-\}
-
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'python': ['autopep8'],
-\   'terraform': ['terraform'],
-\   'typescript': ['eslint'],
-\}
-let g:ale_fix_on_save = 0
-
-" By default this draws a BG that sometimes obscures punctuation.
-"
-" If cterm=undercurl doesn't turn out to be enough, there's also
-" cterm=standout.
-highlight ALEError cterm=undercurl ctermbg=NONE
-
-nmap <leader>ad <Plug>(ale_detail)
-nmap <leader>af <Plug>(ale_fix)
-nmap <leader>ah <Plug>(ale_hover)
-" 2}}}
-
-" Airline {{{2
-if has('nvim')
-  let g:airline_theme = 'minimalist'
-elseif has('gui_running')
-  let g:airline_theme = 'base16'
-endif
-
-if s:enabling_airline
-  let g:airline_powerline_fonts = 1
-  let g:airline_left_sep = ''
-  let g:airline_right_sep = ''
-
-  packadd vim-airline
-  packadd vim-airline-themes
-
-  " Only show the status bar when split.
-  set laststatus=1
-endif
-" 2}}}
-
 " Ripgrep {{{2
 " Quick shortcut for rg:
 nnoremap <leader>r :Rg<space>
 
 " 2}}}
 
-" Aniseed (& Neovim config) {{{2
-if has('nvim-0.5')
-  packadd! aniseed
-  lua require('aniseed.env').init({input = "~/.vim/fnl"})
-endif
-" 2}}}
-
-" Conjure {{{2
-" Only load in neovim.
-if has('nvim')
-  packadd! conjure
-  let g:conjure#log#wrap = 1
-
-  " Use a vanilla lua process by default, instead of in-Vim Lua with
-  " Aniseed.
-  " let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
-  let g:conjure#filetype#sql = v:false
-  let g:conjure#filetype#python = v:false
-endif
-" 2}}}
-
-" }}}
-
-" GUI {{{
-
-if has('gui_running')
-
-  set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h14
-  "colorscheme base16-harmonic-light
-  "colorscheme base16-cupertino
-  colorscheme base16-horizon-dark
-
-
-  " Remove the menubar.
-  set guioptions-=m
-
-  " Remove the toolbar.
-  set guioptions-=T
-
-  " Remove the right scrollbar.
-  set guioptions-=r
-
-  " Remove the left scrollbar in split windows.
-  set guioptions-=L
-
-  " Use console dialogs instead of popups.
-  set guioptions+=c
-
-  " Highlight the current line.
-  set cursorline
-
-  " Give the window 40 lines and 120 columns initially.
-  set lines=40 columns=120
-
-  " Use a visual bell instead of beeping.
-  set visualbell
-endif
-
-" }}}
-
-" Terminal {{{
-if !has('gui_running')
-  set bg=dark
-
-  " No mouse support in terminal, please!
-  "
-  " It makes kitty prevent me from selecting and copying stuff anywhere
-  " in the window.
-  set mouse=
-
-  if filereadable(expand("~/.vimrc_background"))
-    " If using base16-shell, this is set up for us.
-    let base16colorspace=256
-    source ~/.vimrc_background
-
-    if s:enabling_airline
-      AirlineTheme base16
-    endif
-  endif
-endif
 " }}}
 
 " Probationary area {{{

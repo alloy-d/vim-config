@@ -89,7 +89,7 @@
 	path = probation-zone/all/start/aniseed
 	url = https://github.com/Olical/aniseed
 [submodule "pack/all/start/conjure"]
-	path = probation-zone/all/opt/conjure
+	path = pack/all/start/conjure
 	url = https://github.com/Olical/conjure
 [submodule "pack/all/start/janet.vim"]
 	path = probation-zone/all/start/janet.vim

@@ -50,6 +50,7 @@ do
   local lspconfig = require("lspconfig")
   lspconfig.fennel_ls.setup({})
 end
+vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}

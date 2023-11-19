@@ -125,6 +125,13 @@
 
 ;;; Various Plugins {{{
 
+;; Conjure {{{2
+(tset vim.g :conjure
+      {:log {:wrap true}
+       :filetype {:python false
+                  :sql false}})
+;; 2}}}
+
 ;; rainbow delimiters {{{2
 (let [rainbow-delimiters (require :rainbow-delimiters)]
   (tset vim.g :rainbow_delimiters

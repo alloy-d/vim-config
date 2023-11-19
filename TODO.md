@@ -8,6 +8,9 @@
 - [x] sexp
 - [x] rainbow parens
 - [ ] a nice statusline
+- [x] conjure
+- [ ] CtrlP or similar
+- [ ] ripgrep
 
 ## To learn/remember and use
 
@@ -15,6 +18,10 @@
 - [ ] omnifunc completion <C-x><C-o>
 - [ ] LSP functions (rename, type definition...)
 - [ ] C-u to delete the automatically inserted comment after `o` on a comment line
+
+### Not vim, but discovered along the way
+
+- [ ] asciidoc
 
 ## To remember if things are weird later
 
