@@ -18,6 +18,8 @@ vim.o["linebreak"] = true
 vim.o["textwidth"] = 72
 do end (vim.opt.formatoptions):append("n")
 do end (vim.opt.formatoptions):append("1")
+do end (vim.opt.formatoptions):append("o")
+do end (vim.opt.formatoptions):append("r")
 do end (vim.o)["tabstop"] = 2
 vim.o["shiftwidth"] = 2
 vim.o["softtabstop"] = 2

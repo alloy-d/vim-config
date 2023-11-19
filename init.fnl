@@ -41,6 +41,8 @@
 
 (vim.opt.formatoptions:append :n) ; recognize numbered lists
 (vim.opt.formatoptions:append :1) ; break before single-letter words
+(vim.opt.formatoptions:append :o) ; in comment: comment leader on o or O
+(vim.opt.formatoptions:append :r) ; in comment: comment leader on return
 
 (tset vim.o :tabstop 2)
 (tset vim.o :shiftwidth 2)
