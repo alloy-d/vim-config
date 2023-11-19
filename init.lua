@@ -50,5 +50,9 @@ do
   local lspconfig = require("lspconfig")
   lspconfig.fennel_ls.setup({})
 end
+do
+  local rainbow_delimiters = require("rainbow-delimiters")
+  do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
+end
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 return nil

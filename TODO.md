@@ -6,7 +6,7 @@
 - [x] wrapping
 - [x] surround
 - [x] sexp
-- [ ] rainbow parens
+- [x] rainbow parens
 - [ ] a nice statusline
 
 ## To learn/remember and use

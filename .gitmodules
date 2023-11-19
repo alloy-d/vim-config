@@ -154,3 +154,6 @@
 [submodule "pack/all/start/nfnl"]
 	path = pack/all/start/nfnl
 	url = https://github.com/Olical/nfnl
+[submodule "pack/all/start/rainbow-delimiters.nvim"]
+	path = pack/all/start/rainbow-delimiters.nvim
+	url = https://github.com/HiPhish/rainbow-delimiters.nvim.git

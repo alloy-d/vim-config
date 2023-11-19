@@ -125,6 +125,13 @@
 
 ;;; Various Plugins {{{
 
+;; rainbow delimiters {{{2
+(let [rainbow-delimiters (require :rainbow-delimiters)]
+  (tset vim.g :rainbow_delimiters
+        {:strategy {"" (. rainbow-delimiters.strategy :global)}
+         :query {"" :rainbow-delimiters}}))
+;; 2}}}
+
 ;; vim-sexp {{{2
 (tset vim.g :sexp_filetypes "clojure,scheme,lisp,fennel,janet")
 ;; 2}}}
