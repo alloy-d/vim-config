@@ -9,7 +9,7 @@
 - [x] rainbow parens
 - [x] a nice statusline
 - [x] conjure
-- [ ] git gutter
+- [x] git gutter
 - [ ] CtrlP or similar
 - [ ] ripgrep
 - [ ] mason?

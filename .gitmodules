@@ -20,7 +20,7 @@
 	path = probation-zone/all/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
 [submodule "bundle/vim-gitgutter"]
-	path = probation-zone/all/start/vim-gitgutter
+	path = pack/all/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-airline-themes"]
 	path = probation-zone/all/opt/vim-airline-themes
