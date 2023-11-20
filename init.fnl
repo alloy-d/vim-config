@@ -88,6 +88,8 @@
                  ;; Enable traditional syntax here when languages
                  ;; need a little help with indenting:
                  :additional_vim_regex_highlighting [:fennel]}
+     :indent {:enable true
+              :disable [:fennel]}
      }))
 
 ;; }}}
@@ -127,8 +129,9 @@
   ;; Mason setup needs to happen before lspconfig setup.
   (mason.setup)
   (mason-lspconfig.setup)
-  (lspconfig.fennel_ls.setup {})
-  (lspconfig.lua_ls.setup {}))
+  (lspconfig.fennel_language_server.setup {})
+  (lspconfig.lua_ls.setup {})
+  (lspconfig.tsserver.setup {}))
 
 ;; }}}
 

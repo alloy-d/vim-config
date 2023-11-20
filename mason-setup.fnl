@@ -17,12 +17,13 @@
   (let [package (mason-registry.get_package package-name)
         installed? (package:is_installed)]
     (fn install! []
+      (vim.print "going to install" package-name)
       (let [install (package:install)]
-        ; (install:on :stdout vim.print)
-        ; (install:on :stderr vim.print)
+        (install:on :stdout vim.print)
+        (install:on :stderr vim.print)
         (install:on "state:change"
                     (fn [old-state new-state]
-                      (vim.print {: package-name : old-state : new-state})))))
+                      (vim.inspect {: package-name : old-state : new-state})))))
 
     (vim.print {: package-name : installed?})
     (if (not installed?)
@@ -33,5 +34,6 @@
             (install!)
             (vim.print package-name new-version)))))))
 
-(install-or-update :fennel-language-server)
 (install-or-update :lua-language-server)
+(install-or-update :fennel-language-server)
+(install-or-update :typescript-language-server)

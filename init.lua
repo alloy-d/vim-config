@@ -37,7 +37,7 @@ do
 end
 do
   local treesitter = require("nvim-treesitter.configs")
-  treesitter.setup({ensure_installed = {"fennel", "lua"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}})
+  treesitter.setup({ensure_installed = {"fennel", "lua"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}, indent = {enable = true, disable = {"fennel"}}})
 end
 local function on_lsp_attach(ev)
   vim["bo"][ev.buf]["omnifunc"] = "v:lua.vim.lsp.omnifunc"
@@ -55,10 +55,11 @@ do
   local lspconfig = require("lspconfig")
   mason.setup()
   mason_lspconfig.setup()
-  lspconfig.fennel_ls.setup({})
+  lspconfig.fennel_language_server.setup({})
   lspconfig.lua_ls.setup({})
+  lspconfig.tsserver.setup({})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
+vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}

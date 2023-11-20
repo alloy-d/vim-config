@@ -11,9 +11,12 @@ local function install_or_update(package_name)
   local package = mason_registry.get_package(package_name)
   local installed_3f = package:is_installed()
   local function install_21()
+    vim.print("going to install", package_name)
     local install = package:install()
+    install:on("stdout", vim.print)
+    install:on("stderr", vim.print)
     local function _1_(old_state, new_state)
-      return vim.print({["package-name"] = package_name, ["old-state"] = old_state, ["new-state"] = new_state})
+      return vim.inspect({["package-name"] = package_name, ["old-state"] = old_state, ["new-state"] = new_state})
     end
     return install:on("state:change", _1_)
   end
@@ -31,5 +34,6 @@ local function install_or_update(package_name)
     return package:check_new_version(_2_)
   end
 end
+install_or_update("lua-language-server")
 install_or_update("fennel-language-server")
-return install_or_update("lua-language-server")
+return install_or_update("typescript-language-server")
