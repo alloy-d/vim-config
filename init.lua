@@ -59,7 +59,7 @@ do
   lspconfig.lua_ls.setup({})
   lspconfig.tsserver.setup({})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
+vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
@@ -69,7 +69,7 @@ do
   vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
   vim.keymap.set("n", "<leader>fgf", builtin.git_files, {})
   vim.keymap.set("n", "<leader>flg", builtin.live_grep, {})
-  vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+  vim.keymap.set("n", "<leader>b", builtin.buffers, {})
   vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 end
 local function _2_()

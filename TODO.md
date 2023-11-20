@@ -13,11 +13,15 @@
 - [x] CtrlP or similar
 - [ ] ripgrep (try using Telescope's live_grep first)
 - [x] mason?
-- [ ] mason LSP integration
+- [x] mason LSP integration
+- [x] <Leader>b to find buffers
+- [ ] formatter!
+- [x] colemak: gn and ge for gj and gk
 - [ ] colemak mappings for Telescope
 - [ ] some kind of common map making macro
 - [ ] don't blindly upgrade Telescope like every other package
 - [ ] run `:helptags ALL` after updating packages
+- [ ] `Brewfile` is Ruby
 
 ## To learn/remember and use
 
@@ -30,7 +34,7 @@
 ### Not vim, but discovered/remembered along the way
 
 - [ ] asciidoc
-- [ ] ranger
+- [ ] ranger or nnn
 
 ## To remember if things are weird later
 
