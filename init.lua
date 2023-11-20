@@ -50,15 +50,19 @@ local function on_lsp_attach(ev)
 end
 vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("UserLspConfig", {}), callback = on_lsp_attach})
 do
+  local mason = require("mason")
+  local mason_lspconfig = require("mason-lspconfig")
   local lspconfig = require("lspconfig")
+  mason.setup()
+  mason_lspconfig.setup()
   lspconfig.fennel_ls.setup({})
+  lspconfig.lua_ls.setup({})
 end
 vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
 end
-do local _ = (require("mason")).setup end
 do
   local builtin = require("telescope.builtin")
   vim.keymap.set("n", "<leader>ff", builtin.find_files, {})

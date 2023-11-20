@@ -121,8 +121,14 @@
   {:group (vim.api.nvim_create_augroup :UserLspConfig {})
    :callback on-lsp-attach})
 
-(let [lspconfig (require :lspconfig)]
-  (lspconfig.fennel_ls.setup {}))
+(let [mason (require :mason)
+      mason-lspconfig (require :mason-lspconfig)
+      lspconfig (require :lspconfig)]
+  ;; Mason setup needs to happen before lspconfig setup.
+  (mason.setup)
+  (mason-lspconfig.setup)
+  (lspconfig.fennel_ls.setup {})
+  (lspconfig.lua_ls.setup {}))
 
 ;; }}}
 
@@ -140,12 +146,6 @@
   (tset vim.g :rainbow_delimiters
         {:strategy {"" (. rainbow-delimiters.strategy :global)}
          :query {"" :rainbow-delimiters}}))
-;; 2}}}
-
-;; mason {{{2
-
-;; Modify PATH to include Mason's installed stuff.
-(. (require :mason) :setup)
 ;; 2}}}
 
 ;; telescope {{{2

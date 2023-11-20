@@ -163,3 +163,6 @@
 [submodule "pack/all/start/mason"]
 	path = pack/all/start/mason
 	url = https://github.com/williamboman/mason.nvim
+[submodule "pack/all/start/mason-lspconfig.nvim"]
+	path = pack/all/start/mason-lspconfig.nvim
+	url = https://github.com/williamboman/mason-lspconfig.nvim.git
