@@ -59,7 +59,7 @@ do
   lspconfig.lua_ls.setup({})
   lspconfig.tsserver.setup({})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
+vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
@@ -77,4 +77,12 @@ local function _2_()
 end
 vim.keymap.set("n", "<C-p>", _2_)
 do end (vim.g)["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
+local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
+local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}
+for pattern, filetype in pairs(types) do
+  local function _3_()
+    return vim.cmd.setfiletype(filetype)
+  end
+  vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _3_})
+end
 return nil

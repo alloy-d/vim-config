@@ -21,7 +21,7 @@
 - [ ] some kind of common map making macro
 - [ ] don't blindly upgrade Telescope like every other package
 - [ ] run `:helptags ALL` after updating packages
-- [ ] `Brewfile` is Ruby
+- [x] `Brewfile` is Ruby
 
 ## To learn/remember and use
 

@@ -167,3 +167,21 @@
 ;; 2}}}
 
 ;; }}}
+
+;;; File type overrides {{{
+
+(let [group (vim.api.nvim_create_augroup :ExtraFiletypeDetect {})
+      types {".envrc"           :sh       ; direnv files
+             "*.do"             :bash     ; redo files
+             "PULLREQ_EDITMSG"  :markdown ; hub pull requests
+             "Brewfile"         :ruby     ; DSL for `brew bundle`
+             }]
+  (each [pattern filetype (pairs types)]
+    (vim.api.nvim_create_autocmd
+      :BufEnter
+      {: group
+       : pattern
+       :callback (fn []
+                   (vim.cmd.setfiletype filetype))})))
+
+;;; }}}
