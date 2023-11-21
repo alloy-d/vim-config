@@ -141,6 +141,15 @@
 
   (vim.keymap.set :n "<localleader>f" vim.cmd.Format {}))
 
+(let [lint (require :lint)]
+  (tset lint :linters_by_ft
+        {:fish [:fish]})
+
+  (vim.api.nvim_create_autocmd
+    :BufWritePost
+    {:group (vim.api.nvim_create_augroup :UserLint {})
+     :callback (fn [] (lint.try_lint))}))
+
 ;; }}}
 
 ;;; Various Plugins {{{

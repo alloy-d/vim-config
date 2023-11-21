@@ -65,6 +65,14 @@ do
   formatter.setup({filetype = {fish = formatter_fish.fishindent}})
   vim.keymap.set("n", "<localleader>f", vim.cmd.Format, {})
 end
+do
+  local lint = require("lint")
+  do end (lint)["linters_by_ft"] = {fish = {"fish"}}
+  local function _2_()
+    return lint.try_lint()
+  end
+  vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _2_})
+end
 vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
@@ -78,17 +86,17 @@ do
   vim.keymap.set("n", "<leader>b", builtin.buffers, {})
   vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 end
-local function _2_()
+local function _3_()
   return vim.notify("Hey, you decided to use <leader>ff or <leader>fgf!")
 end
-vim.keymap.set("n", "<C-p>", _2_)
+vim.keymap.set("n", "<C-p>", _3_)
 do end (vim.g)["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
 local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}
 for pattern, filetype in pairs(types) do
-  local function _3_()
+  local function _4_()
     return vim.cmd.setfiletype(filetype)
   end
-  vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _3_})
+  vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _4_})
 end
 return nil

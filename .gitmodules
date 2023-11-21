@@ -169,3 +169,6 @@
 [submodule "pack/all/start/formatter.nvim"]
 	path = pack/all/start/formatter.nvim
 	url = https://github.com/mhartington/formatter.nvim.git
+[submodule "pack/all/start/nvim-lint"]
+	path = pack/all/start/nvim-lint
+	url = https://github.com/mfussenegger/nvim-lint.git
