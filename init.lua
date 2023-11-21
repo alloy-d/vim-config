@@ -42,7 +42,7 @@ end
 local function on_lsp_attach(ev)
   vim["bo"][ev.buf]["omnifunc"] = "v:lua.vim.lsp.omnifunc"
   local opts = {buffer = ev.buf}
-  local mappings = {gD = vim.lsp.buf.declaration, gd = vim.lsp.buf.definition, K = vim.lsp.buf.hover, gi = vim.lsp.buf.implementation, ["<C-k>"] = vim.lsp.buf.signature_help, ["<localleader>D"] = vim.lsp.buf.type_definition, ["<localleader>rn"] = vim.lsp.buf.rename, ["<localleader>ca"] = vim.lsp.buf.code_action, gr = vim.lsp.buf.references, ["<localleader>e"] = vim.diagnostic.open_float, ["<localleader>q"] = vim.diagnostic.setloclist, ["<localleader>f"] = vim.lsp.buf.formatting}
+  local mappings = {gD = vim.lsp.buf.declaration, gd = vim.lsp.buf.definition, K = vim.lsp.buf.hover, gi = vim.lsp.buf.implementation, ["<C-k>"] = vim.lsp.buf.signature_help, ["<localleader>D"] = vim.lsp.buf.type_definition, ["<localleader>rn"] = vim.lsp.buf.rename, ["<localleader>ca"] = vim.lsp.buf.code_action, gr = vim.lsp.buf.references, ["<localleader>e"] = vim.diagnostic.open_float, ["<localleader>q"] = vim.diagnostic.setloclist, ["<localleader>lf"] = vim.lsp.buf.formatting}
   for key, _function in pairs(mappings) do
     vim.keymap.set("n", key, _function, opts)
   end
@@ -55,11 +55,17 @@ do
   local lspconfig = require("lspconfig")
   mason.setup()
   mason_lspconfig.setup()
-  lspconfig.fennel_language_server.setup({})
+  lspconfig.fennel_ls.setup({})
   lspconfig.lua_ls.setup({})
   lspconfig.tsserver.setup({})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
+do
+  local formatter = require("formatter")
+  local formatter_fish = require("formatter.filetypes.fish")
+  formatter.setup({filetype = {fish = formatter_fish.fishindent}})
+  vim.keymap.set("n", "<localleader>f", vim.cmd.Format, {})
+end
+vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}

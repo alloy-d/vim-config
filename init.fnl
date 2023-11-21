@@ -94,7 +94,7 @@
 
 ;; }}}
 
-;;; LSP {{{
+;;; LSP & formatting {{{
 
 ;; TODO: set up global bindings for diagnostics?
 ;; (including moving the ones below?)
@@ -114,7 +114,7 @@
                   "gr" vim.lsp.buf.references
                   "<localleader>e" vim.diagnostic.open_float
                   "<localleader>q" vim.diagnostic.setloclist
-                  "<localleader>f" vim.lsp.buf.formatting}]
+                  "<localleader>lf" vim.lsp.buf.formatting}]
       (each [key function (pairs mappings)]
         (vim.keymap.set :n key function opts))))
 
@@ -129,9 +129,17 @@
   ;; Mason setup needs to happen before lspconfig setup.
   (mason.setup)
   (mason-lspconfig.setup)
-  (lspconfig.fennel_language_server.setup {})
+  ; (lspconfig.fennel_language_server.setup {})
+  (lspconfig.fennel_ls.setup {})
   (lspconfig.lua_ls.setup {})
   (lspconfig.tsserver.setup {}))
+
+(let [formatter (require :formatter)
+      formatter-fish (require :formatter.filetypes.fish)]
+  (formatter.setup
+    {:filetype {:fish formatter-fish.fishindent}})
+
+  (vim.keymap.set :n "<localleader>f" vim.cmd.Format {}))
 
 ;; }}}
 

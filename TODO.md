@@ -15,7 +15,8 @@
 - [x] mason?
 - [x] mason LSP integration
 - [x] <Leader>b to find buffers
-- [ ] formatter!
+- [ ] linter
+- [x] formatter!
 - [x] colemak: gn and ge for gj and gk
 - [ ] colemak mappings for Telescope
 - [ ] some kind of common map making macro
