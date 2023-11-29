@@ -99,6 +99,9 @@
 ;; TODO: set up global bindings for diagnostics?
 ;; (including moving the ones below?)
 
+(vim.keymap.set :n "[d" vim.diagnostic.goto_prev {})
+(vim.keymap.set :n "]d" vim.diagnostic.goto_next {})
+
 (fn on-lsp-attach [ev]
   (tset vim :bo ev.buf :omnifunc "v:lua.vim.lsp.omnifunc")
 
@@ -114,7 +117,7 @@
                   "gr" vim.lsp.buf.references
                   "<localleader>e" vim.diagnostic.open_float
                   "<localleader>q" vim.diagnostic.setloclist
-                  "<localleader>lf" vim.lsp.buf.formatting}]
+                  "<localleader>lf" vim.lsp.buf.format}]
       (each [key function (pairs mappings)]
         (vim.keymap.set :n key function opts))))
 
@@ -132,7 +135,12 @@
   ; (lspconfig.fennel_language_server.setup {})
   (lspconfig.fennel_ls.setup {})
   (lspconfig.lua_ls.setup {})
-  (lspconfig.tsserver.setup {}))
+  (lspconfig.tsserver.setup {})
+  (lspconfig.eslint.setup
+    {:on-attach (fn [client buffer]
+                  (vim.notify "HEY ESLINT WAS ATTACHED")
+                  (vim.api.nvim_create_autocmd
+                    :BufWritePre {: buffer :command :EslintFixAll}))}))
 
 (let [formatter (require :formatter)
       formatter-fish (require :formatter.filetypes.fish)]
