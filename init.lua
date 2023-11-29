@@ -28,7 +28,7 @@ do end (vim.opt.wildignore):append({"*/.git/*", "*/.hg/*", "*/.svn/*", "*.so", "
 do end (vim.o)["mouse"] = nil
 do
   local base16_setter = vim.fs.normalize("~/.vimrc_background")
-  if vim.fn.filereadable(base16_setter) then
+  if (1 == vim.fn.filereadable(base16_setter)) then
     do end (vim.opt.runtimepath):append("~/.local/share/base16/vim")
     do end (vim.g)["base16colorspace"] = 256
     vim.cmd.source(base16_setter)
@@ -80,7 +80,7 @@ do
   end
   vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _3_})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
+vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}

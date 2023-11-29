@@ -71,7 +71,7 @@
 ;; I keep a bunch of base16 themes in ~/.local/share/base16,
 ;; so I just point the vim there to find the colorschemes.
 (let [base16-setter (vim.fs.normalize "~/.vimrc_background")]
-  (when (vim.fn.filereadable base16-setter)
+  (when (= 1 (vim.fn.filereadable base16-setter))
     (vim.opt.runtimepath:append "~/.local/share/base16/vim")
     (tset vim.g :base16colorspace 256)
     (vim.cmd.source base16-setter)))
