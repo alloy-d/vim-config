@@ -94,7 +94,7 @@
 
 ;; }}}
 
-;;; LSP & formatting {{{
+;;; LSP & relatives {{{
 
 ;; TODO: set up global bindings for diagnostics?
 ;; (including moving the ones below?)
@@ -175,6 +175,26 @@
         {:strategy {"" (. rainbow-delimiters.strategy :global)}
          :query {"" :rainbow-delimiters}}))
 ;; 2}}}
+
+;; Seiya {{{
+;; Makes some BG colors transparent.
+
+(tset vim.g :seiya_auto_enable true)
+(tset vim.g :seiya_target_highlights
+      [:Normal
+       :LineNr
+       :SignColumn
+       :CursorLineNr
+       :VertSplit
+       :NonText
+
+       :ALEWarningSign
+       :GitGutterAdd
+       :GitGutterChange
+       :GitGutterChangeDelete
+       :GitGutterDelete])
+
+;; }}}
 
 ;; telescope {{{2
 (let [builtin (require :telescope.builtin)]

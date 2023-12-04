@@ -80,11 +80,13 @@ do
   end
   vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _3_})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {python = false, sql = false}}
+vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
 end
+vim.g["seiya_auto_enable"] = true
+vim.g["seiya_target_highlights"] = {"Normal", "LineNr", "SignColumn", "CursorLineNr", "VertSplit", "NonText", "ALEWarningSign", "GitGutterAdd", "GitGutterChange", "GitGutterChangeDelete", "GitGutterDelete"}
 do
   local builtin = require("telescope.builtin")
   vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
