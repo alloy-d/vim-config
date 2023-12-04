@@ -34,15 +34,16 @@
         (hi :LineCol "%02v")              ; column (screen, not byte)
         (hi :Plain  " - ")
         (hi :Percentage "%P")             ; percentage through file of screen
-        (hi :Plain " of ")
+        (hi :PlainItalic " of ")
         (hi :Percentage "%L")             ; lines in file
         ))
 
 (fn set-statusline-colors []
-  (let [groups {:StatusLine (style {:fg :DarkMagenta})
+  (let [groups {:StatusLine (style {:fg :DarkGrey})
                 :StatusLineNC (style {:fg :DarkGrey :attr :bold})
                 :MyStatusLinePlain (style {:fg :DarkGrey})
-                :MyStatusLineFilename (style {:fg :DarkRed})
+                :MyStatusLinePlainItalic (style {:fg :DarkGrey :attr :italic})
+                :MyStatusLineFilename (style {:fg :Cyan})
                 :MyStatusLineBufferType (style {:fg :DarkCyan})
                 :MyStatusLineFiletype (style {:fg :DarkMagenta :attr :italic})
                 :MyStatusLinePercentage (style {:fg :DarkYellow})
