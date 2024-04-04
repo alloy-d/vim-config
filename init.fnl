@@ -163,10 +163,8 @@
 ;;; Various Plugins {{{
 
 ;; Conjure {{{2
-(tset vim.g :conjure
-      {:log {:wrap true}
-       :filetype {:python false
-                  :sql false}})
+(tset vim.g :conjure#log#wrap true)
+(tset vim.g :conjure#filetypes [:clojure :fennel :janet])
 ;; 2}}}
 
 ;; rainbow delimiters {{{2

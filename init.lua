@@ -80,7 +80,8 @@ do
   end
   vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _3_})
 end
-vim.g["conjure"] = {log = {wrap = true}, filetype = {sql = false, python = false}}
+vim.g["conjure#log#wrap"] = true
+vim.g["conjure#filetypes"] = {"clojure", "fennel", "janet"}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
