@@ -227,4 +227,9 @@
        :callback (fn []
                    (vim.cmd.setfiletype filetype))})))
 
+(vim.api.nvim_create_autocmd
+  :FileType
+  {:pattern :sql
+   :callback (fn []
+               (tset vim.bo :commentstring "-- %s"))})
 ;;; }}}

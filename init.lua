@@ -101,12 +101,18 @@ local function _4_()
 end
 vim.keymap.set("n", "<C-p>", _4_)
 do end (vim.g)["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
-local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
-local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}
-for pattern, filetype in pairs(types) do
-  local function _5_()
-    return vim.cmd.setfiletype(filetype)
+do
+  local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
+  local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}
+  for pattern, filetype in pairs(types) do
+    local function _5_()
+      return vim.cmd.setfiletype(filetype)
+    end
+    vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _5_})
   end
-  vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _5_})
 end
-return nil
+local function _6_()
+  vim.bo["commentstring"] = "-- %s"
+  return nil
+end
+return vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _6_})
