@@ -11,6 +11,9 @@
 nnoremap k n
 vnoremap k n
 
+nnoremap gk gn
+nnoremap gK gN
+
 
 " Movement {{{1
 
@@ -19,10 +22,16 @@ nnoremap n j
 nnoremap e k
 nnoremap i l
 
+nnoremap gn gj
+nnoremap ge gk
+
 " Visual mode:
 vnoremap n j
 vnoremap e k
 vnoremap i l
+
+vnoremap gn gj
+vnoremap ge gk
 
 " Moving among splits:
 nnoremap <C-w>n <C-w>j
@@ -36,6 +45,8 @@ vnoremap s i
 vnoremap S I
 nnoremap s i
 nnoremap S I
+nnoremap gs gi
+nnoremap gS gI
 omap s i
 omap S I
 

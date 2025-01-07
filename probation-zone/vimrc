@@ -1,0 +1,209 @@
+" vim: set foldmethod=marker:
+
+" Basics {{{
+" When using tab completion:
+" first complete to the options' longest common substring,
+" then complete each option in full.
+set wildmode=longest,full
+
+" Do not automatically reformat lines that were too long before
+" insert mode was started.
+set formatoptions+=l
+
+" Remove comment leaders when joining comment lines.
+set formatoptions+=j
+
+" *Do* automatically format text for plaintext files.
+"autocmd BufEnter *.{txt} setlocal formatoptions+=ta
+
+" Save buffers when hidden.
+set autowrite
+
+" Statusline
+let s:enabling_airline = 0 "has('gui_running') || has('nvim')
+if s:enabling_airline == 0
+  runtime statusline.vim
+end
+
+" }}}
+
+" Indentation {{{
+"
+" Also do smart indenting.
+set smartindent
+
+" ...but not in plaintext or Markdown files.
+autocmd BufEnter *.{txt,md,markdown} setlocal nosmartindent
+
+" For C files, use cindent.
+autocmd BufEnter *.{c,h} setlocal cindent
+
+" For lispy languages, use lisp indenting.
+autocmd BufEnter *.{lisp,scheme,ss,scm,el} setlocal lisp
+
+" For Rust, use 4 spaces.
+autocmd BufEnter *.rs setlocal tabstop=4 shiftwidth=4 softtabstop=4
+" }}}
+
+" File type overrides {{{
+
+" Miscellaneous filetype detection.
+augroup extrafiletypedetect
+  autocmd!
+
+  " TypeScript + JSX
+  autocmd BufEnter *.tsx,*.jsx setfiletype typescript.tsx
+
+  " direnv configuration:
+  autocmd BufEnter .envrc setfiletype sh
+
+  " redo files are bash by default:
+  autocmd BufEnter *.do setfiletype bash
+
+  " ASDF system definitions:
+  autocmd BufEnter *.asd setfiletype lisp
+  " LaTeX document class files:
+  autocmd BufEnter *.cls setfiletype tex
+  " Y86 assembly files:
+  autocmd BufEnter *.ys setfiletype nasm
+  " Markdown files:
+  autocmd BufEnter *.md setfiletype markdown
+  autocmd BufEnter PULLREQ_EDITMSG setfiletype markdown
+
+  " Lua ecosystem things that are Lua:
+  autocmd BufEnter *.{rockspec,luacheckrc} setfiletype lua
+
+  " Salt configuration files are YAML.
+  autocmd BufEnter *.{sls} setfiletype yaml
+  " Aurora files are Python.
+  autocmd BufEnter *.{aurora} setfiletype python
+
+  " Jenkinsfiles are Groovy [sic].
+  autocmd BufEnter Jenkinsfile setfiletype groovy
+
+  " JSON with comments:
+  autocmd BufEnter package.json setfiletype jsonc
+  autocmd BufEnter tsconfig.json setfiletype jsonc
+
+  " Gauge specs are markdown:
+  autocmd BufEnter *.spec setfiletype markdown
+
+  " SQL uses SQL comments:
+  autocmd BufEnter *.sql setlocal commentstring=--\ %s
+augroup end
+
+" These are the defaults, plus the new with-open and some extra testing macros I use.
+let g:fennel_fuzzy_indent_patterns = [
+      \ '^def',
+      \ '^let',
+      \ '^while',
+      \ '^if',
+      \ '^fn$',
+      \ '^var$',
+      \ '^case$',
+      \ '^collect$',
+      \ '^icollect$',
+      \ '^for$',
+      \ '^each$',
+      \ '^local$',
+      \ '^global$',
+      \ '^match$',
+      \ '^macro',
+      \ '^lambda$',
+      \ '^with-open$',
+      \ '^describe$',
+      \ '^it$',
+      \ '^context$',
+      \ '^test$',
+      \ '^each-root$',
+      \ '^module$'
+      \ ]
+
+" }}}
+
+" Custom bindings {{{
+"
+" Make Esc exit terminal mode.
+tnoremap <Esc> <C-\><C-n>
+
+" The only time you hit F1 is when you miss ESC.
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Show highlight under cursor.
+map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" }}}
+
+" Plugin configuration {{{
+
+" Seiya {{{2
+" 1 => Automatically unset the BG for some highlights.
+let g:seiya_auto_enable = 1
+
+" Specifically, these highlights:
+let g:seiya_target_highlights = [
+      \ 'Normal',
+      \ 'LineNr',
+      \ 'SignColumn',
+      \ 'CursorLineNr',
+      \ 'VertSplit',
+      \ 'NonText',
+      \
+      \ 'ALEWarningSign',
+      \ 'GitGutterAdd',
+      \ 'GitGutterChange',
+      \ 'GitGutterChangeDelete',
+      \ 'GitGutterDelete',
+      \]
+
+" 2}}}
+
+" CtrlP {{{2
+" Make CtrlP set its root directory to the Git or Hg root.
+let g:ctrlp_working_path_mode = 2
+
+" Ignore files in .gitignore.
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" 2}}}
+
+" tslime {{{2
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+" 2}}}
+
+" Ripgrep {{{2
+" Quick shortcut for rg:
+nnoremap <leader>r :Rg<space>
+
+" 2}}}
+
+" }}}
+
+" Probationary area {{{
+"
+" This is where I've quarantined all the cruft I suspect I don't want or
+" need anymore.
+
+let g:vimclojure#FuzzyIndent=1
+
+" Use tmux instead of screen with slime.
+let g:slime_target = "tmux"
+
+" Use JSX in all the JavaScript files!
+let g:jsx_ext_required = 0
+
+" Use syntastic's recommended defaults.
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Use psc-ide's fast-rebuild feature to quickly check the current file.
+let g:psc_ide_syntastic_mode = 1
+
+" }}}
