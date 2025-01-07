@@ -1,13 +1,13 @@
 -- [nfnl] Compiled from init.fnl by https://github.com/Olical/nfnl, do not edit.
 vim.cmd.runtime("colemak.vim")
 vim.cmd.runtime("statusline.lua")
-do end (vim.g)["maplocalleader"] = ","
+vim.g["maplocalleader"] = ","
 vim.keymap.set("n", "<C-w>%", "<cmd>vsplit<cr>")
 vim.keymap.set("n", "<C-w>\"", "<cmd>split<cr>")
 vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
 vim.keymap.set("n", "<F4>", vim.cmd.qa)
 vim.keymap.set("v", "<leader>y", "\"+y")
-do end (vim.o)["relativenumber"] = true
+vim.o["relativenumber"] = true
 vim.o["number"] = true
 vim.o["splitright"] = true
 vim.o["splitbelow"] = true
@@ -16,21 +16,21 @@ vim.o["smartcase"] = true
 vim.o["showmatch"] = true
 vim.o["linebreak"] = true
 vim.o["textwidth"] = 72
-do end (vim.opt.formatoptions):append("n")
-do end (vim.opt.formatoptions):append("1")
-do end (vim.opt.formatoptions):append("o")
-do end (vim.opt.formatoptions):append("r")
-do end (vim.o)["tabstop"] = 2
+vim.opt.formatoptions:append("n")
+vim.opt.formatoptions:append("1")
+vim.opt.formatoptions:append("o")
+vim.opt.formatoptions:append("r")
+vim.o["tabstop"] = 2
 vim.o["shiftwidth"] = 2
 vim.o["softtabstop"] = 2
 vim.o["expandtab"] = true
-do end (vim.opt.wildignore):append({"*/.git/*", "*/.hg/*", "*/.svn/*", "*.so", "*/node_modules/*"})
-do end (vim.o)["mouse"] = nil
+vim.opt.wildignore:append({"*/.git/*", "*/.hg/*", "*/.svn/*", "*.so", "*/node_modules/*"})
+vim.o["mouse"] = nil
 do
   local base16_setter = vim.fs.normalize("~/.vimrc_background")
   if (1 == vim.fn.filereadable(base16_setter)) then
-    do end (vim.opt.runtimepath):append("~/.local/share/base16/vim")
-    do end (vim.g)["base16colorspace"] = 256
+    vim.opt.runtimepath:append("~/.local/share/base16/vim")
+    vim.g["base16colorspace"] = 256
     vim.cmd.source(base16_setter)
   else
   end
@@ -59,7 +59,7 @@ do
   mason_lspconfig.setup()
   lspconfig.fennel_ls.setup({})
   lspconfig.lua_ls.setup({})
-  lspconfig.tsserver.setup({})
+  lspconfig.ts_ls.setup({})
   local function _2_(client, buffer)
     vim.notify("HEY ESLINT WAS ATTACHED")
     return vim.api.nvim_create_autocmd("BufWritePre", {buffer = buffer, command = "EslintFixAll"})
@@ -74,7 +74,7 @@ do
 end
 do
   local lint = require("lint")
-  do end (lint)["linters_by_ft"] = {fish = {"fish"}}
+  lint["linters_by_ft"] = {fish = {"fish"}}
   local function _3_()
     return lint.try_lint()
   end
@@ -84,7 +84,7 @@ vim.g["conjure#log#wrap"] = true
 vim.g["conjure#filetypes"] = {"clojure", "fennel", "janet"}
 do
   local rainbow_delimiters = require("rainbow-delimiters")
-  do end (vim.g)["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
+  vim.g["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
 end
 vim.g["seiya_auto_enable"] = true
 vim.g["seiya_target_highlights"] = {"Normal", "LineNr", "SignColumn", "CursorLineNr", "VertSplit", "NonText", "ALEWarningSign", "GitGutterAdd", "GitGutterChange", "GitGutterChangeDelete", "GitGutterDelete"}
@@ -100,7 +100,7 @@ local function _4_()
   return vim.notify("Hey, you decided to use <leader>ff or <leader>fgf!")
 end
 vim.keymap.set("n", "<C-p>", _4_)
-do end (vim.g)["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
+vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 do
   local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
   local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}

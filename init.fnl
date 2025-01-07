@@ -135,7 +135,7 @@
   ; (lspconfig.fennel_language_server.setup {})
   (lspconfig.fennel_ls.setup {})
   (lspconfig.lua_ls.setup {})
-  (lspconfig.tsserver.setup {})
+  (lspconfig.ts_ls.setup {})
   (lspconfig.eslint.setup
     {:on-attach (fn [client buffer]
                   (vim.notify "HEY ESLINT WAS ATTACHED")
