@@ -27,11 +27,11 @@ vim.o["expandtab"] = true
 vim.opt.wildignore:append({"*/.git/*", "*/.hg/*", "*/.svn/*", "*.so", "*/node_modules/*"})
 vim.o["mouse"] = nil
 do
-  local base16_setter = vim.fs.normalize("~/.vimrc_background")
-  if (1 == vim.fn.filereadable(base16_setter)) then
-    vim.opt.runtimepath:append("~/.local/share/base16/vim")
+  local base24_setter = vim.fs.normalize("~/.vimrc_background")
+  if (1 == vim.fn.filereadable(base24_setter)) then
+    vim.opt.runtimepath:append("~/.local/share/base24/vim")
     vim.g["base16colorspace"] = 256
-    vim.cmd.source(base16_setter)
+    vim.cmd.source(base24_setter)
   else
   end
 end

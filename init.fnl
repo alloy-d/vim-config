@@ -65,16 +65,16 @@
 ;; even in a different tmux pane.
 (tset vim.o :mouse nil)
 
-;; base16-shell manages ~/.vimrc_background, which tells vim to use
-;; the same base16 colorscheme as everything else.
+;; base16-shell [sic] manages ~/.vimrc_background, which tells vim to
+;; use the same base24 colorscheme as everything else.
 ;;
-;; I keep a bunch of base16 themes in ~/.local/share/base16,
+;; I keep a bunch of base24 themes in ~/.local/share/base24,
 ;; so I just point the vim there to find the colorschemes.
-(let [base16-setter (vim.fs.normalize "~/.vimrc_background")]
-  (when (= 1 (vim.fn.filereadable base16-setter))
-    (vim.opt.runtimepath:append "~/.local/share/base16/vim")
-    (tset vim.g :base16colorspace 256)
-    (vim.cmd.source base16-setter)))
+(let [base24-setter (vim.fs.normalize "~/.vimrc_background")]
+  (when (= 1 (vim.fn.filereadable base24-setter))
+    (vim.opt.runtimepath:append "~/.local/share/base24/vim")
+    (tset vim.g :base16colorspace 256) ; sic, base16
+    (vim.cmd.source base24-setter)))
 
 ;; }}}
 
