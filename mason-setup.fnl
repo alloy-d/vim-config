@@ -37,5 +37,5 @@
 (install-or-update :eslint_d)
 (install-or-update :eslint-lsp)
 (install-or-update :lua-language-server)
-(install-or-update :fennel-language-server)
+(install-or-update :fennel-ls)
 (install-or-update :typescript-language-server)

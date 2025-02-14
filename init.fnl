@@ -31,8 +31,6 @@
 
 (tset vim.o :showmatch true)
 
-;; Put backups and swap files
-
 ;; When wrapping lines for display, don't break them in the middle of a word.
 (tset vim.o :linebreak true)
 
@@ -56,6 +54,19 @@
    "*/.svn/*"
    "*.so"
    "*/node_modules/*"])
+
+(vim.opt.lispwords:append
+  [;; Chicken
+   "foreign-lambda"
+   "foreign-lambda*"
+   "module"
+
+   ;; Fennel
+   "collect"
+   "icollect"
+   "each"
+   "with-open"
+   ])
 
 ;; }}}
 
@@ -135,12 +146,17 @@
   ; (lspconfig.fennel_language_server.setup {})
   (lspconfig.fennel_ls.setup {})
   (lspconfig.lua_ls.setup {})
-  (lspconfig.ts_ls.setup {})
-  (lspconfig.eslint.setup
-    {:on-attach (fn [client buffer]
-                  (vim.notify "HEY ESLINT WAS ATTACHED")
-                  (vim.api.nvim_create_autocmd
-                    :BufWritePre {: buffer :command :EslintFixAll}))}))
+  (lspconfig.denols.setup
+    {:root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc" "deno.lock")})
+  ; (lspconfig.ts_ls.setup
+  ;   {:root_dir (lspconfig.util.root_pattern "package.json")
+  ;    :single_file_support false})
+  ; (lspconfig.eslint.setup
+  ;   {:on-attach (fn [client buffer]
+  ;                 (vim.notify "HEY ESLINT WAS ATTACHED")
+  ;                 (vim.api.nvim_create_autocmd
+  ;                   :BufWritePre {: buffer :command :EslintFixAll}))})
+  )
 
 (let [formatter (require :formatter)
       formatter-fish (require :formatter.filetypes.fish)]
@@ -165,6 +181,7 @@
 ;; Conjure {{{2
 (tset vim.g :conjure#log#wrap true)
 (tset vim.g :conjure#filetypes [:clojure :fennel :janet])
+(tset vim.g :conjure#filetype#fennel :conjure.client.fennel.stdio)
 ;; 2}}}
 
 ;; rainbow delimiters {{{2

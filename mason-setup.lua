@@ -37,5 +37,5 @@ end
 install_or_update("eslint_d")
 install_or_update("eslint-lsp")
 install_or_update("lua-language-server")
-install_or_update("fennel-language-server")
+install_or_update("fennel-ls")
 return install_or_update("typescript-language-server")

@@ -25,6 +25,7 @@ vim.o["shiftwidth"] = 2
 vim.o["softtabstop"] = 2
 vim.o["expandtab"] = true
 vim.opt.wildignore:append({"*/.git/*", "*/.hg/*", "*/.svn/*", "*.so", "*/node_modules/*"})
+vim.opt.lispwords:append({"foreign-lambda", "foreign-lambda*", "module", "collect", "icollect", "each", "with-open"})
 vim.o["mouse"] = nil
 do
   local base24_setter = vim.fs.normalize("~/.vimrc_background")
@@ -59,12 +60,7 @@ do
   mason_lspconfig.setup()
   lspconfig.fennel_ls.setup({})
   lspconfig.lua_ls.setup({})
-  lspconfig.ts_ls.setup({})
-  local function _2_(client, buffer)
-    vim.notify("HEY ESLINT WAS ATTACHED")
-    return vim.api.nvim_create_autocmd("BufWritePre", {buffer = buffer, command = "EslintFixAll"})
-  end
-  lspconfig.eslint.setup({["on-attach"] = _2_})
+  lspconfig.denols.setup({root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deno.lock")})
 end
 do
   local formatter = require("formatter")
@@ -75,13 +71,14 @@ end
 do
   local lint = require("lint")
   lint["linters_by_ft"] = {fish = {"fish"}}
-  local function _3_()
+  local function _2_()
     return lint.try_lint()
   end
-  vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _3_})
+  vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _2_})
 end
 vim.g["conjure#log#wrap"] = true
 vim.g["conjure#filetypes"] = {"clojure", "fennel", "janet"}
+vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
 do
   local rainbow_delimiters = require("rainbow-delimiters")
   vim.g["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
@@ -96,23 +93,23 @@ do
   vim.keymap.set("n", "<leader>b", builtin.buffers, {})
   vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 end
-local function _4_()
+local function _3_()
   return vim.notify("Hey, you decided to use <leader>ff or <leader>fgf!")
 end
-vim.keymap.set("n", "<C-p>", _4_)
+vim.keymap.set("n", "<C-p>", _3_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 do
   local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
   local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}
   for pattern, filetype in pairs(types) do
-    local function _5_()
+    local function _4_()
       return vim.cmd.setfiletype(filetype)
     end
-    vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _5_})
+    vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _4_})
   end
 end
-local function _6_()
+local function _5_()
   vim.bo["commentstring"] = "-- %s"
   return nil
 end
-return vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _6_})
+return vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
