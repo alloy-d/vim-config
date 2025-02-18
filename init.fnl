@@ -93,7 +93,8 @@
 
 (let [treesitter (require :nvim-treesitter.configs)]
   (treesitter.setup
-    {:ensure_installed [:fennel :lua]
+    {:ensure_installed [:fennel :lua
+                        :css :html :svelte :typescript]
      :auto_install true
      :highlight {:enable true
                  ;; Enable traditional syntax here when languages
@@ -148,6 +149,7 @@
   (lspconfig.lua_ls.setup {})
   (lspconfig.denols.setup
     {:root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc" "deno.lock")})
+  (lspconfig.svelte.setup {})
   ; (lspconfig.ts_ls.setup
   ;   {:root_dir (lspconfig.util.root_pattern "package.json")
   ;    :single_file_support false})

@@ -38,7 +38,7 @@ do
 end
 do
   local treesitter = require("nvim-treesitter.configs")
-  treesitter.setup({ensure_installed = {"fennel", "lua"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}, indent = {enable = true, disable = {"fennel"}}})
+  treesitter.setup({ensure_installed = {"fennel", "lua", "css", "html", "svelte", "typescript"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}, indent = {enable = true, disable = {"fennel"}}})
 end
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
@@ -61,6 +61,7 @@ do
   lspconfig.fennel_ls.setup({})
   lspconfig.lua_ls.setup({})
   lspconfig.denols.setup({root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deno.lock")})
+  lspconfig.svelte.setup({})
 end
 do
   local formatter = require("formatter")
