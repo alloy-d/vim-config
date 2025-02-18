@@ -112,4 +112,8 @@ local function _5_()
   vim.bo["commentstring"] = "-- %s"
   return nil
 end
-return vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
+local function _6_()
+  return vim.opt.formatoptions:remove("t")
+end
+return vim.api.nvim_create_autocmd("FileType", {pattern = "svelte", callback = _6_})

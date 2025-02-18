@@ -249,4 +249,10 @@
   {:pattern :sql
    :callback (fn []
                (tset vim.bo :commentstring "-- %s"))})
+
+(vim.api.nvim_create_autocmd
+  :FileType
+  {:pattern :svelte
+   :callback (fn [] ;; don't wrap text!
+               (vim.opt.formatoptions:remove :t))})
 ;;; }}}
