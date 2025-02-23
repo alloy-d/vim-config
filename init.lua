@@ -114,7 +114,11 @@ local function _5_()
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
-local function _6_()
-  return vim.opt.formatoptions:remove("t")
+local non_wrapping = {"svelte", "toml"}
+for _, pattern in ipairs(non_wrapping) do
+  local function _6_()
+    return vim.opt.formatoptions:remove("t")
+  end
+  vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _6_})
 end
-return vim.api.nvim_create_autocmd("FileType", {pattern = "svelte", callback = _6_})
+return nil

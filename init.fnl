@@ -252,9 +252,12 @@
    :callback (fn []
                (tset vim.bo :commentstring "-- %s"))})
 
-(vim.api.nvim_create_autocmd
-  :FileType
-  {:pattern :svelte
-   :callback (fn [] ;; don't wrap text!
-               (vim.opt.formatoptions:remove :t))})
+;; Some things should not wrap!
+(let [non-wrapping [:svelte :toml]]
+  (each [_ pattern (ipairs non-wrapping)]
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {: pattern
+       :callback (fn [] ;; don't wrap text!
+                   (vim.opt.formatoptions:remove :t))})))
 ;;; }}}
