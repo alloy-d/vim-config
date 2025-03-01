@@ -101,7 +101,7 @@ vim.keymap.set("n", "<C-p>", _3_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 do
   local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
-  local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby"}
+  local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby", ["*.tf"] = "terraform", ["*.tfvars"] = "terraform"}
   for pattern, filetype in pairs(types) do
     local function _4_()
       return vim.cmd.setfiletype(filetype)
@@ -114,7 +114,7 @@ local function _5_()
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
-local non_wrapping = {"svelte", "toml"}
+local non_wrapping = {"svelte", "terraform", "toml"}
 for _, pattern in ipairs(non_wrapping) do
   local function _6_()
     return vim.opt.formatoptions:remove("t")

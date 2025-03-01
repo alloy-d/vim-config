@@ -237,6 +237,8 @@
              "*.do"             :bash     ; redo files
              "PULLREQ_EDITMSG"  :markdown ; hub pull requests
              "Brewfile"         :ruby     ; DSL for `brew bundle`
+             "*.tf"             :terraform
+             "*.tfvars"         :terraform
              }]
   (each [pattern filetype (pairs types)]
     (vim.api.nvim_create_autocmd
@@ -253,7 +255,7 @@
                (tset vim.bo :commentstring "-- %s"))})
 
 ;; Some things should not wrap!
-(let [non-wrapping [:svelte :toml]]
+(let [non-wrapping [:svelte :terraform :toml]]
   (each [_ pattern (ipairs non-wrapping)]
     (vim.api.nvim_create_autocmd
       :FileType
