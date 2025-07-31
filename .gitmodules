@@ -169,3 +169,6 @@
 [submodule "pack/all/start/nvim-lint"]
 	path = pack/all/start/nvim-lint
 	url = https://github.com/mfussenegger/nvim-lint.git
+[submodule "pack/all/start/rainbow-delimiters.nvim"]
+	path = pack/all/start/rainbow-delimiters.nvim
+	url = https://github.com/HiPhish/rainbow-delimiters.nvim.git
