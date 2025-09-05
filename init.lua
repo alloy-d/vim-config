@@ -1,4 +1,4 @@
--- [nfnl] Compiled from init.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] init.fnl
 vim.cmd.runtime("colemak.vim")
 vim.cmd.runtime("statusline.lua")
 vim.g["maplocalleader"] = ","
@@ -57,11 +57,8 @@ do
   local mason_lspconfig = require("mason-lspconfig")
   local lspconfig = require("lspconfig")
   mason.setup()
-  mason_lspconfig.setup()
-  lspconfig.fennel_ls.setup({})
-  lspconfig.lua_ls.setup({})
-  lspconfig.denols.setup({root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deno.lock")})
-  lspconfig.svelte.setup({})
+  mason_lspconfig.setup({automatic_enable = {exclude = {"ts_ls"}}})
+  vim.lsp.enable("denols")
 end
 do
   local formatter = require("formatter")

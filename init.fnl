@@ -143,13 +143,15 @@
       lspconfig (require :lspconfig)]
   ;; Mason setup needs to happen before lspconfig setup.
   (mason.setup)
-  (mason-lspconfig.setup)
+  (mason-lspconfig.setup
+    {:automatic_enable {:exclude ["ts_ls"]}})
+  (vim.lsp.enable :denols)
   ; (lspconfig.fennel_language_server.setup {})
-  (lspconfig.fennel_ls.setup {})
-  (lspconfig.lua_ls.setup {})
-  (lspconfig.denols.setup
-    {:root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc" "deno.lock")})
-  (lspconfig.svelte.setup {})
+  ; (lspconfig.fennel_ls.setup {})
+  ; (lspconfig.lua_ls.setup {})
+  ; (lspconfig.denols.setup
+  ;   {:root_dir (lspconfig.util.root_pattern "deno.json" "deno.jsonc" "deno.lock")})
+  ; (lspconfig.svelte.setup {})
   ; (lspconfig.ts_ls.setup
   ;   {:root_dir (lspconfig.util.root_pattern "package.json")
   ;    :single_file_support false})
