@@ -59,6 +59,7 @@ do
   mason.setup()
   mason_lspconfig.setup({automatic_enable = {exclude = {"ts_ls"}}})
   vim.lsp.enable("denols")
+  vim.lsp.enable("sourcekit")
 end
 do
   local formatter = require("formatter")
@@ -111,7 +112,7 @@ local function _5_()
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
-local non_wrapping = {"svelte", "terraform", "toml"}
+local non_wrapping = {"svelte", "swift", "terraform", "toml"}
 for _, pattern in ipairs(non_wrapping) do
   local function _6_()
     return vim.opt.formatoptions:remove("t")

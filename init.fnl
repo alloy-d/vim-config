@@ -146,6 +146,7 @@
   (mason-lspconfig.setup
     {:automatic_enable {:exclude ["ts_ls"]}})
   (vim.lsp.enable :denols)
+  (vim.lsp.enable :sourcekit)
   ; (lspconfig.fennel_language_server.setup {})
   ; (lspconfig.fennel_ls.setup {})
   ; (lspconfig.lua_ls.setup {})
@@ -257,7 +258,7 @@
                (tset vim.bo :commentstring "-- %s"))})
 
 ;; Some things should not wrap!
-(let [non-wrapping [:svelte :terraform :toml]]
+(let [non-wrapping [:svelte :swift :terraform :toml]]
   (each [_ pattern (ipairs non-wrapping)]
     (vim.api.nvim_create_autocmd
       :FileType
