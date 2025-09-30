@@ -139,8 +139,7 @@
    :callback on-lsp-attach})
 
 (let [mason (require :mason)
-      mason-lspconfig (require :mason-lspconfig)
-      lspconfig (require :lspconfig)]
+      mason-lspconfig (require :mason-lspconfig)]
   ;; Mason setup needs to happen before lspconfig setup.
   (mason.setup)
   (mason-lspconfig.setup

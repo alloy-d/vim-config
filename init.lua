@@ -55,7 +55,6 @@ vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("U
 do
   local mason = require("mason")
   local mason_lspconfig = require("mason-lspconfig")
-  local lspconfig = require("lspconfig")
   mason.setup()
   mason_lspconfig.setup({automatic_enable = {exclude = {"ts_ls"}}})
   vim.lsp.enable("denols")
