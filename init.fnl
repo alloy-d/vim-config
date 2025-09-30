@@ -143,7 +143,7 @@
   ;; Mason setup needs to happen before lspconfig setup.
   (mason.setup)
   (mason-lspconfig.setup
-    {:automatic_enable {:exclude ["ts_ls"]}})
+    {:automatic_enable false})
   (vim.lsp.enable :denols)
   (vim.lsp.enable :sourcekit)
   ; (lspconfig.fennel_language_server.setup {})

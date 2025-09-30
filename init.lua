@@ -56,7 +56,7 @@ do
   local mason = require("mason")
   local mason_lspconfig = require("mason-lspconfig")
   mason.setup()
-  mason_lspconfig.setup({automatic_enable = {exclude = {"ts_ls"}}})
+  mason_lspconfig.setup({automatic_enable = false})
   vim.lsp.enable("denols")
   vim.lsp.enable("sourcekit")
 end
