@@ -58,6 +58,7 @@ do
   mason.setup()
   mason_lspconfig.setup({automatic_enable = false})
   vim.lsp.enable("denols")
+  vim.lsp.enable("fennel_ls")
   vim.lsp.enable("sourcekit")
 end
 do
@@ -68,7 +69,7 @@ do
 end
 do
   local lint = require("lint")
-  lint["linters_by_ft"] = {fish = {"fish"}}
+  lint.linters_by_ft = {fish = {"fish"}}
   local function _2_()
     return lint.try_lint()
   end

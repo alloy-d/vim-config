@@ -145,6 +145,7 @@
   (mason-lspconfig.setup
     {:automatic_enable false})
   (vim.lsp.enable :denols)
+  (vim.lsp.enable :fennel_ls)
   (vim.lsp.enable :sourcekit)
   ; (lspconfig.fennel_language_server.setup {})
   ; (lspconfig.fennel_ls.setup {})
@@ -170,8 +171,8 @@
   (vim.keymap.set :n "<localleader>f" vim.cmd.Format {}))
 
 (let [lint (require :lint)]
-  (tset lint :linters_by_ft
-        {:fish [:fish]})
+  (set lint.linters_by_ft
+       {:fish [:fish]})
 
   (vim.api.nvim_create_autocmd
     :BufWritePost
