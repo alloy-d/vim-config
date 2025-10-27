@@ -172,3 +172,6 @@
 [submodule "pack/all/start/rainbow-delimiters.nvim"]
 	path = pack/all/start/rainbow-delimiters.nvim
 	url = https://github.com/HiPhish/rainbow-delimiters.nvim.git
+[submodule "pack/all/start/xcodebuild.nvim"]
+	path = pack/all/start/xcodebuild.nvim
+	url = https://github.com/wojciech-kulik/xcodebuild.nvim
