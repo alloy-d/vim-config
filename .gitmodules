@@ -175,3 +175,6 @@
 [submodule "pack/all/start/xcodebuild.nvim"]
 	path = pack/all/start/xcodebuild.nvim
 	url = https://github.com/wojciech-kulik/xcodebuild.nvim
+[submodule "pack/all/opt/nui.nvim"]
+	path = pack/all/opt/nui.nvim
+	url = https://github.com/MunifTanjim/nui.nvim.git
