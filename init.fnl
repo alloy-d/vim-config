@@ -235,27 +235,20 @@
 
 ;;; File type overrides {{{
 
-(let [group (vim.api.nvim_create_augroup :ExtraFiletypeDetect {})
-      types {".envrc"           :sh       ; direnv files
-             "*.do"             :bash     ; redo files
-             "PULLREQ_EDITMSG"  :markdown ; hub pull requests
-             "Brewfile"         :ruby     ; DSL for `brew bundle`
-             "*.tf"             :terraform
-             "*.tfvars"         :terraform
-             }]
-  (each [pattern filetype (pairs types)]
-    (vim.api.nvim_create_autocmd
-      :BufEnter
-      {: group
-       : pattern
-       :callback (fn []
-                   (vim.cmd.setfiletype filetype))})))
+(vim.filetype.add
+  {:filename {:.envrc           :sh
+              :Brewfile         :ruby
+              :PULLREQ_EDITMSG  :markdown}
+
+   :extension {:do      :bash
+               :tf      :terraform
+               :tfvars  :terraform}})
 
 (vim.api.nvim_create_autocmd
   :FileType
   {:pattern :sql
    :callback (fn []
-               (tset vim.bo :commentstring "-- %s"))})
+               (set vim.bo.commentstring "-- %s"))})
 
 ;; Some things should not wrap!
 (let [non-wrapping [:svelte :swift :terraform :toml]]

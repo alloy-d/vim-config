@@ -97,26 +97,17 @@ local function _3_()
 end
 vim.keymap.set("n", "<C-p>", _3_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
-do
-  local group = vim.api.nvim_create_augroup("ExtraFiletypeDetect", {})
-  local types = {[".envrc"] = "sh", ["*.do"] = "bash", PULLREQ_EDITMSG = "markdown", Brewfile = "ruby", ["*.tf"] = "terraform", ["*.tfvars"] = "terraform"}
-  for pattern, filetype in pairs(types) do
-    local function _4_()
-      return vim.cmd.setfiletype(filetype)
-    end
-    vim.api.nvim_create_autocmd("BufEnter", {group = group, pattern = pattern, callback = _4_})
-  end
-end
-local function _5_()
-  vim.bo["commentstring"] = "-- %s"
+vim.filetype.add({filename = {[".envrc"] = "sh", Brewfile = "ruby", PULLREQ_EDITMSG = "markdown"}, extension = {["do"] = "bash", tf = "terraform", tfvars = "terraform"}})
+local function _4_()
+  vim.bo.commentstring = "-- %s"
   return nil
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _5_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _4_})
 local non_wrapping = {"svelte", "swift", "terraform", "toml"}
 for _, pattern in ipairs(non_wrapping) do
-  local function _6_()
+  local function _5_()
     return vim.opt.formatoptions:remove("t")
   end
-  vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _6_})
+  vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _5_})
 end
 return nil
