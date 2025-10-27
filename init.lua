@@ -97,6 +97,10 @@ local function _3_()
 end
 vim.keymap.set("n", "<C-p>", _3_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
+do
+  local xcodebuild = require("xcodebuild")
+  xcodebuild.setup()
+end
 vim.filetype.add({filename = {[".envrc"] = "sh", Brewfile = "ruby", PULLREQ_EDITMSG = "markdown"}, extension = {["do"] = "bash", tf = "terraform", tfvars = "terraform"}})
 local function _4_()
   vim.bo.commentstring = "-- %s"

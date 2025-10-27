@@ -231,6 +231,11 @@
 (tset vim.g :sexp_filetypes "clojure,scheme,lisp,fennel,janet")
 ;; 2}}}
 
+;; xcodebuild {{{2
+(let [xcodebuild (require :xcodebuild)]
+  (xcodebuild.setup))
+;; 2}}}
+
 ;; }}}
 
 ;;; File type overrides {{{
