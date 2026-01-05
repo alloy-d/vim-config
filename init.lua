@@ -36,10 +36,6 @@ do
   else
   end
 end
-do
-  local treesitter = require("nvim-treesitter.configs")
-  treesitter.setup({ensure_installed = {"fennel", "lua", "css", "html", "svelte", "typescript"}, auto_install = true, highlight = {enable = true, additional_vim_regex_highlighting = {"fennel"}}, indent = {enable = true, disable = {"fennel"}}})
-end
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 local function on_lsp_attach(ev)

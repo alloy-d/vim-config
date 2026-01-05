@@ -91,18 +91,16 @@
 
 ;;; tree-sitter {{{
 
-(let [treesitter (require :nvim-treesitter.configs)]
-  (treesitter.setup
-    {:ensure_installed [:fennel :lua
-                        :css :html :svelte :typescript]
-     :auto_install true
-     :highlight {:enable true
-                 ;; Enable traditional syntax here when languages
-                 ;; need a little help with indenting:
-                 :additional_vim_regex_highlighting [:fennel]}
-     :indent {:enable true
-              :disable [:fennel]}
-     }))
+; tree-sitter configuration has been refactored!
+; I used to call setup with these interesting options that I haven't yet
+; converted to the new config format (if they even exist there)
+;
+;      :highlight {:enable true
+;                  ;; Enable traditional syntax here when languages
+;                  ;; need a little help with indenting:
+;                  :additional_vim_regex_highlighting [:fennel]}
+;      :indent {:enable true
+;               :disable [:fennel]}
 
 ;; }}}
 
