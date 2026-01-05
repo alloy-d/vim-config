@@ -75,6 +75,10 @@ vim.g["conjure#log#wrap"] = true
 vim.g["conjure#filetypes"] = {"clojure", "fennel", "janet"}
 vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
 do
+  local oil = require("oil")
+  oil.setup()
+end
+do
   local rainbow_delimiters = require("rainbow-delimiters")
   vim.g["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
 end

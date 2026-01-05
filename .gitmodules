@@ -184,3 +184,6 @@
 [submodule "pack/all/start/nvim-dap"]
 	path = pack/all/start/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap
+[submodule "pack/all/start/oil.nvim"]
+	path = pack/all/start/oil.nvim
+	url = https://github.com/stevearc/oil.nvim

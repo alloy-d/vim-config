@@ -187,6 +187,11 @@
 (tset vim.g :conjure#filetype#fennel :conjure.client.fennel.stdio)
 ;; 2}}}
 
+;; Oil {{{2
+(let [oil (require :oil)]
+  (oil.setup))
+;; 2}}}
+
 ;; rainbow delimiters {{{2
 (let [rainbow-delimiters (require :rainbow-delimiters)]
   (tset vim.g :rainbow_delimiters
