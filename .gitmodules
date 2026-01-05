@@ -178,3 +178,6 @@
 [submodule "pack/all/opt/nui.nvim"]
 	path = pack/all/start/nui.nvim
 	url = https://github.com/MunifTanjim/nui.nvim.git
+[submodule "pack/all/opt/snacks.nvim"]
+	path = pack/all/start/snacks.nvim
+	url = https://github.com/folke/snacks.nvim
