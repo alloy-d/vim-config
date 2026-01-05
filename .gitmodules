@@ -181,3 +181,6 @@
 [submodule "pack/all/opt/snacks.nvim"]
 	path = pack/all/start/snacks.nvim
 	url = https://github.com/folke/snacks.nvim
+[submodule "pack/all/start/nvim-dap"]
+	path = pack/all/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
