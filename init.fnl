@@ -235,8 +235,26 @@
 ;; 2}}}
 
 ;; xcodebuild {{{2
-(let [xcodebuild (require :xcodebuild)]
-  (xcodebuild.setup))
+(lambda binding [keys command description]
+  "Produces arguments for passing to vim.keymap.set, binding <localleader>keys to execute :command in normal mode."
+  [:n (.. "<localleader>" keys) (.. "<cmd>" command "<cr>") {:desc description}])
+
+(let [xcodebuild (require :xcodebuild)
+      local-keys [(binding "X" :XcodebuildPicker "Show Xcodebuild actions")
+                  (binding "xf" :XcodebuildProjectManager "Show Xcode Project Manager actions")
+
+                  (binding "xb" :XcodebuildBuild "Build Xcode project")
+                  (binding "xB" :XcodebuildBuildForTesting "Build Xcode project for testing")
+                  (binding "xr" :XcodebuildBuildRun "Build and run Xcode project")
+
+                  (binding "xt" :XcodebuildTest "Run Xcode project tests")
+
+                  (binding "xd" :XcodebuildSelectDevice "Select Xcode target device")]]
+
+  (xcodebuild.setup)
+
+  (each [_ setting (ipairs local-keys)]
+    (vim.keymap.set (unpack setting))))
 ;; 2}}}
 
 ;; }}}
