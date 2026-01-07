@@ -125,8 +125,8 @@
                   "<localleader>rn" vim.lsp.buf.rename
                   "<localleader>ca" vim.lsp.buf.code_action
                   "gr" vim.lsp.buf.references
-                  "<localleader>e" vim.diagnostic.open_float
-                  "<localleader>q" vim.diagnostic.setloclist
+                  "<localleader>df" vim.diagnostic.open_float
+                  "<localleader>dq" vim.diagnostic.setloclist
                   "<localleader>lf" vim.lsp.buf.format}]
       (each [key function (pairs mappings)]
         (vim.keymap.set :n key function opts))))

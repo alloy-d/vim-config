@@ -41,7 +41,7 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 local function on_lsp_attach(ev)
   vim["bo"][ev.buf]["omnifunc"] = "v:lua.vim.lsp.omnifunc"
   local opts = {buffer = ev.buf}
-  local mappings = {gD = vim.lsp.buf.declaration, gd = vim.lsp.buf.definition, K = vim.lsp.buf.hover, gi = vim.lsp.buf.implementation, ["<C-k>"] = vim.lsp.buf.signature_help, ["<localleader>D"] = vim.lsp.buf.type_definition, ["<localleader>rn"] = vim.lsp.buf.rename, ["<localleader>ca"] = vim.lsp.buf.code_action, gr = vim.lsp.buf.references, ["<localleader>e"] = vim.diagnostic.open_float, ["<localleader>q"] = vim.diagnostic.setloclist, ["<localleader>lf"] = vim.lsp.buf.format}
+  local mappings = {gD = vim.lsp.buf.declaration, gd = vim.lsp.buf.definition, K = vim.lsp.buf.hover, gi = vim.lsp.buf.implementation, ["<C-k>"] = vim.lsp.buf.signature_help, ["<localleader>D"] = vim.lsp.buf.type_definition, ["<localleader>rn"] = vim.lsp.buf.rename, ["<localleader>ca"] = vim.lsp.buf.code_action, gr = vim.lsp.buf.references, ["<localleader>df"] = vim.diagnostic.open_float, ["<localleader>dq"] = vim.diagnostic.setloclist, ["<localleader>lf"] = vim.lsp.buf.format}
   for key, _function in pairs(mappings) do
     vim.keymap.set("n", key, _function, opts)
   end
