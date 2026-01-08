@@ -114,7 +114,7 @@ local function binding(keys, command, description)
 end
 do
   local xcodebuild = require("xcodebuild")
-  local local_keys = {binding("X", "XcodebuildPicker", "Show Xcodebuild actions"), binding("xf", "XcodebuildProjectManager", "Show Xcode Project Manager actions"), binding("xb", "XcodebuildBuild", "Build Xcode project"), binding("xB", "XcodebuildBuildForTesting", "Build Xcode project for testing"), binding("xr", "XcodebuildBuildRun", "Build and run Xcode project"), binding("xt", "XcodebuildTest", "Run Xcode project tests"), binding("xd", "XcodebuildSelectDevice", "Select Xcode target device")}
+  local local_keys = {binding("X", "XcodebuildPicker", "Show Xcodebuild actions"), binding("xf", "XcodebuildProjectManager", "Show Xcode Project Manager actions"), binding("xb", "XcodebuildBuild", "Build Xcode project"), binding("xB", "XcodebuildBuildForTesting", "Build Xcode project for testing"), binding("xr", "XcodebuildBuildRun", "Build and run Xcode project"), binding("xt", "XcodebuildTest", "Run Xcode project tests"), binding("xl", "XcodebuildToggleLogs", "Toggle Xcode logs"), binding("xd", "XcodebuildSelectDevice", "Select Xcode target device")}
   xcodebuild.setup()
   for _, setting in ipairs(local_keys) do
     vim.keymap.set(unpack(setting))

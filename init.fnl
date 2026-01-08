@@ -249,6 +249,8 @@
 
                   (binding "xt" :XcodebuildTest "Run Xcode project tests")
 
+                  (binding "xl" :XcodebuildToggleLogs "Toggle Xcode logs")
+
                   (binding "xd" :XcodebuildSelectDevice "Select Xcode target device")]]
 
   (xcodebuild.setup)
