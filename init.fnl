@@ -286,4 +286,15 @@
       {: pattern
        :callback (fn [] ;; don't wrap text!
                    (vim.opt.formatoptions:remove :t))})))
+
+;; Get heavy-handed with Swift indentation.
+;; I'd expect editorconfig to handle this, but it doesn't do it
+;; consistently.
+(vim.api.nvim_create_autocmd
+  :FileType
+  {:pattern :swift
+   :callback (fn []
+               (set vim.bo.expandtab false)
+               (set vim.bo.tabstop 4)
+               (set vim.bo.shiftwidth 4))})
 ;;; }}}

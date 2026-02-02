@@ -126,11 +126,19 @@ local function _7_()
   return nil
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _7_})
-local non_wrapping = {"svelte", "swift", "terraform", "toml"}
-for _, pattern in ipairs(non_wrapping) do
-  local function _8_()
-    return vim.opt.formatoptions:remove("t")
+do
+  local non_wrapping = {"svelte", "swift", "terraform", "toml"}
+  for _, pattern in ipairs(non_wrapping) do
+    local function _8_()
+      return vim.opt.formatoptions:remove("t")
+    end
+    vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _8_})
   end
-  vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _8_})
 end
-return nil
+local function _9_()
+  vim.bo.expandtab = false
+  vim.bo.tabstop = 4
+  vim.bo.shiftwidth = 4
+  return nil
+end
+return vim.api.nvim_create_autocmd("FileType", {pattern = "swift", callback = _9_})
