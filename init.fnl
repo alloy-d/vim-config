@@ -269,6 +269,8 @@
               :PULLREQ_EDITMSG  :markdown}
 
    :extension {:do      :bash
+               :etlua   :etlua
+               :fnlm    :fennel
                :tf      :terraform
                :tfvars  :terraform}})
 
