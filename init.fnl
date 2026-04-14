@@ -265,7 +265,10 @@
 
 (vim.filetype.add
   {:filename {:.envrc           :sh
+              :Appfile          :ruby
               :Brewfile         :ruby
+              :Gemfile          :ruby
+              :Fastfile         :ruby
               :PULLREQ_EDITMSG  :markdown}
 
    :extension {:do      :bash

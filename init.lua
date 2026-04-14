@@ -120,8 +120,7 @@ do
     vim.keymap.set(unpack(setting))
   end
 end
-vim.filetype.add({filename = {[".envrc"] = "sh", Brewfile = "ruby", PULLREQ_EDITMSG = "markdown"}, extension = {["do"] = "bash", etlua = "etlua", fnlm = "fennel", tf = "terraform", tfvars = "terraform"}})
-vim.treesitter.language.register("embedded_template", "etlua")
+vim.filetype.add({filename = {[".envrc"] = "sh", Appfile = "ruby", Brewfile = "ruby", Gemfile = "ruby", Fastfile = "ruby", PULLREQ_EDITMSG = "markdown"}, extension = {["do"] = "bash", etlua = "etlua", fnlm = "fennel", tf = "terraform", tfvars = "terraform"}})
 local function _7_()
   vim.bo.commentstring = "-- %s"
   return nil
