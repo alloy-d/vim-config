@@ -301,5 +301,8 @@
    :callback (fn []
                (set vim.bo.expandtab false)
                (set vim.bo.tabstop 4)
-               (set vim.bo.shiftwidth 4))})
+               (set vim.bo.shiftwidth 4)
+
+               (vim.opt_local.cinkeys:remove "0#")
+               (vim.opt_local.indentkeys:remove "0#"))})
 ;;; }}}

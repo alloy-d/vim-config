@@ -99,15 +99,15 @@ vim.keymap.set("n", "<C-p>", _3_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 local function binding(keys, command, description)
   if (nil == description) then
-    _G.error("Missing argument description on /Users/awl/.config/nvim/init.fnl:238", 2)
+    _G.error("Missing argument description on init.fnl:238", 2)
   else
   end
   if (nil == command) then
-    _G.error("Missing argument command on /Users/awl/.config/nvim/init.fnl:238", 2)
+    _G.error("Missing argument command on init.fnl:238", 2)
   else
   end
   if (nil == keys) then
-    _G.error("Missing argument keys on /Users/awl/.config/nvim/init.fnl:238", 2)
+    _G.error("Missing argument keys on init.fnl:238", 2)
   else
   end
   return {"n", ("<localleader>" .. keys), ("<cmd>" .. command .. "<cr>"), {desc = description}}
@@ -139,6 +139,7 @@ local function _9_()
   vim.bo.expandtab = false
   vim.bo.tabstop = 4
   vim.bo.shiftwidth = 4
-  return nil
+  vim.opt_local.cinkeys:remove("0#")
+  return vim.opt_local.indentkeys:remove("0#")
 end
 return vim.api.nvim_create_autocmd("FileType", {pattern = "swift", callback = _9_})
