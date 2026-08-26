@@ -36,6 +36,10 @@ do
   else
   end
 end
+local function _2_()
+  return vim.treesitter.start()
+end
+vim.api.nvim_create_autocmd("FileType", {pattern = {"swift"}, callback = _2_})
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 local function on_lsp_attach(ev)
@@ -66,10 +70,10 @@ end
 do
   local lint = require("lint")
   lint.linters_by_ft = {fish = {"fish"}}
-  local function _2_()
+  local function _3_()
     return lint.try_lint()
   end
-  vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _2_})
+  vim.api.nvim_create_autocmd("BufWritePost", {group = vim.api.nvim_create_augroup("UserLint", {}), callback = _3_})
 end
 vim.g["conjure#log#wrap"] = true
 vim.g["conjure#filetypes"] = {"clojure", "fennel", "janet"}
@@ -80,7 +84,7 @@ do
 end
 do
   local rainbow_delimiters = require("rainbow-delimiters")
-  vim.g["rainbow_delimiters"] = {strategy = {[""] = rainbow_delimiters.strategy.global}, query = {[""] = "rainbow-delimiters"}}
+  vim.g["rainbow_delimiters"] = {strategy = {[""] = "rainbow-delimiters.strategy.global"}, query = {[""] = "rainbow-delimiters"}}
 end
 vim.g["seiya_auto_enable"] = true
 vim.g["seiya_target_highlights"] = {"Normal", "LineNr", "SignColumn", "CursorLineNr", "VertSplit", "NonText", "ALEWarningSign", "GitGutterAdd", "GitGutterChange", "GitGutterChangeDelete", "GitGutterDelete"}
@@ -92,22 +96,22 @@ do
   vim.keymap.set("n", "<leader>b", builtin.buffers, {})
   vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 end
-local function _3_()
+local function _4_()
   return vim.notify("Hey, you decided to use <leader>ff or <leader>fgf!")
 end
-vim.keymap.set("n", "<C-p>", _3_)
+vim.keymap.set("n", "<C-p>", _4_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 local function binding(keys, command, description)
   if (nil == description) then
-    _G.error("Missing argument description on init.fnl:238", 2)
+    _G.error("Missing argument description on init.fnl:243", 2)
   else
   end
   if (nil == command) then
-    _G.error("Missing argument command on init.fnl:238", 2)
+    _G.error("Missing argument command on init.fnl:243", 2)
   else
   end
   if (nil == keys) then
-    _G.error("Missing argument keys on init.fnl:238", 2)
+    _G.error("Missing argument keys on init.fnl:243", 2)
   else
   end
   return {"n", ("<localleader>" .. keys), ("<cmd>" .. command .. "<cr>"), {desc = description}}
@@ -121,25 +125,25 @@ do
   end
 end
 vim.filetype.add({filename = {[".envrc"] = "sh", Appfile = "ruby", Brewfile = "ruby", Gemfile = "ruby", Fastfile = "ruby", PULLREQ_EDITMSG = "markdown"}, extension = {["do"] = "bash", etlua = "etlua", fnlm = "fennel", tf = "terraform", tfvars = "terraform"}})
-local function _7_()
+local function _8_()
   vim.bo.commentstring = "-- %s"
   return nil
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _7_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "sql", callback = _8_})
 do
   local non_wrapping = {"svelte", "swift", "terraform", "toml"}
   for _, pattern in ipairs(non_wrapping) do
-    local function _8_()
+    local function _9_()
       return vim.opt.formatoptions:remove("t")
     end
-    vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _8_})
+    vim.api.nvim_create_autocmd("FileType", {pattern = pattern, callback = _9_})
   end
 end
-local function _9_()
+local function _10_()
   vim.bo.expandtab = false
   vim.bo.tabstop = 4
   vim.bo.shiftwidth = 4
   vim.opt_local.cinkeys:remove("0#")
   return vim.opt_local.indentkeys:remove("0#")
 end
-return vim.api.nvim_create_autocmd("FileType", {pattern = "swift", callback = _9_})
+return vim.api.nvim_create_autocmd("FileType", {pattern = "swift", callback = _10_})

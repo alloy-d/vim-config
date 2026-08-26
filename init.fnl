@@ -102,6 +102,11 @@
 ;      :indent {:enable true
 ;               :disable [:fennel]}
 
+(vim.api.nvim_create_autocmd
+  :FileType
+  {:pattern [:swift]
+   :callback #(vim.treesitter.start)})
+
 ;; }}}
 
 ;;; LSP & relatives {{{
@@ -195,7 +200,7 @@
 ;; rainbow delimiters {{{2
 (let [rainbow-delimiters (require :rainbow-delimiters)]
   (tset vim.g :rainbow_delimiters
-        {:strategy {"" (. rainbow-delimiters.strategy :global)}
+        {:strategy {"" :rainbow-delimiters.strategy.global}
          :query {"" :rainbow-delimiters}}))
 ;; 2}}}
 
