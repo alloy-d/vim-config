@@ -17,7 +17,7 @@
   (let [package (mason-registry.get_package package-name)
         installed? (package:is_installed)]
     (fn install! []
-      (vim.print "going to install" package-name)
+      (vim.print (..  "going to install " package-name))
       (let [install (package:install)]
         (install:on :stdout vim.print)
         (install:on :stderr vim.print)
