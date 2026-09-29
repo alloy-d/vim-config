@@ -269,12 +269,13 @@
 ;;; File type overrides {{{
 
 (vim.filetype.add
-  {:filename {:.envrc           :sh
-              :Appfile          :ruby
-              :Brewfile         :ruby
-              :Gemfile          :ruby
-              :Fastfile         :ruby
-              :PULLREQ_EDITMSG  :markdown}
+  {:filename {:.envrc                     :sh
+              :Appfile                    :ruby
+              :apple-app-site-association :json
+              :Brewfile                   :ruby
+              :Gemfile                    :ruby
+              :Fastfile                   :ruby
+              :PULLREQ_EDITMSG            :markdown}
 
    :extension {:do      :bash
                :etlua   :etlua
