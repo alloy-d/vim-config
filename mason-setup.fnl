@@ -28,11 +28,10 @@
     (vim.print {: package-name : installed?})
     (if (not installed?)
       (install!)
-      (package:check_new_version
-        (fn [success new-version]
-          (if success
-            (install!)
-            (vim.print package-name new-version)))))))
+      (let [installed-version (package:get_installed_version)
+            latest-version (package:get_latest_version)]
+        (if (not= installed-version latest-version)
+          (install!))))))
 
 (install-or-update :eslint_d)
 (install-or-update :eslint-lsp)

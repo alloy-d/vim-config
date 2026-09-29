@@ -1,4 +1,4 @@
--- [nfnl] Compiled from mason-setup.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] mason-setup.fnl
 local mason = require("mason")
 local mason_registry = require("mason-registry")
 mason.setup()
@@ -24,14 +24,13 @@ local function install_or_update(package_name)
   if not installed_3f then
     return install_21()
   else
-    local function _2_(success, new_version)
-      if success then
-        return install_21()
-      else
-        return vim.print(package_name, new_version)
-      end
+    local installed_version = package:get_installed_version()
+    local latest_version = package:get_latest_version()
+    if (installed_version ~= latest_version) then
+      return install_21()
+    else
+      return nil
     end
-    return package:check_new_version(_2_)
   end
 end
 install_or_update("eslint_d")
