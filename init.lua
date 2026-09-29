@@ -39,7 +39,7 @@ end
 local function _2_()
   return vim.treesitter.start()
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = {"swift"}, callback = _2_})
+vim.api.nvim_create_autocmd("FileType", {pattern = {"svelte", "swift"}, callback = _2_})
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 local function on_lsp_attach(ev)
@@ -60,6 +60,7 @@ do
   vim.lsp.enable("denols")
   vim.lsp.enable("fennel_ls")
   vim.lsp.enable("sourcekit")
+  vim.lsp.enable("svelte")
 end
 do
   local formatter = require("formatter")
@@ -103,15 +104,15 @@ vim.keymap.set("n", "<C-p>", _4_)
 vim.g["sexp_filetypes"] = "clojure,scheme,lisp,fennel,janet"
 local function binding(keys, command, description)
   if (nil == description) then
-    _G.error("Missing argument description on init.fnl:243", 2)
+    _G.error("Missing argument description on init.fnl:244", 2)
   else
   end
   if (nil == command) then
-    _G.error("Missing argument command on init.fnl:243", 2)
+    _G.error("Missing argument command on init.fnl:244", 2)
   else
   end
   if (nil == keys) then
-    _G.error("Missing argument keys on init.fnl:243", 2)
+    _G.error("Missing argument keys on init.fnl:244", 2)
   else
   end
   return {"n", ("<localleader>" .. keys), ("<cmd>" .. command .. "<cr>"), {desc = description}}

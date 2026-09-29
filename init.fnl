@@ -104,7 +104,7 @@
 
 (vim.api.nvim_create_autocmd
   :FileType
-  {:pattern [:swift]
+  {:pattern [:svelte :swift]
    :callback #(vim.treesitter.start)})
 
 ;; }}}
@@ -150,6 +150,7 @@
   (vim.lsp.enable :denols)
   (vim.lsp.enable :fennel_ls)
   (vim.lsp.enable :sourcekit)
+  (vim.lsp.enable :svelte)
   ; (lspconfig.fennel_language_server.setup {})
   ; (lspconfig.fennel_ls.setup {})
   ; (lspconfig.lua_ls.setup {})
